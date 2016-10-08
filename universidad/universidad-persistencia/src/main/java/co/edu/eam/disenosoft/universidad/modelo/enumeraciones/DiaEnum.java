@@ -7,6 +7,6 @@ package co.edu.eam.disenosoft.universidad.modelo.enumeraciones;
  */
 public enum DiaEnum {
 	
-	LUNES,MARTES,MIERCOLES,JUEVES,VIERNES,SABADO;
+	LUNES,MARTES,MIERCOLES,JUEVES,VIERNES,SABADO,DOMINGO;
 
 }
