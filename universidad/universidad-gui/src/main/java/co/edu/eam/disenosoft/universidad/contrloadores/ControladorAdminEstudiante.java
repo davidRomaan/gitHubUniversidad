@@ -15,7 +15,11 @@ public class ControladorAdminEstudiante {
 	
 	private BOEstudiante boEstudiante;
 	
-	
+
+	public ControladorAdminEstudiante(int a){
+		
+		boEstudiante = new BOEstudiante();
+}	
 	
 	
 	public void crearEstudiante (Estudiante es) throws Exception{
