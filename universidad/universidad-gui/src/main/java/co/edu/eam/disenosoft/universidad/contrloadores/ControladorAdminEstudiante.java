@@ -15,7 +15,7 @@ public class ControladorAdminEstudiante {
 	
 	private BOEstudiante boEstudiante;
 	
-	public ControladorAdminEstudiante(){
+	public ControladorAdminEstudiante(int a){
 		
 		boEstudiante = new BOEstudiante();
 	
