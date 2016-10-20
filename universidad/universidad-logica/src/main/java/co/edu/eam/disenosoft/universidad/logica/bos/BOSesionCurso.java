@@ -66,30 +66,6 @@ public class BOSesionCurso {
 				}
 			}
 		}
-		// Profesor pro =
-		// daoProfesor.buscar(s.getCodCurso().getDocente().getCedula());
-		// if (pro == null) {
-		// throw new ExcepcionNegocio("este docente no se encuentra
-		// registrado");
-		// } else {
-		// List<SesionCurso> sesion =
-		// daoSesion.listarHorariosJPA(s.getCodCurso().getDocente());
-		//
-		// if (sesion.size() == 0) {
-		// daoSesion.crearSesion(s);
-		// } else {
-		// for (int i = 0; i < sesion.size(); i++) {
-		// if (sesion.get(i).getDia().equals(s.getDia())
-		// && sesion.get(i).getHoraInicio() == s.getHoraInicio()) {
-		// throw new ExcepcionNegocio("este docente ya tiene registrado una
-		// sesion el mismo dia a la misma hora");
-		// } else {
-		// daoSesion.crearSesion(s);
-		// }
-		// }
-		// }
-		// }
-		// return null;
 
 	}
 
