@@ -12,11 +12,22 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+@NamedQueries({
+	
+	@NamedQuery(name = Programa.LISTAR_PROGRAMAS, query = "SELECT p FROM Programa p ORDER BY p.nombre ASC")
+})
 @Entity
 @Table(name="T_PROGRAMA")
 public class Programa implements Serializable{
+	
+	/**
+	 * lista los programas
+	 */
+	public static final String LISTAR_PROGRAMAS = "listarPrograma";
 	
 	/* Identificador del Programa */
 	@Id

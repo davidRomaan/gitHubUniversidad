@@ -1,5 +1,7 @@
 package co.edu.eam.desarrollo.proyectoFinal.logica.Bos;
 
+import java.util.List;
+
 import co.edu.eam.desarrollo.proyectoFinal.definiciones.IDAOFacultad;
 import co.edu.eam.desarrollo.proyectoFinal.implementaciones.DAOFacultad;
 import co.edu.eam.desarrollo.proyectoFinal.logica.excepciones.ExcepcionNegocio;
@@ -20,9 +22,9 @@ public class BOFacultad {
 	 * @throws Exception en caso de que haya una excepcion tecnica o de negocio
 	 */
 	public void crearFacultad(Facultad f) throws Exception {
-		Facultad fa = daoFacultad.buscarFacultad(f.getNombre());
+		Facultad fa = daoFacultad.buscarFacultad(f.getId());
 		if (fa != null) {
-			throw new ExcepcionNegocio("la Facultad no se encuentra registrada");
+			throw new ExcepcionNegocio("la Facultad ya se encuentra registrada");
 		} else {
 			daoFacultad.crearFacultad(f);
 		}
@@ -34,8 +36,8 @@ public class BOFacultad {
 	 * @return la faculad
 	 * @throws Exception en caso de que haya una excepcion tecnica o de negocio
 	 */
-	public Facultad buscarFacultad(Facultad f) throws Exception {
-		return daoFacultad.buscarFacultad(f.getNombre());
+	public Facultad buscarFacultad(int id) throws Exception {
+		return daoFacultad.buscarFacultad(id);
 	}
 
 	/**
@@ -44,11 +46,21 @@ public class BOFacultad {
 	 * @throws Exception en caso de que haya una excepcion tecnica o de negocio
 	 */
 	public void editarFacultad(Facultad f) throws Exception {
-		Facultad fa = daoFacultad.buscarFacultad(f.getNombre());
+		Facultad fa = daoFacultad.buscarFacultad(f.getId());
 		if (fa != null) {
-			daoFacultad.editar(fa);
+			daoFacultad.editar(f);
 		} else {
 			throw new ExcepcionNegocio("la Facultad no se encuentra registrada");
 		}
 	}
+	
+	/**
+	 * lista las facultades por su nombre
+	 * @return las facultades
+	 * @throws Exception Exception en caso de que haya una excepcion tecnica o de negocio
+	 */
+	public List<Facultad>listarFacultad() throws Exception{
+		return daoFacultad.listarFacultades();
+	}
+	
 }

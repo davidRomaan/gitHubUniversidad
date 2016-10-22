@@ -1,5 +1,7 @@
 package co.edu.eam.desarrollo.proyectoFinal.logica.Bos;
 
+import java.util.List;
+
 import co.edu.eam.desarrollo.proyectoFinal.definiciones.IDAOPrograma;
 import co.edu.eam.desarrollo.proyectoFinal.implementaciones.DAOPrograma;
 import co.edu.eam.desarrollo.proyectoFinal.logica.excepciones.ExcepcionNegocio;
@@ -21,10 +23,10 @@ public class BOPrograma {
 	public void crearPrograma(Programa p) throws Exception{
 		Programa pr = daoPrograma.buscarPrograma(p.getId());
 		if(pr != null){
-			throw new ExcepcionNegocio("el programa no se encuentra registrado");
+			throw new ExcepcionNegocio("el programa ya se encuentra registrado");
 
 		}else{
-			daoPrograma.crearPrograma(pr);
+			daoPrograma.crearPrograma(p);
 		}
 	}
 	
@@ -50,8 +52,16 @@ public class BOPrograma {
         }else{
 			throw new ExcepcionNegocio("el programa no se encuentra registrado");
 
-        }
-		
+        }	
+	}
+	
+	/**
+	 * lista los programas por su nombre
+	 * @return los programas
+	 * @throws Exception Exception en caso de una excepcion tecnica o de negocio
+	 */
+	public List<Programa>listarPrograma()throws Exception{
+		return daoPrograma.listarPrograma();
 	}
 }
 

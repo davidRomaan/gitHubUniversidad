@@ -8,11 +8,25 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+
+
+@NamedQueries({
+	
+	@NamedQuery(name = Facultad.LISTAR_FACULTADES, query = "SELECT fac FROM Facultad fac ORDER BY fac.nombre ASC")
+})
 @Entity
 @Table(name="T_FACULTAD")
 public class Facultad implements Serializable{
+	
+	/**
+	 * lista las facultades
+	 */
+	public static final String LISTAR_FACULTADES = "listarFacultades";
+	
 	/* Identificador de la Facultad */
 	@Id
 	@Column(name="ID_FACULTAD")

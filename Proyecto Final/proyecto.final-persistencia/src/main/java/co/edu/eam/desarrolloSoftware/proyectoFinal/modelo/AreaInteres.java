@@ -45,6 +45,14 @@ public class AreaInteres implements Serializable{
 	public String toString() {
 		return nombre;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	
 	

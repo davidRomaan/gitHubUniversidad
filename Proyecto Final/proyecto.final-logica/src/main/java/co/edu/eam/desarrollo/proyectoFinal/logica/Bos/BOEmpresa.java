@@ -28,7 +28,7 @@ public class BOEmpresa {
 
 		Empresa emp = daoEmpresa.buscarEmpresa(e.getId());
 		if (emp != null) {
-			throw new ExcepcionNegocio("el egresado ya se encuentra registrado");
+			throw new ExcepcionNegocio("la empresa ya se encuentra registrado");
 		} else {
 			daoEmpresa.crearEmpresa(e);
 		}

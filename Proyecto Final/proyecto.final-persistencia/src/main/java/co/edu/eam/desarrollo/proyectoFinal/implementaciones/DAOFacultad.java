@@ -1,6 +1,9 @@
 package co.edu.eam.desarrollo.proyectoFinal.implementaciones;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import co.edu.eam.desarrollo.proyectoFinal.definiciones.IDAOFacultad;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Facultad;
@@ -15,9 +18,9 @@ public class DAOFacultad implements IDAOFacultad {
 		en.getTransaction().commit();
 	}
 
-	public Facultad buscarFacultad(String nom) throws Exception {
+	public Facultad buscarFacultad(int id) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
-		return en.find(Facultad.class, nom);
+		return en.find(Facultad.class, id);
 	}
 
 	public void editar(Facultad f) throws Exception {
@@ -25,6 +28,15 @@ public class DAOFacultad implements IDAOFacultad {
 		en.getTransaction().begin();
 		en.merge(f);
 		en.getTransaction().commit();
+	}
+
+	
+	public List<Facultad> listarFacultades() throws Exception {
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		Query q = en.createNamedQuery(Facultad.LISTAR_FACULTADES);
+		List<Facultad> fac = q.getResultList();
+		return fac;
+		
 	}
 
 	
