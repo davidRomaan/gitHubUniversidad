@@ -39,6 +39,5 @@ public class DAOFacultad implements IDAOFacultad {
 		
 	}
 
-	
 
 }

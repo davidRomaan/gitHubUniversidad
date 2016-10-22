@@ -22,7 +22,7 @@ public class PruebasUnitariasEgresado {
 	public static void beforeClass() {
 
 		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasEgres-addTest-add.sql");
-	
+
 	}
 
 	@Before
@@ -48,7 +48,6 @@ public class PruebasUnitariasEgresado {
 			boEgresado.crearEgresado(egresado);
 			Egresado e = boEgresado.buscarEgresado(1);
 			Assert.assertNotNull(e);
-
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,26 +71,25 @@ public class PruebasUnitariasEgresado {
 		}
 	}
 
-//	@Test
-//	public void testEliminarEgresado() {
-//		try {
-//
-//			Egresado e = boEgresado.buscarEgresado(1);
-//			boEgresado.eliminarEgresado(e);
-//			boEgresado.buscarEgresado(1);
-//
-//		} catch (ExcepcionNegocio ex) {
-//			Assert.assertEquals("el egresado no se encuentra", ex.getMessage());
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			Assert.fail();
-//		}
-//	}
+	@Test
+	public void testEliminarEgresado() {
+		try {
 
-//	@AfterClass
-//	public static void afterClass() {
-//		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasEgreTest-del.sql");
-//
-//	}
+			Egresado e = boEgresado.buscarEgresado(1);
+			boEgresado.eliminarEgresado(e);
+			boEgresado.buscarEgresado(1);
+		} catch (ExcepcionNegocio ex) {
+			Assert.assertEquals("el egresado no se encuentra", ex.getMessage());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+
+	@AfterClass
+	public static void afterClass() {
+		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasInfoAcademicaTest-del2.sql");
+
+	}
 }

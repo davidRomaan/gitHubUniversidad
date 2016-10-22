@@ -13,6 +13,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -20,11 +22,18 @@ import javax.persistence.TemporalType;
 
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.NivelAcademico;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.SituacionActual;
-
+@NamedQueries({
+	
+	@NamedQuery(name = InformacionLaboral.LISTAR_INFORMACION_LABORAL, query = "SELECT i FROM InformacionLaboral i WHERE i.egresado = ?1 ")
+})
 @Entity
 @Table(name="T_INFO_LABORAL")
 public class InformacionLaboral implements Serializable{
 	
+	/**
+	 * consulta que trae la informacion laboral de un egresado
+	 */
+	public static final String LISTAR_INFORMACION_LABORAL = "informacionLaboralEgresado";
 	/* Egresado */
 	@Id
 	@OneToOne
