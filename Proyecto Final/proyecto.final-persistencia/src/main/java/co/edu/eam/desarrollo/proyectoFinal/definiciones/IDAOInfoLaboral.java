@@ -8,6 +8,8 @@ import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionLaboral;
 public interface IDAOInfoLaboral {
 
 	public void crear(InformacionLaboral i) throws Exception;
+	
+	public InformacionLaboral buscarInfoLaboral(int cod)throws Exception;
 
 	public List<InformacionLaboral> listarInformacionLaboralEgres(Egresado e);
 

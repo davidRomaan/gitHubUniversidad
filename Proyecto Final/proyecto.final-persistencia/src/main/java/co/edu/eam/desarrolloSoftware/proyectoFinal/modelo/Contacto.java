@@ -19,7 +19,7 @@ import javax.persistence.Table;
 public class Contacto implements Serializable{
 
 	/* Empresa al que pertenece el contacto */
-	@Id
+	
 	@OneToOne()
 	@JoinColumn(name="ID_EMPRESA", insertable=false, updatable=false)
 	@MapsId
@@ -58,6 +58,14 @@ public class Contacto implements Serializable{
 		Correo = correo;
 		CargoEmpresa = cargoEmpresa;
 		this.telefono = telefono;
+	}
+
+	public int getIdContacto() {
+		return idContacto;
+	}
+
+	public void setIdContacto(int idContacto) {
+		this.idContacto = idContacto;
 	}
 
 	public Empresa getEmpresa() {
@@ -102,8 +110,7 @@ public class Contacto implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Contacto [empresa=" + empresa + ", NombreCompleto=" + NombreCompleto + ", Correo=" + Correo
-				+ ", CargoEmpresa=" + CargoEmpresa + ", telefono=" + telefono + "]";
+		return  NombreCompleto;
 	}
 	
 	

@@ -28,10 +28,15 @@ public class AreaInteres implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public AreaInteres(String nombre) {
+	
+
+	public AreaInteres(int id, String nombre) {
 		super();
+		this.id = id;
 		this.nombre = nombre;
 	}
+
+
 
 	public String getNombre() {
 		return nombre;

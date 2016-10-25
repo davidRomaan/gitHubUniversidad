@@ -48,11 +48,16 @@ public class Programa implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Programa(Facultad facultad, String nombre) {
+	
+
+	public Programa(int id, Facultad facultad, String nombre) {
 		super();
+		this.id = id;
 		this.facultad = facultad;
 		this.nombre = nombre;
 	}
+
+
 
 	public void setId(int id) {
 		this.id = id;

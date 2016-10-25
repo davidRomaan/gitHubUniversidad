@@ -14,7 +14,7 @@ public class BOInfoLaboral {
 	public BOInfoLaboral() {
 		daoInfoLaboral = new DAOInfoLaboral();
 	}
-	
+
 	/**
 	 * crea la informacion laboral del egresado en la base de datos
 	 * 
@@ -25,6 +25,16 @@ public class BOInfoLaboral {
 	 */
 	public void crearInfoAcademica(InformacionLaboral i) throws Exception {
 		daoInfoLaboral.crear(i);
+	}
+
+	/**
+	 * busca la informacion laboral de un egresado
+	 * @param cod codigo por el que se le va a buscar
+	 * @return la informacion
+	 * @throws Exception  en caso de que haya una excepcion tecnica o de negocio
+	 */
+	public InformacionLaboral buscarInfoLaboral(int cod) throws Exception {
+		return daoInfoLaboral.buscarInfoLaboral(cod);
 	}
 
 	/**
@@ -41,16 +51,17 @@ public class BOInfoLaboral {
 		List<InformacionLaboral> lista = daoInfoLaboral.listarInformacionLaboralEgres(e);
 		return lista;
 	}
-	
+
 	/**
 	 * edita la informacion
-	 * @param i la informacion 
-	 * @throws Exception en caso de que haya una excepcion tecnica o de negocio
+	 * 
+	 * @param i
+	 *            la informacion
+	 * @throws Exception
+	 *             en caso de que haya una excepcion tecnica o de negocio
 	 */
-	public void editarInformacion(InformacionLaboral i) throws Exception{
+	public void editarInformacion(InformacionLaboral i) throws Exception {
 		daoInfoLaboral.editar(i);
 	}
-	
-	
 
 }

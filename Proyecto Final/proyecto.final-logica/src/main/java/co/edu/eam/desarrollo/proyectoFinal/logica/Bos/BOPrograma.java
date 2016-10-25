@@ -45,14 +45,9 @@ public class BOPrograma {
 	 * @param p el programa que se va a editar
 	 * @throws Exception en caso de una excepcion tecnica o de negocio
 	 */
-	public void  editarPrograma(Programa p) throws Exception{
-		Programa pr = daoPrograma.buscarPrograma(p.getId());
-        if(pr != null){
-        	daoPrograma.editarPrograma(pr);
-        }else{
-			throw new ExcepcionNegocio("el programa no se encuentra registrado");
-
-        }	
+	public Programa  editarPrograma(Programa p) throws Exception{	
+        daoPrograma.editarPrograma(p);
+       	 return p;
 	}
 	
 	/**

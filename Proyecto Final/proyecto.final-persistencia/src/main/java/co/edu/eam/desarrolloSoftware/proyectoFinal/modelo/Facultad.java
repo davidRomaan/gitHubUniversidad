@@ -3,37 +3,36 @@
  * @author Carlos Martinez
  */
 package co.edu.eam.desarrolloSoftware.proyectoFinal.modelo;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-
-
 @NamedQueries({
-	
-	@NamedQuery(name = Facultad.LISTAR_FACULTADES, query = "SELECT fac FROM Facultad fac ORDER BY fac.nombre ASC")
-})
+
+		@NamedQuery(name = Facultad.LISTAR_FACULTADES, query = "SELECT fac FROM Facultad fac ORDER BY fac.nombre ASC") })
 @Entity
-@Table(name="T_FACULTAD")
-public class Facultad implements Serializable{
-	
+@Table(name = "T_FACULTAD")
+public class Facultad implements Serializable {
+
 	/**
 	 * lista las facultades
 	 */
 	public static final String LISTAR_FACULTADES = "listarFacultades";
-	
+
 	/* Identificador de la Facultad */
 	@Id
-	@Column(name="ID_FACULTAD")
+	@Column(name = "ID_FACULTAD")
 	private int id;
-	
+
 	/* Nombre */
-	@Column(name="NOMBRE_FACULTAD", nullable=false)
+	@Column(name = "NOMBRE_FACULTAD", nullable = false)
 	private String nombre;
 
 	public Facultad() {
@@ -41,12 +40,12 @@ public class Facultad implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Facultad(String nombre) {
+	public Facultad(int id, String nombre) {
 		super();
+		this.id = id;
 		this.nombre = nombre;
 	}
 
-	
 	public int getId() {
 		return id;
 	}
@@ -89,6 +88,5 @@ public class Facultad implements Serializable{
 	public String toString() {
 		return nombre;
 	}
-	
-	
+
 }

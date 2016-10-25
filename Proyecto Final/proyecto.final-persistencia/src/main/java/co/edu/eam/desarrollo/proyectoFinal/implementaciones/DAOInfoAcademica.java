@@ -35,4 +35,9 @@ public class DAOInfoAcademica implements IDAOInfoAcademica {
 		return info;
 	}
 
+	public InformacionAcademica buscarInfoAcadem(int cod) throws Exception {
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		return en.find(InformacionAcademica.class, cod);
+	}
+
 }

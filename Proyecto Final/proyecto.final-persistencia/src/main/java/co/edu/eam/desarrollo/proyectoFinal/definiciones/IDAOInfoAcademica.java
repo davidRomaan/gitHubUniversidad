@@ -9,8 +9,10 @@ public interface IDAOInfoAcademica {
 
 	public void crear(InformacionAcademica i) throws Exception;
 
+	public InformacionAcademica buscarInfoAcadem(int cod) throws Exception;
+
 	public List<InformacionAcademica> listarInformacionAcademicaEgres(Egresado e);
 
 	public void editar(InformacionAcademica i) throws Exception;
-	
+
 }

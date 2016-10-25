@@ -1,0 +1,3 @@
+insert into db_proyectofinalpruebas.t_facultad(ID_FACULTAD,NOMBRE_FACULTAD)values(1,'ingenieria')
+insert into db_proyectofinalpruebas.t_programa(ID_PROGRAMA,NOMBRE_PROGRAMA,ID_FACULTAD)values(1,'ingenieria de software',1)
+insert into t_egresado(ID_EGRESADO,APELLIDO_EGRESADO,CELULAR_EGRESADO,CORREO_EGRESADO,NOMBRE_EGRESADO,DOCUMENTO_EGRESADO,TELEFONO_EGRESADO,TIPO_DOCUMENTO_EGRESADO,ID_PROGRAMA)values(1,'Roman','345455','romanleon','david','345','34532',1,1)

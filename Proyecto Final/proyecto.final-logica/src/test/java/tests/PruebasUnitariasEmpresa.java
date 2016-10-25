@@ -21,7 +21,7 @@ public class PruebasUnitariasEmpresa {
 	@BeforeClass
 	public static void beforeClass() {
 
-//		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasEmpr-addTest-add2.sql");
+	TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasEmpr-addTest-add2.sql");
 
 	}
 
@@ -34,16 +34,10 @@ public class PruebasUnitariasEmpresa {
 	public void testCrearEgresado() {
 
 		try {
-			Departamento dep = new Departamento();
-			dep.setId(1);
-			dep.setNombre("Armenia");
 			Ciudad ciud = new Ciudad();
 			ciud.setId(1);
-			ciud.setNombre("Quindio");
-			ciud.setDepartamento(dep);
 			SectorLaboral sec = new SectorLaboral();
 			sec.setId(1);
-			sec.setNombre("sector industrial");
 			Empresa emp = new Empresa();
 			emp.setId(1);
 			emp.setDireccion("por ahi");

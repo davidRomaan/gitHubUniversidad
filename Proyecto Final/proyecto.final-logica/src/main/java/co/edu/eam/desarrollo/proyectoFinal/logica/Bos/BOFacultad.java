@@ -45,13 +45,14 @@ public class BOFacultad {
 	 * @param f la facultad a editar
 	 * @throws Exception en caso de que haya una excepcion tecnica o de negocio
 	 */
-	public void editarFacultad(Facultad f) throws Exception {
+	public Facultad editarFacultad(Facultad f) throws Exception {
 		Facultad fa = daoFacultad.buscarFacultad(f.getId());
 		if (fa != null) {
 			daoFacultad.editar(f);
 		} else {
 			throw new ExcepcionNegocio("la Facultad no se encuentra registrada");
 		}
+		return null;
 	}
 	
 	/**

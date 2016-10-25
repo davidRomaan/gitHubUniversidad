@@ -3,6 +3,7 @@
  * @author Carlos Martinez
  */
 package co.edu.eam.desarrolloSoftware.proyectoFinal.modelo;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -24,50 +25,54 @@ import javax.persistence.TemporalType;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.NivelAcademico;
 
 @NamedQueries({
-	
-	@NamedQuery(name = InformacionAcademica.LISTAR_INFORMACION_ACADEMICA, query = "SELECT i FROM InformacionAcademica i WHERE i.egresado = ?1 ")
-})
-@Entity
-@Table(name="T_INFO_ACADEMICA")
-public class InformacionAcademica implements Serializable{
-	
-	public int getIdInformacionAcademica() {
-		return idInformacionAcademica;
-	}
 
-	public void setIdInformacionAcademica(int idInformacionAcademica) {
-		this.idInformacionAcademica = idInformacionAcademica;
-	}
+		@NamedQuery(name = InformacionAcademica.LISTAR_INFORMACION_ACADEMICA, query = "SELECT i FROM InformacionAcademica i WHERE i.egresado = ?1 ") })
+@Entity
+@Table(name = "T_INFO_ACADEMICA")
+public class InformacionAcademica implements Serializable {
 
 	/**
 	 * consulta que trae la informacion academica de un egresado
 	 */
 	public static final String LISTAR_INFORMACION_ACADEMICA = "informacionAcademicaEgresado";
-	
+
 	/* Egresado */
-	@Id
-	@OneToOne()
-	@JoinColumn(name="ID_EGRESADO", insertable=false, updatable=false)
+
+	@OneToOne
+	@JoinColumn(name = "ID_EGRESADO", insertable = false, updatable = false)
 	@MapsId
 	private Egresado egresado;
-	
-	/* Es necesario crear un nuevo atributo entero para mapear una relacion uno a uno*/
+
+	/*
+	 * Es necesario crear un nuevo atributo entero para mapear una relacion uno
+	 * a uno
+	 */
 	@Id
-	@Column(name="ID_EGRESADO")
-	private int idInformacionAcademica;
-	
+	@Column(name = "ID_EGRESADO")
+	private int codEgresado;
+
 	/* Fecha de grado del egresado */
 	@Temporal(TemporalType.DATE)
-	@Column(name="FECHA_GRADO", nullable=false)
+	@Column(name = "FECHA_GRADO", nullable = false)
 	private Date fechaGrado;
+
+	/* Facultad */
+	@JoinColumn(name = "facultad")
+	@ManyToOne(cascade = {})
+	private Facultad facultad;
 	
-	/* Nivel academico del egresado*/
+	/* programa */
+	@JoinColumn(name = "programa")
+	@ManyToOne(cascade = {})
+	private Programa programa;
+	
+	/* Nivel academico del egresado */
 	@Enumerated(EnumType.STRING)
-	@Column(name="NIVEL_ACADEMICO", nullable=false)
+	@Column(name = "NIVEL_ACADEMICO", nullable = false)
 	private NivelAcademico nivelAcademico;
-	
+
 	/* Numero del diploma */
-	@Column(name="NUMERO_DIPLOMA", nullable=false)
+	@Column(name = "NUMERO_DIPLOMA", nullable = false)
 	private String numeroDiploma;
 
 	public InformacionAcademica() {
@@ -75,14 +80,57 @@ public class InformacionAcademica implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public InformacionAcademica(Egresado egresado, Date fechaGrado, NivelAcademico nivelAcademico,
-			String numeroDiploma) {
+	
+
+	public InformacionAcademica(Egresado egresado, int codEgresado, Date fechaGrado, Facultad facultad,
+			Programa programa, NivelAcademico nivelAcademico, String numeroDiploma) {
 		super();
 		this.egresado = egresado;
+		this.codEgresado = codEgresado;
 		this.fechaGrado = fechaGrado;
+		this.facultad = facultad;
+		this.programa = programa;
 		this.nivelAcademico = nivelAcademico;
 		this.numeroDiploma = numeroDiploma;
 	}
+
+
+
+	public int getCodEgresado() {
+		return codEgresado;
+	}
+
+
+
+	public void setCodEgresado(int codEgresado) {
+		this.codEgresado = codEgresado;
+	}
+
+
+
+	public Facultad getFacultad() {
+		return facultad;
+	}
+
+
+
+	public void setFacultad(Facultad facultad) {
+		this.facultad = facultad;
+	}
+
+
+
+	public Programa getPrograma() {
+		return programa;
+	}
+
+
+
+	public void setPrograma(Programa programa) {
+		this.programa = programa;
+	}
+
+
 
 	public Egresado getEgresado() {
 		return egresado;
@@ -115,7 +163,5 @@ public class InformacionAcademica implements Serializable{
 	public void setNumeroDiploma(String numeroDiploma) {
 		this.numeroDiploma = numeroDiploma;
 	}
-	
-		
-	
+
 }

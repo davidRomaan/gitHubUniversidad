@@ -53,13 +53,10 @@ public class BOAreaInteres {
 	 * @throws Exception
 	 *             en caso de que haya una excepcion tecnica o de negocio
 	 */
-	public void editarAreaInteres(AreaInteres a) throws Exception {
-		AreaInteres area = daoAreainteres.buscar(a.getId());
-		if (area != null) {
-			daoAreainteres.editar(area);
-		} else {
-			throw new ExcepcionNegocio("el Area de Interes no se encuentra registrada");
-		}
+	public AreaInteres editarAreaInteres(AreaInteres a) throws Exception {
+		daoAreainteres.editar(a);
+		return a;		
 	}
+	
 
 }

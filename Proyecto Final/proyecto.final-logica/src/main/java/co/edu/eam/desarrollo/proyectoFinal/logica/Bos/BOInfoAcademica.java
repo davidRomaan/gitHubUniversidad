@@ -28,6 +28,16 @@ public class BOInfoAcademica {
 	}
 
 	/**
+	 * busca la informacion academica de un egresado
+	 * @param cod codigo por el que se le va a buscar
+	 * @return la informacion
+	 * @throws Exception  en caso de que haya una excepcion tecnica o de negocio
+	 */
+	public InformacionAcademica buscar(int cod) throws Exception {
+		return daoInfoAcadem.buscarInfoAcadem(cod);
+	}
+
+	/**
 	 * metodo que devuelve una lista con toda la informacion academica de un
 	 * egresado
 	 * 
@@ -41,13 +51,16 @@ public class BOInfoAcademica {
 		List<InformacionAcademica> lista = daoInfoAcadem.listarInformacionAcademicaEgres(e);
 		return lista;
 	}
-	
+
 	/**
 	 * edita la informacion
-	 * @param i la informacion 
-	 * @throws Exception en caso de que haya una excepcion tecnica o de negocio
+	 * 
+	 * @param i
+	 *            la informacion
+	 * @throws Exception
+	 *             en caso de que haya una excepcion tecnica o de negocio
 	 */
-	public void editarInformacion(InformacionAcademica i) throws Exception{
+	public void editarInformacion(InformacionAcademica i) throws Exception {
 		daoInfoAcadem.editar(i);
 	}
 

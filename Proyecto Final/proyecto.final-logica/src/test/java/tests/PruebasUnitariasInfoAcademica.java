@@ -11,15 +11,21 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import co.edu.eam.desarrollo.proyectoFinal.logica.Bos.BOEgresado;
+import co.edu.eam.desarrollo.proyectoFinal.logica.Bos.BOFacultad;
 import co.edu.eam.desarrollo.proyectoFinal.logica.Bos.BOInfoAcademica;
+import co.edu.eam.desarrollo.proyectoFinal.logica.Bos.BOPrograma;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.NivelAcademico;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Egresado;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Facultad;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionAcademica;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Programa;
 
 public class PruebasUnitariasInfoAcademica {
 
 	private BOInfoAcademica boInfoAcademica;
 	private BOEgresado boEgresado;
+	private BOFacultad boFacultad;
+	private BOPrograma boPrograma;
 
 	@BeforeClass
 	public static void beforeClass() {
@@ -32,6 +38,8 @@ public class PruebasUnitariasInfoAcademica {
 	public void setUp() {
 		boInfoAcademica = new BOInfoAcademica();
 		boEgresado = new BOEgresado();
+		boFacultad = new BOFacultad();
+		boPrograma = new BOPrograma();
 	}
 
 	@Test
@@ -45,21 +53,51 @@ public class PruebasUnitariasInfoAcademica {
 			info.setFechaGrado(date);
 			info.setNivelAcademico(NivelAcademico.DIPLOMADO);
 			info.setNumeroDiploma("345");
+			Facultad f = boFacultad.buscarFacultad(1);
+			info.setFacultad(f);
+			Programa p = boPrograma.buscarPrograma(1);
+			info.setPrograma(p);
 			boInfoAcademica.crearInfoAcademica(info);
-			List<InformacionAcademica> inf = boInfoAcademica.listaInfoAcademicaEgresado(e);
-			for (int i = 0; i < inf.size(); i++) {
-				Assert.assertEquals("345", inf.get(i).getNumeroDiploma());
-			}
+			InformacionAcademica infor = boInfoAcademica.buscar(1);
+			Assert.assertNotNull(infor);
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
+	@Test
+	public void buscarInformacion() {
+		try {
+			InformacionAcademica infor = boInfoAcademica.buscar(1);
+			Assert.assertNotNull(infor);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@Test
+	public void editarInformacion() {
+		try {
+
+			InformacionAcademica infor = boInfoAcademica.buscar(1);
+			infor.setNumeroDiploma("67");
+			boInfoAcademica.editarInformacion(infor);
+			Assert.assertEquals("67", infor.getNumeroDiploma());
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
 	@AfterClass
 	public static void afterClass() {
-		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasEgreTest-del.sql");
+		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasInfoAcademicaTest-del2.sql");
 
 	}
 }

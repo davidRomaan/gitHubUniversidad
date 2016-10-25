@@ -37,4 +37,9 @@ public class DAOInfoLaboral implements IDAOInfoLaboral {
 		
 	}
 
+	public InformacionLaboral buscarInfoLaboral(int cod) throws Exception {
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		return en.find(InformacionLaboral.class, cod);
+	}
+
 }
