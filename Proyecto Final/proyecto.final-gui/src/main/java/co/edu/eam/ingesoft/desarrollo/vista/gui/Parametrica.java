@@ -973,47 +973,40 @@ public class Parametrica extends javax.swing.JFrame {
     }
     private void jTNomProgramaKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTNomProgramaKeyTyped
             char c = evt.getKeyChar();
-            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != ' ')) {
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != ' ') && (c != evt.VK_BACK_SPACE)) {
                     evt.consume();
-                    JOptionPane.showMessageDialog(null, "Por favor, solo letras", "Informacion",
-                                    JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Por favor, solo letras", "Informacion", JOptionPane.WARNING_MESSAGE);
             }
     }
 
     private void jTCodigoFacultadKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTCodigoFacultadKeyTyped
-            // int c = evt.getKeyCode();
-            // if ((c < '1' || c > '')) {
-            // evt.consume();
-            // JOptionPane.showMessageDialog(null, "Por favor, solo numeros",
-            // "Informacion",
-            // JOptionPane.INFORMATION_MESSAGE);
-            // }
+             int c = evt.getKeyCode();
+             if ((c<'0' || c>'9') && (c != evt.VK_BACK_SPACE)) {
+	             evt.consume();
+	             JOptionPane.showMessageDialog(null, "Por favor, solo numeros","Informacion",JOptionPane.INFORMATION_MESSAGE);
+             }
     }
 
     private void jTNomAreaInteresKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTNomAreaInteresKeyTyped
             char c = evt.getKeyChar();
-            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != ' ')) {
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != ' ') && (c != evt.VK_BACK_SPACE)) {
                     evt.consume();
-                    JOptionPane.showMessageDialog(null, "Por favor, solo letras", "Informacion",
-                                    JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Por favor, solo letras", "Informacion",JOptionPane.INFORMATION_MESSAGE);
             }
     }
 
     private void jTcodigoProgramaKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTcodigoProgramaKeyTyped
-            // TODO add your handling code here:
     }
 
     private void jTNombreFacultadKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTNombreFacultadKeyTyped
             char c = evt.getKeyChar();
-            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != ' ')) {
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != ' ') && (c != evt.VK_BACK_SPACE)) {
                     evt.consume();
-                    JOptionPane.showMessageDialog(null, "Por favor, solo letras", "Informacion",
-                                    JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Por favor, solo letras", "Informacion",JOptionPane.INFORMATION_MESSAGE);
             }
     }
 
     private void jTCodigoAreaInteresKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTCodigoAreaInteresKeyTyped
-            // TODO add your handling code here:
     }
 
     public void listarFacultades() {

@@ -10,10 +10,18 @@ public interface IDAOAreaInteres {
 	public AreaInteres buscar(int cod) throws Exception;
 
 	public void editar(AreaInteres e) throws Exception;
-       	/**
+    /**
 	 * Listamos todas las areas de interes que se encuentran en la bd
 	 * @return lista con todas las areas de interes
 	 * @throws Exception en caso de una excepcion tecnica o de negocio.
 	 */
 	public List<AreaInteres> listar() throws Exception;
+	
+	/**
+	 * Busca un area de interes por nombre
+	 * @param nombre nombre del area a interes a buscar
+	 * @return true si ya hay un area de interes con ese nombre, de lo contrario false
+	 * @throws Exception en caso de una excepcion tecnica o de negocio.
+	 */
+	public boolean buscarByNombre(String nombre) throws Exception;
 }

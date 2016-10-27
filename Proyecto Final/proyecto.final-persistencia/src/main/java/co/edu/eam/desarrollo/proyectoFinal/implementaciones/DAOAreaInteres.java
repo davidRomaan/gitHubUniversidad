@@ -38,5 +38,22 @@ public class DAOAreaInteres implements IDAOAreaInteres {
 		List<AreaInteres> lista = q.getResultList();
 		return lista;
 	}
+	/**
+	 * Busca un area de interes por nombre
+	 * @param nombre nombre del area a interes a buscar
+	 * @return true si ya hay un area de interes con ese nombre, de lo contrario false
+	 * @throws Exception en caso de una excepcion tecnica o de negocio.
+	 */
+	public boolean buscarByNombre(String nombre) throws Exception {
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		Query q = en.createNamedQuery(AreaInteres.BUSCAR_NOMBRE);
+		q.setParameter(1, nombre);
+		List<AreaInteres> lista = q.getResultList();
+		if(lista.size() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 }

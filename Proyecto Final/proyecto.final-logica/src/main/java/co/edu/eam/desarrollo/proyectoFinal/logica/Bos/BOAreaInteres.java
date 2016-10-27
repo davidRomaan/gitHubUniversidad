@@ -27,9 +27,13 @@ public class BOAreaInteres {
 	public void crearAreaInteres(AreaInteres a) throws Exception {
 		AreaInteres area = daoAreainteres.buscar(a.getId());
 		if (area != null) {
-			throw new ExcepcionNegocio("el area de interes ya se encuentra registrada");
-		} else {
-			daoAreainteres.crear(a);
+			throw new ExcepcionNegocio("Esta area de interes ya se encuentra registrada");
+		}else{
+			if(buscarByNombre(a.getNombre())){
+				throw new ExcepcionNegocio("Ya existe un area de interes con el nombre "+a.getNombre());
+			}else{
+				daoAreainteres.crear(a);
+			}
 		}
 	}
 
@@ -59,7 +63,7 @@ public class BOAreaInteres {
 		return a;		
 	}
         
-       	/**
+    /**
 	 * Listamos todas las areas de interes que se encuentran en la bd
 	 * @return lista con todas las areas de interes
 	 * @throws Exception en caso de una excepcion tecnica o de negocio.
@@ -67,6 +71,13 @@ public class BOAreaInteres {
 	public List<AreaInteres> listarAreaInteres() throws Exception{
 		return daoAreainteres.listar();
 	}
-	
-
+	/**
+	 * Busca un area de interes por nombre
+	 * @param nombre nombre del area a interes a buscar
+	 * @return true si ya hay un area de interes con ese nombre, de lo contrario false
+	 * @throws Exception en caso de una excepcion tecnica o de negocio.
+	 */
+	public boolean buscarByNombre(String nombre) throws Exception{
+		return daoAreainteres.buscarByNombre(nombre);
+	}
 }

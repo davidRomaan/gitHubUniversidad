@@ -7,9 +7,11 @@
 package co.edu.eam.desarrollo.proyectoFinal.gui.controladores;
 import java.util.List;
 
+import co.edu.eam.desarrollo.proyectoFinal.logica.Bos.BOAreaInteres;
 import co.edu.eam.desarrollo.proyectoFinal.logica.Bos.BOEgresado;
 import co.edu.eam.desarrollo.proyectoFinal.logica.Bos.BOFacultad;
 import co.edu.eam.desarrollo.proyectoFinal.logica.Bos.BOPrograma;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreaInteres;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Facultad;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Programa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.SectorLaboral;
@@ -18,10 +20,12 @@ public class ControladorVentanaEgresado {
 	private BOEgresado bo;
 	private BOFacultad boFacultad;
 	private BOPrograma boPrograma;
+	private BOAreaInteres boAreaInteres;
 	public ControladorVentanaEgresado(){
 		bo = new BOEgresado();
 		boFacultad = new BOFacultad();
 		boPrograma = new BOPrograma();
+		boAreaInteres = new BOAreaInteres();
 	}
 
 	/**
@@ -48,5 +52,13 @@ public class ControladorVentanaEgresado {
 	 */
 	public List<SectorLaboral> listarSectorLaboral() throws Exception{
 		return null;
+	}
+	/**
+	 * Listamos todas las ares de interes que se encuentran en la bd
+	 * @return lista con todas las areas de interes
+	 * @throws Exception en caso de una excepcion tecnica o de negocio.
+	 */
+	public List<AreaInteres> listarAreaInteres() throws Exception{
+		return boAreaInteres.listarAreaInteres();
 	}
 }
