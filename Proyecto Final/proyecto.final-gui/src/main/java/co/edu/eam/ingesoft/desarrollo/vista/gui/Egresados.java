@@ -685,7 +685,6 @@ public class Egresados extends javax.swing.JFrame {
         });
         jTableAreasConocimiento1.setGridColor(new java.awt.Color(239, 239, 239));
         jScrollPane2.setViewportView(jTableAreasConocimiento1);
-
         jBAgregarInteres.setBackground(new java.awt.Color(175, 178, 184));
         jBAgregarInteres.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jBAgregarInteres.setForeground(new java.awt.Color(51, 51, 51));
