@@ -56,9 +56,9 @@ public class BOFacultad {
 	}
 	
 	/**
-	 * lista las facultades por su nombre
-	 * @return las facultades
-	 * @throws Exception Exception en caso de que haya una excepcion tecnica o de negocio
+	 * Listamos todas las facultades que se encuentran en la bd
+	 * @return lista con todas las facultades
+	 * @throws Exception Exception en caso de que haya una excepcion tecnica o de negocio.
 	 */
 	public List<Facultad>listarFacultad() throws Exception{
 		return daoFacultad.listarFacultades();

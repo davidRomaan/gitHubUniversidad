@@ -8,11 +8,18 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
+@NamedQueries({
+	@NamedQuery(name = SectorLaboral.LISTAR, query = "SELECT sl FROM SectorLaboral sl ORDER BY sl.nombre ASC")
+})
 @Entity
 @Table(name="T_SECTORLABORAL")
 public class SectorLaboral implements Serializable{
+	/* Lista todos los sectores laborales que se encuentran en la bd*/
+	public static final String LISTAR = "SectorLaboral.LISTAR";
+	
 	/* Identificador del sector laboral*/
 	@Id
 	@Column(name="ID_SECTOR")

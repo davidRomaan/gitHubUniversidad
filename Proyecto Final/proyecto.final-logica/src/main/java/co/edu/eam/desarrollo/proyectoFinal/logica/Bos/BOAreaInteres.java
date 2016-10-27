@@ -5,6 +5,7 @@ import co.edu.eam.desarrollo.proyectoFinal.implementaciones.DAOAreaInteres;
 import co.edu.eam.desarrollo.proyectoFinal.logica.excepciones.ExcepcionNegocio;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreaInteres;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Facultad;
+import java.util.List;
 
 public class BOAreaInteres {
 
@@ -56,6 +57,15 @@ public class BOAreaInteres {
 	public AreaInteres editarAreaInteres(AreaInteres a) throws Exception {
 		daoAreainteres.editar(a);
 		return a;		
+	}
+        
+       	/**
+	 * Listamos todas las areas de interes que se encuentran en la bd
+	 * @return lista con todas las areas de interes
+	 * @throws Exception en caso de una excepcion tecnica o de negocio.
+	 */
+	public List<AreaInteres> listarAreaInteres() throws Exception{
+		return daoAreainteres.listar();
 	}
 	
 

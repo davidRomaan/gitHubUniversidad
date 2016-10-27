@@ -4,16 +4,22 @@
  */
 package co.edu.eam.desarrolloSoftware.proyectoFinal.modelo;
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
+@NamedQueries({
+	@NamedQuery(name = AreaInteres.LISTAR, query = "SELECT a FROM AreaInteres a ORDER BY a.nombre ASC")
+})
 @Entity
 @Table(name="T_AREAINTERES")
 public class AreaInteres implements Serializable{
-	
+	/**
+	 * listado de las areas de interes
+	 */
+	public static final String LISTAR = "AreaInteres.Listar";
 	/* Identificador del area de interes */
 	@Id
 	@Column(name="ID_AREA")

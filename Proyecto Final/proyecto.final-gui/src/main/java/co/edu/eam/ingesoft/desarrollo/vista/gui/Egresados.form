@@ -676,6 +676,9 @@
                           <Border info="null"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCFacultadItemStateChanged"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -842,14 +845,14 @@
                               </Group>
                               <EmptySpace pref="15" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTNombreEmpresa1" pref="288" max="32767" attributes="0"/>
+                                  <Component id="jTCargo" pref="288" max="32767" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Component id="jCBComboSectorLab" min="-2" pref="277" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jDateChooser3" pref="277" max="32767" attributes="0"/>
-                                          <Component id="jCFacultad1" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="jDateIngreso" pref="277" max="32767" attributes="0"/>
+                                          <Component id="jCSituacionActual" alignment="1" max="32767" attributes="0"/>
                                           <Component id="jCFacultad2" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jDateChooser2" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="jDateSalida" alignment="1" max="32767" attributes="0"/>
                                           <Component id="jTNombreEmpresa" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -864,7 +867,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLFacultad1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jCFacultad1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="jCSituacionActual" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -883,18 +886,18 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jDateChooser3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="jDateIngreso" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jLnombre3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLnombre4" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jDateChooser2" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="jDateSalida" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLnombre5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jTNombreEmpresa1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="jTCargo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="35" max="32767" attributes="0"/>
                           </Group>
@@ -902,7 +905,7 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JComboBox" name="jCFacultad1">
+                    <Component class="javax.swing.JComboBox" name="jCSituacionActual">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="f9" green="f2" red="f2" type="rgb"/>
@@ -989,14 +992,14 @@
                         <Property name="text" type="java.lang.String" value="Fecha de Ingreso"/>
                       </Properties>
                     </Component>
-                    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
+                    <Component class="com.toedter.calendar.JDateChooser" name="jDateSalida">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="f9" green="f2" red="f2" type="rgb"/>
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser3">
+                    <Component class="com.toedter.calendar.JDateChooser" name="jDateIngreso">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="f9" green="f2" red="f2" type="rgb"/>
@@ -1046,7 +1049,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTNombreEmpresa1">
+                    <Component class="javax.swing.JTextField" name="jTCargo">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="f9" green="f2" red="f2" type="rgb"/>

@@ -5,6 +5,7 @@ import java.util.List;
 import co.edu.eam.desarrollo.proyectoFinal.definiciones.IDAOPrograma;
 import co.edu.eam.desarrollo.proyectoFinal.implementaciones.DAOPrograma;
 import co.edu.eam.desarrollo.proyectoFinal.logica.excepciones.ExcepcionNegocio;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Facultad;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Programa;
 
 public class BOPrograma {
@@ -23,10 +24,13 @@ public class BOPrograma {
 	public void crearPrograma(Programa p) throws Exception{
 		Programa pr = daoPrograma.buscarPrograma(p.getId());
 		if(pr != null){
-			throw new ExcepcionNegocio("el programa ya se encuentra registrado");
-
+			throw new ExcepcionNegocio("Este programa ya se encuentra registrado");
 		}else{
-			daoPrograma.crearPrograma(p);
+			if(daoPrograma.buscarProgramaNombre(p.getNombre())){
+				throw new ExcepcionNegocio("Ya hay un programa con este nombre");
+			}else{
+				daoPrograma.crearPrograma(p);
+			}
 		}
 	}
 	
@@ -45,18 +49,44 @@ public class BOPrograma {
 	 * @param p el programa que se va a editar
 	 * @throws Exception en caso de una excepcion tecnica o de negocio
 	 */
-	public Programa  editarPrograma(Programa p) throws Exception{	
-        daoPrograma.editarPrograma(p);
-       	 return p;
+	public Programa editarPrograma(Programa p) throws Exception{	
+		if(daoPrograma.buscarProgramaNombre(p.getNombre())){
+			throw new ExcepcionNegocio("Ya hay un programa con este nombre");
+		}else{
+			daoPrograma.editarPrograma(p);
+			return p;
+		}
 	}
 	
 	/**
-	 * lista los programas por su nombre
-	 * @return los programas
-	 * @throws Exception Exception en caso de una excepcion tecnica o de negocio
+	 * Listamos todas los programas
+	 * @return lista con todas los programas
+	 * @throws Exception  en caso de una excepcion tecnica o de negocio.
 	 */
 	public List<Programa>listarPrograma()throws Exception{
 		return daoPrograma.listarPrograma();
+	}
+	
+	/**
+	 * Listamos todas los programas de una facultad que se encuentran en la bd
+	 * @return lista con todas los programas de una facultad
+	 * @throws Exception  en caso de una excepcion tecnica o de negocio.
+	 */
+	public List<Programa>listarProgramaFacultad(Facultad facultad)throws Exception{
+		return daoPrograma.listarProgramaFacultad(facultad);
+	}
+	/**
+	 * Eliminar programa
+	 * @param id del programa a eliminar
+	 * @throws Exception en caso de una excepcion tecnica o de negocio.
+	 */
+	public void eliminarPrograma(int id) throws Exception{
+		Programa p = daoPrograma.buscarPrograma(id);
+		if(p == null){
+			throw new ExcepcionNegocio("No se ha encontrado ningun programa\ncon el codigo "+id);
+		}else{
+			daoPrograma.eliminar(p);
+		}
 	}
 }
 

@@ -18,7 +18,9 @@ import javax.persistence.Table;
 
 @NamedQueries({
 	
-	@NamedQuery(name = Programa.LISTAR_PROGRAMAS, query = "SELECT p FROM Programa p ORDER BY p.nombre ASC")
+	@NamedQuery(name = Programa.LISTAR_PROGRAMAS, query = "SELECT p FROM Programa p ORDER BY p.nombre ASC"),
+	@NamedQuery(name = Programa.LISTAR_PROGRAMAS_FACULTAD, query = "SELECT p FROM Programa p WHERE p.facultad=?1 ORDER BY p.nombre ASC"),
+	@NamedQuery(name = Programa.BUSCAR_NOMBRE, query = "SELECT p FROM Programa p WHERE p.nombre=?1")
 })
 @Entity
 @Table(name="T_PROGRAMA")
@@ -29,6 +31,15 @@ public class Programa implements Serializable{
 	 */
 	public static final String LISTAR_PROGRAMAS = "listarPrograma";
 	
+	/**
+	 * Buscar programas por nombre
+	 */
+	public static final String BUSCAR_NOMBRE = "Programa.buscarNombre";
+	/**
+	 * lista todos los programas de una facultad
+	 */
+	public static final String LISTAR_PROGRAMAS_FACULTAD = "Programa.listarProgramaFacultad";
+
 	/* Identificador del Programa */
 	@Id
 	@Column(name="ID_PROGRAMA")
@@ -103,6 +114,13 @@ public class Programa implements Serializable{
 		if (id != other.id)
 			return false;
 		return true;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return nombre;
 	}
 	
 	
