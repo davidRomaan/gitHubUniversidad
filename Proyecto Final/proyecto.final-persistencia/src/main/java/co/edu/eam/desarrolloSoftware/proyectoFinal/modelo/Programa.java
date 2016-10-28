@@ -17,7 +17,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @NamedQueries({
-	
 	@NamedQuery(name = Programa.LISTAR_PROGRAMAS, query = "SELECT p FROM Programa p ORDER BY p.nombre ASC"),
 	@NamedQuery(name = Programa.LISTAR_PROGRAMAS_FACULTAD, query = "SELECT p FROM Programa p WHERE p.facultad=?1 ORDER BY p.nombre ASC"),
 	@NamedQuery(name = Programa.BUSCAR_NOMBRE, query = "SELECT p FROM Programa p WHERE p.nombre=?1")

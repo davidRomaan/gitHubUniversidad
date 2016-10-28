@@ -4,7 +4,6 @@
  */
 package co.edu.eam.desarrolloSoftware.proyectoFinal.modelo;
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,14 +11,20 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.TipoEmpresa;
-
+@NamedQueries({
+	@NamedQuery(name = Empresa.LISTAR, query = "SELECT e FROM Empresa e"),
+})
 @Entity
 @Table(name="T_EMPRESA")
 public class Empresa implements Serializable{
+	
+	/* Listar Empresas */
+	public static final String LISTAR = "Empresa.listar";
 	/* Identificador de la Empresa*/
 	@Id
 	@Column(name="ID_EMPRESA")

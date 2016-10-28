@@ -1,5 +1,7 @@
 package co.edu.eam.desarrollo.proyectoFinal.logica.Bos;
 
+import java.util.List;
+
 import co.edu.eam.desarrollo.proyectoFinal.definiciones.IDAOEmpresa;
 import co.edu.eam.desarrollo.proyectoFinal.implementaciones.DAOEmpresa;
 import co.edu.eam.desarrollo.proyectoFinal.logica.excepciones.ExcepcionNegocio;
@@ -82,5 +84,13 @@ public class BOEmpresa {
 			throw new ExcepcionNegocio("el egresado no se encuentra");
 		}
 
+	}
+	/**
+	 * Lista todas las empresas registradas en la bd
+	 * @return lista con todas las empresa
+	 * @throws Exception en caso de una excepcion tecnica o de negocio
+	 */
+	public List<Empresa> listarEmpresas() throws Exception{
+		return daoEmpresa.listar();
 	}
 }

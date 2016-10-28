@@ -1,9 +1,13 @@
 package co.edu.eam.desarrollo.proyectoFinal.implementaciones;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import co.edu.eam.desarrollo.proyectoFinal.definiciones.IDAOEmpresa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Empresa;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Programa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.utilidades.AdministradorEntityManager;
 
 public class DAOEmpresa implements IDAOEmpresa{
@@ -35,6 +39,17 @@ public class DAOEmpresa implements IDAOEmpresa{
         en.remove(en.merge(e));
         en.getTransaction().commit();
 		
+	}
+	/**
+	 * Lista todas las empresas registradas en la bd
+	 * @return lista con todas las empresa
+	 * @throws Exception en caso de una excepcion tecnica o de negocio
+	 */
+	public List<Empresa> listar() throws Exception {
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		Query q = en.createNamedQuery(Empresa.LISTAR);
+		List<Empresa> lista = q.getResultList();
+		return lista;		
 	}
 
 	
