@@ -1,7 +1,5 @@
 package co.edu.eam.desarrollo.proyectoFinal.definiciones;
-
 import java.util.List;
-
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Ciudad;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Departamento;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Empresa;

@@ -112,6 +112,6 @@ public class BOEmpresa {
 	 * @throws Exception en caso de una excepcion tecnica o de negocio
 	 */
 	public List<Empresa> listarEmpresas() throws Exception{
-		return daoEmpresa.listar();
+		return daoEmpresa.listarEmpresas();
 	}
 }
