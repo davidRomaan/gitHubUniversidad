@@ -75,12 +75,6 @@ public class OfertaLaboral implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
-
-
-
-
 	public OfertaLaboral(Empresa empresa, Ciudad ciudad, AreaInteres areaInteres, String resumen, String cargo,
 			double salario, String descripcion, String requerimientos, Date fechaApertura, boolean estado) {
 		super();
@@ -95,11 +89,6 @@ public class OfertaLaboral implements Serializable{
 		this.fechaApertura = fechaApertura;
 		this.estado = estado;
 	}
-
-
-
-
-
 
 
 	public int getId() {

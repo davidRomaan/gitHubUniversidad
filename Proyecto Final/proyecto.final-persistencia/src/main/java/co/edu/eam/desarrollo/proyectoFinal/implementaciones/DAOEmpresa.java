@@ -48,13 +48,6 @@ public class DAOEmpresa implements IDAOEmpresa{
 	 * @return lista con todas las empresa
 	 * @throws Exception en caso de una excepcion tecnica o de negocio
 	 */
-	public List<Empresa> listar() throws Exception {
-		EntityManager en = AdministradorEntityManager.getEntityManager();
-		Query q = en.createNamedQuery(Empresa.LISTAR);
-		List<Empresa> lista = q.getResultList();
-		return lista;		
-	}
-
 	public List<Empresa> listarEmpresas() throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		Query q = en.createNamedQuery(Empresa.LISTAR_EMPRESAS);

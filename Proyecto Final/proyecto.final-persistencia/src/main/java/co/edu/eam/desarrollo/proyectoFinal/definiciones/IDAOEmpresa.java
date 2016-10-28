@@ -16,6 +16,11 @@ public interface IDAOEmpresa {
 	public void editarEmpresa(Empresa e) throws Exception;
 	
 	public void eliminarEmpresa(Empresa e)throws Exception;
+	/**
+	 * Lista todas las empresas registradas en la bd
+	 * @return lista con todas las empresa
+	 * @throws Exception en caso de una excepcion tecnica o de negocio
+	 */
 	
 	public List<Empresa>listarEmpresas()throws Exception;
 	
@@ -24,10 +29,5 @@ public interface IDAOEmpresa {
 	public List<Ciudad>listarCiudades()throws Exception;
 	
 	public List<SectorLaboral>listarSectorLab()throws Exception;
-	/**
-	 * Lista todas las empresas registradas en la bd
-	 * @return lista con todas las empresa
-	 * @throws Exception en caso de una excepcion tecnica o de negocio
-	 */
-	public List<Empresa> listar() throws Exception;
+	
 }

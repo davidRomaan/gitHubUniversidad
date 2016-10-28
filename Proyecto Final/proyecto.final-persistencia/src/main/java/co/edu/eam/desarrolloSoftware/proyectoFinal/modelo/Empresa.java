@@ -16,32 +16,22 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.TipoEmpresa;
-<<<<<<< HEAD
+
 
 @NamedQueries({
 
 	@NamedQuery(name = Empresa.LISTAR_EMPRESAS, query = "SELECT em FROM Empresa em ORDER BY em.razonSocial ASC") })
-=======
-@NamedQueries({
-	@NamedQuery(name = Empresa.LISTAR, query = "SELECT e FROM Empresa e"),
-})
->>>>>>> branch 'master' of https://github.com/davidRomaan/gitHubUniversidad.git
+
 @Entity
 @Table(name="T_EMPRESA")
 public class Empresa implements Serializable{
-<<<<<<< HEAD
+
 
 	/**
 	 * lista las empresas
 	 */
 	public static final String LISTAR_EMPRESAS = "listarEmpresas";
 	
-	
-=======
-	
-	/* Listar Empresas */
-	public static final String LISTAR = "Empresa.listar";
->>>>>>> branch 'master' of https://github.com/davidRomaan/gitHubUniversidad.git
 	/* Identificador de la Empresa*/
 	/* Nit */
 	@Id
