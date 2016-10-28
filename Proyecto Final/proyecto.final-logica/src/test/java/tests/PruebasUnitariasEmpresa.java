@@ -31,27 +31,32 @@ public class PruebasUnitariasEmpresa {
 	}
 
 	@Test
-	public void testCrearEgresado() {
+	public void testCrearBuscarEditarEgresado() {
 
 		try {
 			Ciudad ciud = new Ciudad();
 			ciud.setId(1);
+			Departamento dep = new Departamento();
+			dep.setId(1);
 			SectorLaboral sec = new SectorLaboral();
 			sec.setId(1);
 			Empresa emp = new Empresa();
-			emp.setId(1);
 			emp.setDireccion("por ahi");
 			emp.setNit("234");
 			emp.setPais("Colombia");
 			emp.setRazonSocial("claro");
 			emp.setTelefono("345656");
 			emp.setTipo(TipoEmpresa.PRIVADA);
-			emp.setWeb("djfdfj@djfd");	
+			emp.setWeb("djfdfj@djfd");
+			emp.setDepartamento(dep);
 			emp.setCiudad(ciud);
 			emp.setSectorLaboral(sec);
 			boEmpresa.crearEmpresa(emp);
-			Empresa e = boEmpresa.buscarEmpresa(1);
+			Empresa e = boEmpresa.buscarEmpresa("234");
 			Assert.assertNotNull(e);
+			e.setDireccion("parque cafetero");
+     	    boEmpresa.editarEmpresa(e);
+		    Assert.assertEquals("parque cafetero", e.getDireccion());
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -60,25 +65,9 @@ public class PruebasUnitariasEmpresa {
 		}
 	}
 
-//	@Test
-//	public void testEditarEmpresa() {
-//		try {
-//			Empresa	em = boEmpresa.buscarEmpresa(1);
-//			em.setDireccion("parque cafetero");
-//		    boEmpresa.editarEmpresa(em);
-//		    Assert.assertEquals("parque cafetero", em);
-//		
-//		
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			Assert.fail();
-//		}
-//
-//	}
+	@AfterClass
+	public static void afterClass() {
+		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasEmprTest-del2.sql");
 
-//	@AfterClass
-//	public static void afterClass() {
-//		TestDataUtil.ejecutarSQL("PruebasUnitariasEmprTest-del.sql");
-//
-//	}
+	}
 }

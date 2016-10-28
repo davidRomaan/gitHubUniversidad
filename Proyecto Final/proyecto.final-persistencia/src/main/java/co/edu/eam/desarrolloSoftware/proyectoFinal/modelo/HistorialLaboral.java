@@ -32,7 +32,7 @@ public class HistorialLaboral implements Serializable{
 	/* Empresa en la que ha trabajado */
 	@Id
 	@ManyToOne(cascade = {})
-	@JoinColumn(name="ID_EMPRESA")
+	@JoinColumn(name="NIT_EMPRESA")
 	private Empresa empresa;
 
 	public HistorialLaboral() {

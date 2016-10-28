@@ -8,11 +8,22 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+@NamedQueries({
+
+	@NamedQuery(name = Departamento.LISTAR_DEPARTAMENTOS, query = "SELECT dep FROM Departamento dep ORDER BY dep.nombre ASC") })
 @Entity
 @Table(name="T_DEPARTAMENTO")
 public class Departamento implements Serializable{
+	
+	/**
+	 * lista los departamentos
+	 */
+	public static final String LISTAR_DEPARTAMENTOS = "listarDepartamentos";
+	
 	/* Identificador del departamento*/
 	@Id
 	@Column(name="ID_DEPARTAMENTO")

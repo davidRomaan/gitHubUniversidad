@@ -6,9 +6,9 @@ public interface IDAOContacto {
 
 	public void crear(Contacto c) throws Exception;
 
-	public Contacto buscar(int cod) throws Exception;
+	public Contacto buscar(String nit) throws Exception;
 
-	public void editar(Contacto e) throws Exception;
+	public void editar(Contacto c) throws Exception;
 	
 
 }

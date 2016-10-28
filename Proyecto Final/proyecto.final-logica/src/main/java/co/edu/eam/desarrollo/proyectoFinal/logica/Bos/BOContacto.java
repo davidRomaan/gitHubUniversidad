@@ -4,6 +4,7 @@ import co.edu.eam.desarrollo.proyectoFinal.definiciones.IDAOContacto;
 import co.edu.eam.desarrollo.proyectoFinal.implementaciones.DAOContacto;
 import co.edu.eam.desarrollo.proyectoFinal.logica.excepciones.ExcepcionNegocio;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Contacto;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Empresa;
 
 public class BOContacto {
 
@@ -18,8 +19,8 @@ public class BOContacto {
 	 * @param c el contacto a crear
 	 * @throws Exception en caso de que haya una excepcion tecnica o de negocio
 	 */
-	public void crearContacto(Contacto c) throws Exception {
-		Contacto con = daoContacto.buscar(c.getIdContacto());
+	public void crearContacto(Contacto c, Empresa emp) throws Exception {
+		Contacto con = daoContacto.buscar(emp.getNit());
 		if (con != null) {
 			throw new ExcepcionNegocio("Este contacto ya se encuentra registrado");
 		} else {
@@ -33,8 +34,8 @@ public class BOContacto {
 	 * @return la el contacto
 	 * @throws Exception en caso de que haya una excepcion tecnica o de negocio
 	 */
-	public Contacto buscarContacto(int cod) throws Exception {
-		return daoContacto.buscar(cod);
+	public Contacto buscarContacto(String nit) throws Exception {
+		return daoContacto.buscar(nit);
 	}
 
 	/**

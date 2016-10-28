@@ -8,8 +8,8 @@ import java.io.Serializable;
 
 public class HistorialLaboralPK implements Serializable{
 	private int informacionLaboral;
-	private int empresa;
-	public HistorialLaboralPK(int informacionLaboral, int empresa) {
+	private String empresa;
+	public HistorialLaboralPK(int informacionLaboral, String empresa) {
 		super();
 		this.informacionLaboral = informacionLaboral;
 		this.empresa = empresa;
@@ -18,7 +18,7 @@ public class HistorialLaboralPK implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + empresa;
+		result = prime * result + ((empresa == null) ? 0 : empresa.hashCode());
 		result = prime * result + informacionLaboral;
 		return result;
 	}
@@ -31,12 +31,17 @@ public class HistorialLaboralPK implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		HistorialLaboralPK other = (HistorialLaboralPK) obj;
-		if (empresa != other.empresa)
+		if (empresa == null) {
+			if (other.empresa != null)
+				return false;
+		} else if (!empresa.equals(other.empresa))
 			return false;
 		if (informacionLaboral != other.informacionLaboral)
 			return false;
 		return true;
 	}
+
+	
 	
 	
 }

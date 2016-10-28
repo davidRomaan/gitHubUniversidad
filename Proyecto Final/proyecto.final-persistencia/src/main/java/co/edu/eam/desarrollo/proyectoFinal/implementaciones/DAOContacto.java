@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 
 import co.edu.eam.desarrollo.proyectoFinal.definiciones.IDAOContacto;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Contacto;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Empresa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.utilidades.AdministradorEntityManager;
 
 public class DAOContacto implements IDAOContacto{
@@ -16,15 +17,15 @@ public class DAOContacto implements IDAOContacto{
 		
 	}
 
-	public Contacto buscar(int cod) throws Exception {
+	public Contacto buscar(String nit) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
-		return en.find(Contacto.class, cod);
+	    return en.find(Contacto.class, nit);
 	}
 
-	public void editar(Contacto e) throws Exception {
+	public void editar(Contacto c) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		en.getTransaction().begin();
-		en.merge(e);
+		en.merge(c);
 		en.getTransaction().commit();
 		
 	}

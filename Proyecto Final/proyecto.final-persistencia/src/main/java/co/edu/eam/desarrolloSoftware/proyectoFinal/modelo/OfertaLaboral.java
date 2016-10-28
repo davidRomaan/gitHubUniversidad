@@ -28,7 +28,7 @@ public class OfertaLaboral implements Serializable{
 	
 	/* Empresa de la Oferta laboral */
 	@ManyToOne(cascade = {})
-	@JoinColumn(name="ID_EMPRESA")
+	@JoinColumn(name="NIT_EMPRESA")
 	private Empresa empresa;
 	
 	/* Ciudad donde se da la oferta laboral */

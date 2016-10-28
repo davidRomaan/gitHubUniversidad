@@ -1,3 +1,3 @@
-insert into t_departamento(ID_CIUDAD,NOMBRE)values(1,'Quindio')
-insert into t_ciudad(ID_CIUDAD,NOMBRE,ID_DEPARTAMENTO)values(1,'Armenia',1)
-insert into t_sectorlaboral(ID_SECTOR,NOMBRE_SECTOR)values(1,'sector industrial')
+INSERT INTO `db_proyectofinalpruebas`.`t_departamento` (`ID_DEPARTAMENTO`, `NOMBRE`) VALUES ('1', 'Quindio');
+INSERT INTO `db_proyectofinalpruebas`.`t_ciudad` (`ID_CIUDAD`, `NOMBRE`, `ID_DEPARTAMENTO`) VALUES ('1', 'Armenia ', '1');
+INSERT INTO `db_proyectofinalpruebas`.`t_sectorlaboral` (`ID_SECTOR`, `NOMBRE_SECTOR`) VALUES ('1', 'Sector industrial');

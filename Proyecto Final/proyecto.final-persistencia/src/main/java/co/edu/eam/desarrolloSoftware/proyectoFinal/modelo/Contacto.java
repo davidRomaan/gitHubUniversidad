@@ -20,15 +20,15 @@ public class Contacto implements Serializable{
 
 	/* Empresa al que pertenece el contacto */
 	
-	@OneToOne()
-	@JoinColumn(name="ID_EMPRESA", insertable=false, updatable=false)
+	@OneToOne
+	@JoinColumn(name="NIT_EMPRESA", insertable=false, updatable=false)
 	@MapsId
 	private Empresa empresa;
 	
 	/* Es necesario crear un nuevo atributo entero para mapear una relacion uno a uno*/
 	@Id
-	@Column(name="ID_EMPRESA")
-	private int idContacto;
+	@Column(name="NIT_EMPRESA")
+	private String NitContacto;
 	
 	/* Nombre Completo del remitente */
 	@Column(name="NOMBRE_COMPLETO", nullable=false)
@@ -53,6 +53,7 @@ public class Contacto implements Serializable{
 
 	public Contacto(Empresa empresa, String nombreCompleto, String correo, String cargoEmpresa, String telefono) {
 		super();
+		NitContacto = empresa.getNit();
 		this.empresa = empresa;
 		NombreCompleto = nombreCompleto;
 		Correo = correo;
@@ -60,12 +61,13 @@ public class Contacto implements Serializable{
 		this.telefono = telefono;
 	}
 
-	public int getIdContacto() {
-		return idContacto;
+
+	public String getNitContacto() {
+		return NitContacto;
 	}
 
-	public void setIdContacto(int idContacto) {
-		this.idContacto = idContacto;
+	public void setNitContacto(String nitContacto) {
+		NitContacto = nitContacto;
 	}
 
 	public Empresa getEmpresa() {

@@ -9,21 +9,36 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.TipoEmpresa;
 
+@NamedQueries({
+
+	@NamedQuery(name = Empresa.LISTAR_EMPRESAS, query = "SELECT em FROM Empresa em ORDER BY em.razonSocial ASC") })
 @Entity
 @Table(name="T_EMPRESA")
 public class Empresa implements Serializable{
+
+	/**
+	 * lista las empresas
+	 */
+	public static final String LISTAR_EMPRESAS = "listarEmpresas";
+	
+	
 	/* Identificador de la Empresa*/
+	/* Nit */
 	@Id
-	@Column(name="ID_EMPRESA")
-	private int id;
+	@Column(name="NIT_EMPRESA", nullable=false)
+	private String nit;
 	
 	/* Sector Laboral de la empresa*/
 	@ManyToOne(cascade = {})
@@ -39,6 +54,11 @@ public class Empresa implements Serializable{
 	@JoinColumn(name="ID_CIUDAD")
 	private Ciudad ciudad;
 	
+	/* departamento */
+	@ManyToOne(cascade = {})
+	@JoinColumn(name = "DEPAR_CIUDAD")
+	private Departamento departamento;
+	
 	/* Razon social */
 	@Column(name="RAZON_SOCIAL_EMPRESA", nullable=false)
 	private String razonSocial;
@@ -50,10 +70,6 @@ public class Empresa implements Serializable{
 	/* Telefono */
 	@Column(name="TELEFONO_EMPRESA", nullable=false)
 	private String telefono;
-	
-	/* Nit */
-	@Column(name="NIT_EMPRESA", nullable=false)
-	private String nit;
 	
 	/* Tipo Empresa */
 	@Enumerated(EnumType.STRING)
@@ -73,27 +89,35 @@ public class Empresa implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Empresa(SectorLaboral sectorLaboral, Ciudad ciudad, String razonSocial, String pais, String telefono,
-			String nit, TipoEmpresa tipo, String web, String direccion) {
+	public Empresa(String nit, SectorLaboral sectorLaboral, Ciudad ciudad, Departamento departamento,
+			String razonSocial, String pais, String telefono, TipoEmpresa tipo, String web, String direccion) {
 		super();
+		this.nit = nit;
 		this.sectorLaboral = sectorLaboral;
 		this.ciudad = ciudad;
+		this.departamento = departamento;
 		this.razonSocial = razonSocial;
 		this.pais = pais;
 		this.telefono = telefono;
-		this.nit = nit;
 		this.tipo = tipo;
 		this.web = web;
 		this.direccion = direccion;
 	}
 
-	public int getId() {
-		return id;
+	public Contacto getContacto() {
+		return contacto;
 	}
 
+	public void setContacto(Contacto contacto) {
+		this.contacto = contacto;
+	}
 
-	public void setId(int id) {
-		this.id = id;
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
 	}
 
 	public SectorLaboral getSectorLaboral() {

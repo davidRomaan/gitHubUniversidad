@@ -32,14 +32,14 @@ public class PruebasUnitariasContacto {
 	public void testCrearContacto() {
 		try {
 			Contacto con = new Contacto();
-			Empresa em = boEmpresa.buscarEmpresa(1);
+			Empresa em = boEmpresa.buscarEmpresa("1");
 			con.setEmpresa(em);
 			con.setCargoEmpresa("gerente");
 			con.setCorreo("romanleon@");
 			con.setNombreCompleto("DavidRoman");
 			con.setTelefono("34556");
-			boContacto.crearContacto(con);
-            Contacto c = boContacto.buscarContacto(1);
+			boContacto.crearContacto(con,em);
+            Contacto c = boContacto.buscarContacto("1");
             Assert.assertNotNull(c);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -53,7 +53,7 @@ public class PruebasUnitariasContacto {
 		
 		try {
 		
-		Contacto c = boContacto.buscarContacto(1);
+		Contacto c = boContacto.buscarContacto("1");
 		Assert.assertNotNull(c);
 		
 		} catch (Exception e) {
