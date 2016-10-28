@@ -1,6 +1,8 @@
 package co.edu.eam.desarrollo.proyectoFinal.implementaciones;
 
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import co.edu.eam.desarrollo.proyectoFinal.definiciones.IDAOAreaInteres;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreaInteres;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.utilidades.AdministradorEntityManager;
@@ -24,6 +26,34 @@ public class DAOAreaInteres implements IDAOAreaInteres {
 		en.getTransaction().begin();
 		en.merge(f);
 		en.getTransaction().commit();
+	}
+   	/**
+	 * Listamos todas las areas de interes que se encuentran en la bd
+	 * @return lista con todas las areas de interes
+	 * @throws Exception en caso de una excepcion tecnica o de negocio.
+	 */
+	public List<AreaInteres> listar() throws Exception {
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		Query q = en.createNamedQuery(AreaInteres.LISTAR);
+		List<AreaInteres> lista = q.getResultList();
+		return lista;
+	}
+	/**
+	 * Busca un area de interes por nombre
+	 * @param nombre nombre del area a interes a buscar
+	 * @return true si ya hay un area de interes con ese nombre, de lo contrario false
+	 * @throws Exception en caso de una excepcion tecnica o de negocio.
+	 */
+	public boolean buscarByNombre(String nombre) throws Exception {
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		Query q = en.createNamedQuery(AreaInteres.BUSCAR_NOMBRE);
+		q.setParameter(1, nombre);
+		List<AreaInteres> lista = q.getResultList();
+		if(lista.size() > 0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 }

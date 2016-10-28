@@ -4,13 +4,10 @@
  */
 package co.edu.eam.desarrolloSoftware.proyectoFinal.modelo;
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,15 +15,21 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.TipoEmpresa;
+<<<<<<< HEAD
 
 @NamedQueries({
 
 	@NamedQuery(name = Empresa.LISTAR_EMPRESAS, query = "SELECT em FROM Empresa em ORDER BY em.razonSocial ASC") })
+=======
+@NamedQueries({
+	@NamedQuery(name = Empresa.LISTAR, query = "SELECT e FROM Empresa e"),
+})
+>>>>>>> branch 'master' of https://github.com/davidRomaan/gitHubUniversidad.git
 @Entity
 @Table(name="T_EMPRESA")
 public class Empresa implements Serializable{
+<<<<<<< HEAD
 
 	/**
 	 * lista las empresas
@@ -34,6 +37,11 @@ public class Empresa implements Serializable{
 	public static final String LISTAR_EMPRESAS = "listarEmpresas";
 	
 	
+=======
+	
+	/* Listar Empresas */
+	public static final String LISTAR = "Empresa.listar";
+>>>>>>> branch 'master' of https://github.com/davidRomaan/gitHubUniversidad.git
 	/* Identificador de la Empresa*/
 	/* Nit */
 	@Id

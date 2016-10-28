@@ -106,4 +106,12 @@ public class BOEmpresa {
 	public List<SectorLaboral>listarSectorLaboral()throws Exception{
 		return daoEmpresa.listarSectorLab();
 	}
+	/**
+	 * Lista todas las empresas registradas en la bd
+	 * @return lista con todas las empresa
+	 * @throws Exception en caso de una excepcion tecnica o de negocio
+	 */
+	public List<Empresa> listarEmpresas() throws Exception{
+		return daoEmpresa.listar();
+	}
 }

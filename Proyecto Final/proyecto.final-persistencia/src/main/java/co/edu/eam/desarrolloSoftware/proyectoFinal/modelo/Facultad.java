@@ -15,8 +15,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @NamedQueries({
-
-		@NamedQuery(name = Facultad.LISTAR_FACULTADES, query = "SELECT fac FROM Facultad fac ORDER BY fac.nombre ASC") })
+	@NamedQuery(name = Facultad.LISTAR_FACULTADES, query = "SELECT fac FROM Facultad fac ORDER BY fac.nombre ASC")
+})
 @Entity
 @Table(name = "T_FACULTAD")
 public class Facultad implements Serializable {
@@ -88,5 +88,7 @@ public class Facultad implements Serializable {
 	public String toString() {
 		return nombre;
 	}
+
+	
 
 }

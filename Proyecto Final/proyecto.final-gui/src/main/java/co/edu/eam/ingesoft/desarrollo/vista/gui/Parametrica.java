@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 package co.edu.eam.ingesoft.desarrollo.vista.gui;
-
+import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -42,6 +41,10 @@ public class Parametrica extends javax.swing.JFrame {
 		controladorVentanaFacul = new ControladorVentanaFacultad();
 		controladorVentanaAreaIn = new ControladorVentanaAreaInteres();
 		listarFacultades();
+		listaProgramas();
+        listaFacultades();
+        listaAreasInteres();
+                
 	}
 
 	/**
@@ -52,698 +55,1034 @@ public class Parametrica extends javax.swing.JFrame {
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed" desc="Generated
 	// <editor-fold defaultstate="collapsed" desc="Generated
-	// Code">//GEN-BEGIN:initComponents
-	private void initComponents() {
-
-		jPanel2 = new javax.swing.JPanel();
-		jTabbedPane1 = new javax.swing.JTabbedPane();
-		jPanel1 = new javax.swing.JPanel();
-		jLnombrePrograma = new javax.swing.JLabel();
-		jTNomPrograma = new javax.swing.JTextField();
-		jLFacultad = new javax.swing.JLabel();
-		jBCrearPrograma = new javax.swing.JButton();
-		jBEditarPrograma = new javax.swing.JButton();
-		jLabel1 = new javax.swing.JLabel();
-		jTcodigoPrograma = new javax.swing.JTextField();
-		jCFacultad = new javax.swing.JComboBox();
-		jBbuscarPrograma = new javax.swing.JButton();
-		jPanel3 = new javax.swing.JPanel();
-		jTCodigoFacultad = new javax.swing.JTextField();
-		jLnombre = new javax.swing.JLabel();
-		jBCrearFacultad = new javax.swing.JButton();
-		jBEditarFacultad = new javax.swing.JButton();
-		jLnombre2 = new javax.swing.JLabel();
-		jTNombreFacultad = new javax.swing.JTextField();
-		jBbuscarFacul = new javax.swing.JButton();
-		jPanel4 = new javax.swing.JPanel();
-		jLnombre1 = new javax.swing.JLabel();
-		jTNomAreaInteres = new javax.swing.JTextField();
-		jBCrearAreaInteres = new javax.swing.JButton();
-		jBEditarAreaInteres = new javax.swing.JButton();
-		jLabel2 = new javax.swing.JLabel();
-		jTCodigoAreaInteres = new javax.swing.JTextField();
-		jBbuscarAreaInt = new javax.swing.JButton();
-		jBAgregarPalabra = new javax.swing.JButton();
-
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-		jPanel2.setBackground(new java.awt.Color(242, 242, 249));
-
-		jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-		jLnombrePrograma.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-		jLnombrePrograma.setForeground(new java.awt.Color(51, 51, 51));
-		jLnombrePrograma.setText("Nombre:");
-
-		jTNomPrograma.setBackground(new java.awt.Color(242, 242, 249));
-		jTNomPrograma.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-		jTNomPrograma.setForeground(new java.awt.Color(43, 43, 74));
-		jTNomPrograma.setToolTipText("");
-		jTNomPrograma.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 240)));
-		jTNomPrograma.addKeyListener(new java.awt.event.KeyAdapter() {
-			public void keyTyped(java.awt.event.KeyEvent evt) {
-				jTNomProgramaKeyTyped(evt);
-			}
-		});
-
-		jLFacultad.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-		jLFacultad.setForeground(new java.awt.Color(51, 51, 51));
-		jLFacultad.setText("Facultad:");
-
-		jBCrearPrograma.setText("CREAR");
-		jBCrearPrograma.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBCrearProgramaActionPerformed(evt);
-			}
-		});
-
-		jBEditarPrograma.setText("EDITAR");
-		jBEditarPrograma.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBEditarProgramaActionPerformed(evt);
-			}
-		});
-
-		jLabel1.setText("Codigo:");
-
-		jTcodigoPrograma.setBackground(new java.awt.Color(242, 242, 249));
-		jTcodigoPrograma.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-		jTcodigoPrograma.setForeground(new java.awt.Color(43, 43, 74));
-		jTcodigoPrograma.setToolTipText("");
-		jTcodigoPrograma.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 240)));
-		jTcodigoPrograma.addKeyListener(new java.awt.event.KeyAdapter() {
-			public void keyTyped(java.awt.event.KeyEvent evt) {
-				jTcodigoProgramaKeyTyped(evt);
-			}
-		});
-
-		jBbuscarPrograma.setText("BUSCAR");
-		jBbuscarPrograma.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBbuscarProgramaActionPerformed(evt);
-			}
-		});
-
-		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-		jPanel1.setLayout(jPanel1Layout);
-		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel1Layout.createSequentialGroup().addGap(120, 120, 120)
-						.addComponent(jBCrearPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 91,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(18, 18, 18)
-						.addComponent(jBbuscarPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 86,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(18, 18, 18)
-						.addComponent(jBEditarPrograma,
-								javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(129, Short.MAX_VALUE))
-				.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-								.addComponent(jLabel1).addComponent(jLnombrePrograma).addComponent(jLFacultad))
-						.addGap(98, 98, 98)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-								.addComponent(jTNomPrograma, javax.swing.GroupLayout.Alignment.LEADING,
-										javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-								.addComponent(jTcodigoPrograma, javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(jCFacultad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-						.addGap(56, 56, 56)));
-		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel1Layout.createSequentialGroup().addGap(62, 62, 62)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLabel1).addComponent(jTcodigoPrograma,
-										javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(18, 18, 18)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jTNomPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jLnombrePrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(18, 18, 18)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-								.addComponent(jLFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addGroup(
-										jPanel1Layout.createSequentialGroup().addComponent(jCFacultad).addGap(4, 4, 4)))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-						.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jBCrearPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 32,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jBEditarPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 32,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jBbuscarPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 32,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(59, 59, 59)));
-
-		jTabbedPane1.addTab("Gestion de Programa", jPanel1);
-
-		jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-		jTCodigoFacultad.setBackground(new java.awt.Color(242, 242, 249));
-		jTCodigoFacultad.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-		jTCodigoFacultad.setForeground(new java.awt.Color(43, 43, 74));
-		jTCodigoFacultad.setToolTipText("");
-		jTCodigoFacultad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 240)));
-		jTCodigoFacultad.addKeyListener(new java.awt.event.KeyAdapter() {
-			public void keyTyped(java.awt.event.KeyEvent evt) {
-				jTCodigoFacultadKeyTyped(evt);
-			}
-		});
-
-		jLnombre.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-		jLnombre.setForeground(new java.awt.Color(51, 51, 51));
-		jLnombre.setText("Codigo:");
-
-		jBCrearFacultad.setText("CREAR");
-		jBCrearFacultad.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBCrearFacultadActionPerformed(evt);
-			}
-		});
-
-		jBEditarFacultad.setText("EDITAR");
-		jBEditarFacultad.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBEditarFacultadActionPerformed(evt);
-			}
-		});
-
-		jLnombre2.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-		jLnombre2.setForeground(new java.awt.Color(51, 51, 51));
-		jLnombre2.setText("Nombre");
-
-		jTNombreFacultad.setBackground(new java.awt.Color(242, 242, 249));
-		jTNombreFacultad.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-		jTNombreFacultad.setForeground(new java.awt.Color(43, 43, 74));
-		jTNombreFacultad.setToolTipText("");
-		jTNombreFacultad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 240)));
-		jTNombreFacultad.addKeyListener(new java.awt.event.KeyAdapter() {
-			public void keyTyped(java.awt.event.KeyEvent evt) {
-				jTNombreFacultadKeyTyped(evt);
-			}
-		});
-
-		jBbuscarFacul.setText("BUSCAR");
-		jBbuscarFacul.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBbuscarFaculActionPerformed(evt);
-			}
-		});
-
-		javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-		jPanel3.setLayout(jPanel3Layout);
-		jPanel3Layout.setHorizontalGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel3Layout.createSequentialGroup().addGap(117, 117, 117)
-						.addComponent(jBCrearFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 91,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-						.addComponent(jBbuscarFacul, javax.swing.GroupLayout.PREFERRED_SIZE, 89,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(18, 18, 18)
-						.addComponent(jBEditarFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 99,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(jPanel3Layout.createSequentialGroup().addGap(75, 75, 75)
-						.addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-								.addComponent(jLnombre2).addComponent(jLnombre))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-						.addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(jTCodigoFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 277,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jTNombreFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 277,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(61, 61, 61)));
-		jPanel3Layout.setVerticalGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel3Layout.createSequentialGroup().addGap(70, 70, 70)
-						.addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jTCodigoFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(jPanel3Layout.createSequentialGroup().addGap(31, 31, 31).addComponent(
-										jLnombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-								.addGroup(jPanel3Layout.createSequentialGroup().addGap(42, 42, 42).addComponent(
-										jTNombreFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-										javax.swing.GroupLayout.PREFERRED_SIZE)))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-						.addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jBCrearFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 32,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jBEditarFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 32,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jBbuscarFacul, javax.swing.GroupLayout.PREFERRED_SIZE, 32,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(61, 61, 61)));
-
-		jTabbedPane1.addTab("Gestion Facultad", jPanel3);
-
-		jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-
-		jLnombre1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-		jLnombre1.setForeground(new java.awt.Color(51, 51, 51));
-		jLnombre1.setText("Nombre");
-
-		jTNomAreaInteres.setBackground(new java.awt.Color(242, 242, 249));
-		jTNomAreaInteres.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-		jTNomAreaInteres.setForeground(new java.awt.Color(43, 43, 74));
-		jTNomAreaInteres.setToolTipText("");
-		jTNomAreaInteres.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 240)));
-		jTNomAreaInteres.addKeyListener(new java.awt.event.KeyAdapter() {
-			public void keyTyped(java.awt.event.KeyEvent evt) {
-				jTNomAreaInteresKeyTyped(evt);
-			}
-		});
-
-		jBCrearAreaInteres.setText("CREAR");
-		jBCrearAreaInteres.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBCrearAreaInteresActionPerformed(evt);
-			}
-		});
-
-		jBEditarAreaInteres.setText("EDITAR");
-		jBEditarAreaInteres.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBEditarAreaInteresActionPerformed(evt);
-			}
-		});
-
-		jLabel2.setText("CodigoArea");
-
-		jTCodigoAreaInteres.setBackground(new java.awt.Color(242, 242, 249));
-		jTCodigoAreaInteres.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-		jTCodigoAreaInteres.setForeground(new java.awt.Color(43, 43, 74));
-		jTCodigoAreaInteres.setToolTipText("");
-		jTCodigoAreaInteres.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 240)));
-		jTCodigoAreaInteres.addKeyListener(new java.awt.event.KeyAdapter() {
-			public void keyTyped(java.awt.event.KeyEvent evt) {
-				jTCodigoAreaInteresKeyTyped(evt);
-			}
-		});
-
-		jBbuscarAreaInt.setText("BUSCAR");
-		jBbuscarAreaInt.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBbuscarAreaIntActionPerformed(evt);
-			}
-		});
-
-		javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-		jPanel4.setLayout(jPanel4Layout);
-		jPanel4Layout.setHorizontalGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel4Layout.createSequentialGroup().addGap(116, 116, 116)
-						.addComponent(jBCrearAreaInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 91,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(16, 16, 16)
-						.addComponent(jBbuscarAreaInt, javax.swing.GroupLayout.PREFERRED_SIZE, 89,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-						.addComponent(jBEditarAreaInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 99,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(jPanel4Layout.createSequentialGroup().addGap(62, 62, 62)
-						.addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-								.addComponent(jLabel2).addComponent(jLnombre1))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-						.addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-								.addComponent(jTNomAreaInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 277,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jTCodigoAreaInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 277,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(132, 132, 132)));
-		jPanel4Layout.setVerticalGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel4Layout.createSequentialGroup().addContainerGap(59, Short.MAX_VALUE)
-						.addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jLabel2).addComponent(jTCodigoAreaInteres,
-										javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(33, 33, 33)
-						.addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jTNomAreaInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jLnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(89, 89, 89)
-						.addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(jBCrearAreaInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 32,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jBEditarAreaInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 32,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jBbuscarAreaInt, javax.swing.GroupLayout.PREFERRED_SIZE, 32,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(61, 61, 61)));
-
-		jTabbedPane1.addTab("Gestion Area Interes", jPanel4);
-
-		jBAgregarPalabra.setBackground(new java.awt.Color(66, 183, 42));
-		jBAgregarPalabra.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-		jBAgregarPalabra.setForeground(new java.awt.Color(255, 255, 255));
-		jBAgregarPalabra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Inicio.png"))); // NOI18N
-		jBAgregarPalabra.setToolTipText("Ir al inicio");
-		jBAgregarPalabra.setBorder(null);
-		jBAgregarPalabra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		jBAgregarPalabra.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jBAgregarPalabraActionPerformed(evt);
-			}
-		});
-
-		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-		jPanel2.setLayout(jPanel2Layout);
-		jPanel2Layout.setHorizontalGroup(
-				jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jTabbedPane1)
-						.addGroup(jPanel2Layout.createSequentialGroup().addGap(23, 23, 23)
-								.addComponent(jBAgregarPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		jPanel2Layout.setVerticalGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel2Layout.createSequentialGroup()
-						.addComponent(jTabbedPane1).addGap(23, 23, 23).addComponent(jBAgregarPalabra,
-								javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(23, 23, 23)));
-
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
-		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
-
-		pack();
-	}// </editor-fold>//GEN-END:initComponents
-
-	private void jBbuscarProgramaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBbuscarProgramaActionPerformed
-		try {
-			if (jTcodigoPrograma.getText().isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Porfavor ingrese el codigo");
-			} else {
-				int codigo = Integer.parseInt(jTcodigoPrograma.getText());
-				Programa pr = controladorVentanaProgra.buscarPrograma(codigo);
-				if (pr != null) {
-					jTcodigoPrograma.setText(pr.getId() + "");
-					jTNomPrograma.setText(pr.getNombre());
-					jCFacultad.setSelectedItem(pr.getFacultad());
-
-				} else {
-					JOptionPane.showMessageDialog(null,
-							"el Programa con el codigo: " + codigo + " no se encuentra registrado");
-				}
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
-	private void jBbuscarFaculActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBbuscarFaculActionPerformed
-
-		try {
-			if (jTCodigoFacultad.getText().isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Porfavor ingrese el codigo");
-			} else {
-				int codigo = Integer.parseInt(jTCodigoFacultad.getText());
-				Facultad f = controladorVentanaFacul.buscarFacultad(codigo);
-				if (f != null) {
-					jTCodigoFacultad.setText(f.getId() + "");
-					jTNombreFacultad.setText(f.getNombre());
-
-				} else {
-					JOptionPane.showMessageDialog(null,
-							"La Facultad con el codigo: " + codigo + " no se encuentra registrado");
-				}
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
-	private void jBbuscarAreaIntActionPerformed(java.awt.event.ActionEvent evt) {
-		try {
-			if (jTCodigoAreaInteres.getText().isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Porfavor ingrese el codigo");
-			} else {
-				int codigo = Integer.parseInt(jTCodigoAreaInteres.getText());
-				AreaInteres area = controladorVentanaAreaIn.buscarArea(codigo);
-				if (area != null) {
-					jTCodigoAreaInteres.setText(area.getId() + "");
-					jTNomAreaInteres.setText(area.getNombre());
-
-				} else {
-					JOptionPane.showMessageDialog(null,
-							"El area con el codigo: " + codigo + "no se encuentra registrada");
-				}
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
-	private void jBAgregarPalabraActionPerformed(java.awt.event.ActionEvent evt) {
-		VentanaPrincipal vp = new VentanaPrincipal();
-		vp.setVisible(true);
-		this.setVisible(false);
-	}// GEN-LAST:event_jBAgregarPalabraActionPerformed
-
-	private void jBCrearProgramaActionPerformed(java.awt.event.ActionEvent evt) {
-
-		try {
-			if (jTcodigoPrograma.getText().isEmpty() || jTNomPrograma.getText().isEmpty()
-					|| jCFacultad.getSelectedIndex() == 0) {
-				JOptionPane.showMessageDialog(null, "Porfavor ingrese todos los datos");
-			} else {
-				int codigo = Integer.parseInt(jTcodigoPrograma.getText());
-				String nombre = jTNomPrograma.getText();
-				Facultad fac = (Facultad) jCFacultad.getSelectedItem();
-				Programa pro = new Programa(codigo, fac, nombre);
-				controladorVentanaProgra.crearPrograma(pro);
-				JOptionPane.showMessageDialog(null, "se ha registrado el programa");
-				LimpiarCamposPrograma();
-			}
-		} catch (ExcepcionNegocio ex) {
-			JOptionPane.showMessageDialog(null, ex.getMessage());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	private void jBEditarProgramaActionPerformed(java.awt.event.ActionEvent evt) {
-
-		if (jTcodigoPrograma.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Debe buscar el programa primero");
-		} else {
-			try {
-				int codigo = Integer.parseInt(jTcodigoPrograma.getText());
-				String nombre = jTNomPrograma.getText();
-				Facultad fac = (Facultad) jCFacultad.getSelectedItem();
-				Programa pro = new Programa(codigo, fac, nombre);
-				controladorVentanaProgra.editarPrograma(pro);
-				JOptionPane.showMessageDialog(null, "se edito correctamente");
-
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		}
-
-	}
-
-	private void jBCrearFacultadActionPerformed(java.awt.event.ActionEvent evt) {
-		try {
-			if (jTCodigoFacultad.getText().isEmpty() || jTNombreFacultad.getText().isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Porfavor ingrese todos los datos");
-			} else {
-				int codigo = Integer.parseInt(jTCodigoFacultad.getText());
-				String nombre = jTNombreFacultad.getText();
-				Facultad fac = new Facultad(codigo, nombre);
-				controladorVentanaFacul.crearFacultad(fac);
-				JOptionPane.showMessageDialog(null, "se ha registrado la facultad");
-				listarFacultades();
-				LimpiarCamposFacultas();
-			}
-		} catch (ExcepcionNegocio ex) {
-			JOptionPane.showMessageDialog(null, ex.getMessage());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
-	private void jBEditarFacultadActionPerformed(java.awt.event.ActionEvent evt) {
-		if (jTCodigoFacultad.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Debe buscar la facultad primero");
-		} else {
-			try {
-				int codigo = Integer.parseInt(jTCodigoFacultad.getText());
-				String nombre = jTNombreFacultad.getText();
-				Facultad fac = new Facultad(codigo, nombre);
-				controladorVentanaFacul.editarFacultad(fac);
-				JOptionPane.showMessageDialog(null, "se edito correctamente");
-
-			} catch (ExcepcionNegocio ex) {
-				JOptionPane.showMessageDialog(null, ex.getMessage());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
-	}
-
-	private void jBCrearAreaInteresActionPerformed(java.awt.event.ActionEvent evt) {
-		try {
-			if (jTCodigoAreaInteres.getText().isEmpty() || jTNomAreaInteres.getText().isEmpty()) {
-				JOptionPane.showMessageDialog(null, "por favor ingrese todos los datos");
-			} else {
-				int codigo = Integer.parseInt(jTCodigoAreaInteres.getText());
-				String nom = jTNomAreaInteres.getText();
-				AreaInteres area = new AreaInteres(codigo, nom);
-				controladorVentanaAreaIn.crearAreaInt(area);
-				JOptionPane.showMessageDialog(null, "se ha registrado el Area correctamente");
-				 LimpiarCamposAreaInt();
-			}
-		} catch (ExcepcionNegocio ex) {
-			JOptionPane.showMessageDialog(null, ex.getMessage());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
-	private void jBEditarAreaInteresActionPerformed(java.awt.event.ActionEvent evt) {
-		try {
-			if (jTCodigoAreaInteres.getText().isEmpty()) {
-				JOptionPane.showMessageDialog(null, "Debe buscar el area de interes primero");
-			} else {
-				int codigo = Integer.parseInt(jTCodigoAreaInteres.getText());
-				String nom = jTNomAreaInteres.getText();
-				AreaInteres area = new AreaInteres(codigo, nom);
-				controladorVentanaAreaIn.editarArea(area);
-				JOptionPane.showMessageDialog(null, "se edito correctamente");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	private void jTNomProgramaKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTNomProgramaKeyTyped
-		char c = evt.getKeyChar();
-		if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != ' ')) {
-			evt.consume();
-			JOptionPane.showMessageDialog(null, "Por favor, solo letras", "Informacion",
-					JOptionPane.INFORMATION_MESSAGE);
-		}
-	}// GEN-LAST:event_jTNomProgramaKeyTyped
-
-	private void jTCodigoFacultadKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTCodigoFacultadKeyTyped
-		// int c = evt.getKeyCode();
-		// if ((c < '1' || c > '')) {
-		// evt.consume();
-		// JOptionPane.showMessageDialog(null, "Por favor, solo numeros",
-		// "Informacion",
-		// JOptionPane.INFORMATION_MESSAGE);
-		// }
-	}// GEN-LAST:event_jTCodigoFacultadKeyTyped
-
-	private void jTNomAreaInteresKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTNomAreaInteresKeyTyped
-		char c = evt.getKeyChar();
-		if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != ' ')) {
-			evt.consume();
-			JOptionPane.showMessageDialog(null, "Por favor, solo letras", "Informacion",
-					JOptionPane.INFORMATION_MESSAGE);
-		}
-	}// GEN-LAST:event_jTNomAreaInteresKeyTyped
-
-	private void jTcodigoProgramaKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTcodigoProgramaKeyTyped
-		// TODO add your handling code here:
-	}// GEN-LAST:event_jTcodigoProgramaKeyTyped
-
-	private void jTNombreFacultadKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTNombreFacultadKeyTyped
-		char c = evt.getKeyChar();
-		if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != ' ')) {
-			evt.consume();
-			JOptionPane.showMessageDialog(null, "Por favor, solo letras", "Informacion",
-					JOptionPane.INFORMATION_MESSAGE);
-		}
-	}// GEN-LAST:event_jTNombreFacultadKeyTyped
-
-	private void jTCodigoAreaInteresKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTCodigoAreaInteresKeyTyped
-		// TODO add your handling code here:
-	}// GEN-LAST:event_jTCodigoAreaInteresKeyTyped
-
-	public void listarFacultades() {
-		try {
-			jCFacultad.removeAllItems();
-			jCFacultad.addItem("Seleccione una opción");
-			List<Facultad> lista = controladorVentanaFacul.listarFacultad();
-			for (int i = 0; i < lista.size(); i++) {
-
-				jCFacultad.addItem(lista.get(i));
-
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
-	public void LimpiarCamposPrograma() {
-		jTcodigoPrograma.setText(null);
-		jTNomPrograma.setText(null);
-		jCFacultad.setSelectedIndex(0);
-	}
-	
-	public void LimpiarCamposFacultas(){
-		jTCodigoFacultad.setText(null);
-		jTNombreFacultad.setText(null);
-	}
-	public void LimpiarCamposAreaInt(){
-		jTCodigoAreaInteres.setText(null);
-		jTNomAreaInteres.setText(null);
-	}
-	
-
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JButton jBAgregarPalabra;
-	private javax.swing.JButton jBCrearAreaInteres;
-	private javax.swing.JButton jBCrearFacultad;
-	private javax.swing.JButton jBCrearPrograma;
-	private javax.swing.JButton jBEditarAreaInteres;
-	private javax.swing.JButton jBEditarFacultad;
-	private javax.swing.JButton jBEditarPrograma;
-	private javax.swing.JButton jBbuscarAreaInt;
-	private javax.swing.JButton jBbuscarFacul;
-	private javax.swing.JButton jBbuscarPrograma;
-	private javax.swing.JComboBox jCFacultad;
-	private javax.swing.JLabel jLFacultad;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLnombre;
-	private javax.swing.JLabel jLnombre1;
-	private javax.swing.JLabel jLnombre2;
-	private javax.swing.JLabel jLnombrePrograma;
-	private javax.swing.JPanel jPanel1;
-	private javax.swing.JPanel jPanel2;
-	private javax.swing.JPanel jPanel3;
-	private javax.swing.JPanel jPanel4;
-	private javax.swing.JTextField jTCodigoAreaInteres;
-	private javax.swing.JTextField jTCodigoFacultad;
-	private javax.swing.JTextField jTNomAreaInteres;
-	private javax.swing.JTextField jTNomPrograma;
-	private javax.swing.JTextField jTNombreFacultad;
-	private javax.swing.JTabbedPane jTabbedPane1;
-	private javax.swing.JTextField jTcodigoPrograma;
-	// End of variables declaration//GEN-END:variables
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel2 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLnombrePrograma = new javax.swing.JLabel();
+        jTNomPrograma = new javax.swing.JTextField();
+        jLFacultad = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jTcodigoPrograma = new javax.swing.JTextField();
+        jCFacultad = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListProgramas = new javax.swing.JList();
+        jBProgramaEliminar = new javax.swing.JButton();
+        jBProgramaEditar = new javax.swing.JButton();
+        jBProgramaBuscar = new javax.swing.JButton();
+        jBProgramaCrear = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jTCodigoFacultad = new javax.swing.JTextField();
+        jLnombre = new javax.swing.JLabel();
+        jLnombre2 = new javax.swing.JLabel();
+        jTNombreFacultad = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jListFacultades = new javax.swing.JList();
+        jBFacultadCrear = new javax.swing.JButton();
+        jBFacultadBuscar = new javax.swing.JButton();
+        jBFacultadEditar = new javax.swing.JButton();
+        jBFacultadEliminar = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLnombre1 = new javax.swing.JLabel();
+        jTNomAreaInteres = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTCodigoAreaInteres = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jBInteresCrear = new javax.swing.JButton();
+        jBInteresBuscar = new javax.swing.JButton();
+        jBInteresEditar = new javax.swing.JButton();
+        jBInteresEliminar = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jListAreasInteres = new javax.swing.JList();
+        jBInicio = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel2.setBackground(new java.awt.Color(242, 242, 249));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLnombrePrograma.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLnombrePrograma.setForeground(new java.awt.Color(51, 51, 51));
+        jLnombrePrograma.setText("Nombre:");
+
+        jTNomPrograma.setBackground(new java.awt.Color(242, 242, 249));
+        jTNomPrograma.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jTNomPrograma.setForeground(new java.awt.Color(43, 43, 74));
+        jTNomPrograma.setToolTipText("");
+        jTNomPrograma.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 240)));
+        jTNomPrograma.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTNomProgramaKeyTyped(evt);
+            }
+        });
+
+        jLFacultad.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLFacultad.setForeground(new java.awt.Color(51, 51, 51));
+        jLFacultad.setText("Facultad:");
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("Codigo:");
+
+        jTcodigoPrograma.setBackground(new java.awt.Color(242, 242, 249));
+        jTcodigoPrograma.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jTcodigoPrograma.setForeground(new java.awt.Color(43, 43, 74));
+        jTcodigoPrograma.setToolTipText("");
+        jTcodigoPrograma.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 240)));
+        jTcodigoPrograma.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTcodigoProgramaKeyTyped(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(48, 43, 43));
+        jLabel3.setText("Gestion de los programas");
+
+        jListProgramas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 239, 239), 2));
+        jListProgramas.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jListProgramas.setForeground(new java.awt.Color(51, 51, 51));
+        jListProgramas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListProgramasValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jListProgramas);
+
+        jBProgramaEliminar.setBackground(new java.awt.Color(175, 178, 184));
+        jBProgramaEliminar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jBProgramaEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jBProgramaEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/delete.png"))); // NOI18N
+        jBProgramaEliminar.setToolTipText("Eliminar");
+        jBProgramaEliminar.setBorder(null);
+        jBProgramaEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBProgramaEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBProgramaEliminarActionPerformed(evt);
+            }
+        });
+
+        jBProgramaEditar.setBackground(new java.awt.Color(175, 178, 184));
+        jBProgramaEditar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jBProgramaEditar.setForeground(new java.awt.Color(255, 255, 255));
+        jBProgramaEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
+        jBProgramaEditar.setToolTipText("Editar Informacion");
+        jBProgramaEditar.setBorder(null);
+        jBProgramaEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBProgramaEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBProgramaEditarActionPerformed(evt);
+            }
+        });
+
+        jBProgramaBuscar.setBackground(new java.awt.Color(175, 178, 184));
+        jBProgramaBuscar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jBProgramaBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        jBProgramaBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        jBProgramaBuscar.setToolTipText("Buscar");
+        jBProgramaBuscar.setBorder(null);
+        jBProgramaBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBProgramaBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBProgramaBuscarActionPerformed(evt);
+            }
+        });
+
+        jBProgramaCrear.setBackground(new java.awt.Color(66, 103, 178));
+        jBProgramaCrear.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jBProgramaCrear.setForeground(new java.awt.Color(255, 255, 255));
+        jBProgramaCrear.setText("Crear");
+        jBProgramaCrear.setToolTipText("Cancelar Registro");
+        jBProgramaCrear.setBorder(null);
+        jBProgramaCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBProgramaCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBProgramaCrearActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setText("programas");
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("Informacion del programa");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLnombrePrograma, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLFacultad, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTNomPrograma, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTcodigoPrograma, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jBProgramaCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jBProgramaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBProgramaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBProgramaEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTcodigoPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTNomPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLnombrePrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBProgramaCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBProgramaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBProgramaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBProgramaEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
+        );
+
+        jTabbedPane1.addTab("Gestion de Programa", jPanel1);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTCodigoFacultad.setBackground(new java.awt.Color(242, 242, 249));
+        jTCodigoFacultad.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jTCodigoFacultad.setForeground(new java.awt.Color(43, 43, 74));
+        jTCodigoFacultad.setToolTipText("");
+        jTCodigoFacultad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 240)));
+        jTCodigoFacultad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTCodigoFacultadKeyTyped(evt);
+            }
+        });
+
+        jLnombre.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLnombre.setForeground(new java.awt.Color(51, 51, 51));
+        jLnombre.setText("Codigo:");
+
+        jLnombre2.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLnombre2.setForeground(new java.awt.Color(51, 51, 51));
+        jLnombre2.setText("Nombre");
+
+        jTNombreFacultad.setBackground(new java.awt.Color(242, 242, 249));
+        jTNombreFacultad.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jTNombreFacultad.setForeground(new java.awt.Color(43, 43, 74));
+        jTNombreFacultad.setToolTipText("");
+        jTNombreFacultad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 240)));
+        jTNombreFacultad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTNombreFacultadKeyTyped(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(48, 43, 43));
+        jLabel6.setText("Gestion de las Facultades");
+
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel7.setText("Informacion de la Facultad");
+
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8.setText("Facultades");
+
+        jListFacultades.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 239, 239), 2));
+        jListFacultades.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jListFacultades.setForeground(new java.awt.Color(51, 51, 51));
+        jListFacultades.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListFacultadesValueChanged(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jListFacultades);
+
+        jBFacultadCrear.setBackground(new java.awt.Color(66, 103, 178));
+        jBFacultadCrear.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jBFacultadCrear.setForeground(new java.awt.Color(255, 255, 255));
+        jBFacultadCrear.setText("Crear");
+        jBFacultadCrear.setToolTipText("Cancelar Registro");
+        jBFacultadCrear.setBorder(null);
+        jBFacultadCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBFacultadCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBFacultadCrearActionPerformed(evt);
+            }
+        });
+
+        jBFacultadBuscar.setBackground(new java.awt.Color(175, 178, 184));
+        jBFacultadBuscar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jBFacultadBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        jBFacultadBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        jBFacultadBuscar.setToolTipText("Buscar");
+        jBFacultadBuscar.setBorder(null);
+        jBFacultadBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBFacultadBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBFacultadBuscarActionPerformed(evt);
+            }
+        });
+
+        jBFacultadEditar.setBackground(new java.awt.Color(175, 178, 184));
+        jBFacultadEditar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jBFacultadEditar.setForeground(new java.awt.Color(255, 255, 255));
+        jBFacultadEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
+        jBFacultadEditar.setToolTipText("Editar Informacion");
+        jBFacultadEditar.setBorder(null);
+        jBFacultadEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBFacultadEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBFacultadEditarActionPerformed(evt);
+            }
+        });
+
+        jBFacultadEliminar.setBackground(new java.awt.Color(175, 178, 184));
+        jBFacultadEliminar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jBFacultadEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jBFacultadEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/delete.png"))); // NOI18N
+        jBFacultadEliminar.setToolTipText("Eliminar");
+        jBFacultadEliminar.setBorder(null);
+        jBFacultadEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBFacultadEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBFacultadEliminarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLnombre2)
+                            .addComponent(jLnombre))
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTCodigoFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTNombreFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jBFacultadCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jBFacultadBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBFacultadEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBFacultadEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(93, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTCodigoFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTNombreFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLnombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)))
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBFacultadCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBFacultadBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBFacultadEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBFacultadEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+
+        jTabbedPane1.addTab("Gestion Facultad", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLnombre1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLnombre1.setForeground(new java.awt.Color(51, 51, 51));
+        jLnombre1.setText("Nombre");
+
+        jTNomAreaInteres.setBackground(new java.awt.Color(242, 242, 249));
+        jTNomAreaInteres.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jTNomAreaInteres.setForeground(new java.awt.Color(43, 43, 74));
+        jTNomAreaInteres.setToolTipText("");
+        jTNomAreaInteres.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 240)));
+        jTNomAreaInteres.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTNomAreaInteresKeyTyped(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("CodigoArea");
+
+        jTCodigoAreaInteres.setBackground(new java.awt.Color(242, 242, 249));
+        jTCodigoAreaInteres.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jTCodigoAreaInteres.setForeground(new java.awt.Color(43, 43, 74));
+        jTCodigoAreaInteres.setToolTipText("");
+        jTCodigoAreaInteres.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 240)));
+        jTCodigoAreaInteres.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTCodigoAreaInteresKeyTyped(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel9.setText("Areas de Interes");
+
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setText("Informacion de la Area de interes");
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(48, 43, 43));
+        jLabel11.setText("Gestion de Areas de Interes");
+
+        jBInteresCrear.setBackground(new java.awt.Color(66, 103, 178));
+        jBInteresCrear.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jBInteresCrear.setForeground(new java.awt.Color(255, 255, 255));
+        jBInteresCrear.setText("Crear");
+        jBInteresCrear.setToolTipText("Cancelar Registro");
+        jBInteresCrear.setBorder(null);
+        jBInteresCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBInteresCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBInteresCrearActionPerformed(evt);
+            }
+        });
+
+        jBInteresBuscar.setBackground(new java.awt.Color(175, 178, 184));
+        jBInteresBuscar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jBInteresBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        jBInteresBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        jBInteresBuscar.setToolTipText("Buscar");
+        jBInteresBuscar.setBorder(null);
+        jBInteresBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBInteresBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBInteresBuscarActionPerformed(evt);
+            }
+        });
+
+        jBInteresEditar.setBackground(new java.awt.Color(175, 178, 184));
+        jBInteresEditar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jBInteresEditar.setForeground(new java.awt.Color(255, 255, 255));
+        jBInteresEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar.png"))); // NOI18N
+        jBInteresEditar.setToolTipText("Editar Informacion");
+        jBInteresEditar.setBorder(null);
+        jBInteresEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBInteresEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBInteresEditarActionPerformed(evt);
+            }
+        });
+
+        jBInteresEliminar.setBackground(new java.awt.Color(175, 178, 184));
+        jBInteresEliminar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jBInteresEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jBInteresEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/delete.png"))); // NOI18N
+        jBInteresEliminar.setToolTipText("Eliminar");
+        jBInteresEliminar.setBorder(null);
+        jBInteresEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBInteresEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBInteresEliminarActionPerformed(evt);
+            }
+        });
+
+        jListAreasInteres.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 239, 239), 2));
+        jListAreasInteres.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jListAreasInteres.setForeground(new java.awt.Color(51, 51, 51));
+        jListAreasInteres.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListAreasInteresValueChanged(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jListAreasInteres);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLnombre1))
+                                .addGap(37, 37, 37)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTNomAreaInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTCodigoAreaInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jBInteresCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jBInteresBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jBInteresEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jBInteresEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                .addGap(19, 19, 19))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTCodigoAreaInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTNomAreaInteres, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBInteresCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBInteresBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBInteresEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBInteresEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(61, 222, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(91, Short.MAX_VALUE))))
+        );
+
+        jTabbedPane1.addTab("Gestion Area Interes", jPanel4);
+
+        jBInicio.setBackground(new java.awt.Color(66, 183, 42));
+        jBInicio.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jBInicio.setForeground(new java.awt.Color(255, 255, 255));
+        jBInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Inicio.png"))); // NOI18N
+        jBInicio.setToolTipText("Ir al inicio");
+        jBInicio.setBorder(null);
+        jBInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBInicioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jBInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jTabbedPane1)
+                .addGap(23, 23, 23)
+                .addComponent(jBInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jBProgramaCrearActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        try {
+            if(jTcodigoPrograma.getText().isEmpty() || jTNomPrograma.getText().isEmpty() || jCFacultad.getSelectedIndex() == 0) {
+                JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos", "Administrador", JOptionPane.WARNING_MESSAGE); 
+            }else{
+                int codigo = Integer.parseInt(jTcodigoPrograma.getText());
+                String nombre = jTNomPrograma.getText();
+                Facultad fac = (Facultad) jCFacultad.getSelectedItem();
+                Programa pro = new Programa(codigo, fac, nombre);
+                controladorVentanaProgra.crearPrograma(pro);
+                listaProgramas();
+                JOptionPane.showMessageDialog(null, "Se ha registrado el programa", "Administrador", JOptionPane.QUESTION_MESSAGE); 
+                LimpiarCamposPrograma();
+            }
+        }catch(ExcepcionNegocio ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Administrador", JOptionPane.WARNING_MESSAGE); 
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void jBProgramaBuscarActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        try {
+            if (jTcodigoPrograma.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Por favor, ingrese el codigo del programa a buscar", "Administrador", JOptionPane.WARNING_MESSAGE); 
+            } else {
+                int codigo = Integer.parseInt(jTcodigoPrograma.getText());
+                Programa programa = controladorVentanaProgra.buscarPrograma(codigo);
+                if (programa != null) {
+                        jTcodigoPrograma.setText(String.valueOf(programa.getId()));
+                        jTNomPrograma.setText(programa.getNombre());
+                        jCFacultad.setSelectedItem(programa.getFacultad());
+
+                }else{
+                    JOptionPane.showMessageDialog(null, "No se ha encontrado ningun programa\ncon el codigo "+codigo, "Administrador", JOptionPane.QUESTION_MESSAGE); 
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void jListProgramasValueChanged(javax.swing.event.ListSelectionEvent evt) {                                            
+        if (jListProgramas.getSelectedValue() != null) {
+            try{
+                List<Programa> programas = controladorVentanaProgra.listarPrograma();
+                Programa p = programas.get(jListProgramas.getSelectedIndex());
+                if(p != null){
+                    jTcodigoPrograma.setText(String.valueOf(p.getId()));
+                    jTNomPrograma.setText(p.getNombre());
+                    jCFacultad.setSelectedItem(p.getFacultad());
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }  
+        }
+    }
+
+    private void jListFacultadesValueChanged(javax.swing.event.ListSelectionEvent evt) {                                             
+        if (jListFacultades.getSelectedValue() != null) {
+            try{
+                List<Facultad> facultades = controladorVentanaFacul.listarFacultad();
+                Facultad f = facultades.get(jListFacultades.getSelectedIndex());
+                if(f != null){
+                    jTNombreFacultad.setText(f.getNombre());
+                    jTCodigoFacultad.setText(String.valueOf(f.getId()));
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }  
+        }
+    }
+    private void jBProgramaEliminarActionPerformed(java.awt.event.ActionEvent evt) {  
+	    if(jTcodigoPrograma.getText().isEmpty()){
+	            JOptionPane.showMessageDialog(null, "Por favor, primero busca el programa a eliminar", "Administrador", JOptionPane.WARNING_MESSAGE); 
+	    }else{
+	            try {
+	                int codigo = Integer.parseInt(jTcodigoPrograma.getText());
+	                controladorVentanaProgra.eliminarPrograma(codigo);
+	                listaProgramas();
+	                JOptionPane.showMessageDialog(null, "El programa se ha eliminado correctamente", "Administrador", JOptionPane.QUESTION_MESSAGE); 
+	                LimpiarCamposPrograma();
+	            }catch(ExcepcionNegocio ex){
+	                JOptionPane.showMessageDialog(null, ex.getMessage(), "Administrador", JOptionPane.WARNING_MESSAGE); 
+	            }catch(Exception e){
+	                e.printStackTrace();
+	            }
+	    }
+    }   
+
+    private void jBFacultadCrearActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        try {
+            if(jTCodigoFacultad.getText().isEmpty() || jTNombreFacultad.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos", "Administrador", JOptionPane.WARNING_MESSAGE); 
+            }else{
+                int codigo = Integer.parseInt(jTCodigoFacultad.getText());
+                String nombre = jTNombreFacultad.getText();
+                Facultad fac = new Facultad(codigo, nombre);
+                controladorVentanaFacul.crearFacultad(fac);
+                listaFacultades();
+                JOptionPane.showMessageDialog(null, "Se ha registrado la Facultad", "Administrador", JOptionPane.QUESTION_MESSAGE); 
+                LimpiarCamposFacultas();
+            }
+        }catch(ExcepcionNegocio ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Administrador", JOptionPane.WARNING_MESSAGE); 
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+    }
+
+    private void jBFacultadBuscarActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        try {
+            if (jTCodigoFacultad.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Por favor, ingrese el codigo de la Facultad a buscar", "Administrador", JOptionPane.WARNING_MESSAGE); 
+            } else {
+                int codigo = Integer.parseInt(jTCodigoFacultad.getText());
+                Facultad f = controladorVentanaFacul.buscarFacultad(codigo);
+                if (f != null) {
+                        jTCodigoFacultad.setText(String.valueOf(f.getId()));
+                        jTNombreFacultad.setText(f.getNombre());
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se ha encontrado ninguna Facultad\ncon el codigo "+codigo, "Administrador", JOptionPane.QUESTION_MESSAGE); 
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void jBFacultadEditarActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        if(jTCodigoFacultad.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Por favor, primero busque la facultad a editar", "Administrador", JOptionPane.WARNING_MESSAGE); 
+        }else{
+            try{
+                int codigo = Integer.parseInt(jTCodigoFacultad.getText());
+                String nombre = jTNombreFacultad.getText();
+                Facultad fac = new Facultad(codigo, nombre);
+                controladorVentanaFacul.editarFacultad(fac);
+                JOptionPane.showMessageDialog(null, "La Facultad se ha editado correctamente", "Administrador", JOptionPane.QUESTION_MESSAGE); 
+               listaFacultades();
+            }catch(ExcepcionNegocio ex){
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Administrador", JOptionPane.WARNING_MESSAGE); 
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void jBFacultadEliminarActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+
+    }
+
+    private void jBInteresCrearActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        try {
+            if (jTCodigoAreaInteres.getText().isEmpty() || jTNomAreaInteres.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos", "Administrador", JOptionPane.WARNING_MESSAGE); 
+            }else{
+                int codigo = Integer.parseInt(jTCodigoAreaInteres.getText());
+                String nom = jTNomAreaInteres.getText();
+                AreaInteres area = new AreaInteres(codigo, nom);
+                controladorVentanaAreaIn.crearAreaInt(area);
+                JOptionPane.showMessageDialog(null, "Se ha registrado la Area de Interes correctamente", "Administrador", JOptionPane.QUESTION_MESSAGE); 
+                listaAreasInteres();
+                LimpiarCamposAreaInt();
+            }
+        }catch(ExcepcionNegocio ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Administrador", JOptionPane.WARNING_MESSAGE); 
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void jBInteresBuscarActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        try{
+            if (jTCodigoAreaInteres.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Por favor, ingrese el codigo de la Area de Interes a buscar", "Administrador", JOptionPane.WARNING_MESSAGE); 
+            } else {
+                int codigo = Integer.parseInt(jTCodigoAreaInteres.getText());
+                AreaInteres area = controladorVentanaAreaIn.buscarArea(codigo);
+                if (area != null) {
+                        jTCodigoAreaInteres.setText(String.valueOf(area.getId()));
+                        jTNomAreaInteres.setText(area.getNombre());
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se ha encontrado ninguna Area de Interes\ncon el codigo "+codigo, "Administrador", JOptionPane.QUESTION_MESSAGE); 
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void jBInteresEditarActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        try{
+            if(jTCodigoAreaInteres.getText().isEmpty()){ 
+                JOptionPane.showMessageDialog(null, "Por favor, primero busque la Area de interes a editar", "Administrador", JOptionPane.WARNING_MESSAGE); 
+            }else{
+                int codigo = Integer.parseInt(jTCodigoAreaInteres.getText());
+                String nom = jTNomAreaInteres.getText();
+                AreaInteres area = new AreaInteres(codigo, nom);
+                controladorVentanaAreaIn.editarArea(area);
+                JOptionPane.showMessageDialog(null, "La Area de Interes se ha editado correctamente", "Administrador", JOptionPane.QUESTION_MESSAGE); 
+                listaAreasInteres();
+                LimpiarCamposAreaInt();;
+            }
+        }catch(ExcepcionNegocio ex){
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Administrador", JOptionPane.WARNING_MESSAGE); 
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void jBInteresEliminarActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+
+    }
+
+    private void jListAreasInteresValueChanged(javax.swing.event.ListSelectionEvent evt) {                                               
+        if (jListAreasInteres.getSelectedValue() != null) {
+            try{
+                List<AreaInteres> areas = controladorVentanaAreaIn.listarAreaInteres();
+                AreaInteres a = areas.get(jListAreasInteres.getSelectedIndex());
+                if(a != null){
+                    jTCodigoAreaInteres.setText(String.valueOf(a.getId()));
+                    jTNomAreaInteres.setText(a.getNombre());
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }  
+        }
+    }
+
+    private void jBProgramaEditarActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        if(jTcodigoPrograma.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Por favor, primero busca el programa a editar", "Administrador", JOptionPane.WARNING_MESSAGE); 
+        }else{
+                try {
+                    int codigo = Integer.parseInt(jTcodigoPrograma.getText());
+                    String nombre = jTNomPrograma.getText();
+                    Facultad fac = (Facultad) jCFacultad.getSelectedItem();
+                    Programa pro = new Programa(codigo, fac, nombre);
+                    controladorVentanaProgra.editarPrograma(pro);
+                    listaProgramas();
+                    JOptionPane.showMessageDialog(null, "El programa se ha editado correctamente", "Administrador", JOptionPane.QUESTION_MESSAGE); 
+                    LimpiarCamposPrograma();
+                }catch(ExcepcionNegocio ex){
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Administrador", JOptionPane.WARNING_MESSAGE); 
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+        }
+    }
+    /**
+     * Listar todos los programas registrados en la bd
+     */
+    public void listaProgramas(){
+    	try{
+            List<Programa> programas = controladorVentanaProgra.listarPrograma();
+            jListProgramas.setListData(programas.toArray());
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
+    }
+    /**
+     * Listar todas las facultades registradas en la bd
+     */
+    public void listaFacultades(){
+    	try{
+            List<Facultad> facultades = controladorVentanaFacul.listarFacultad();
+            jListFacultades.setListData(facultades.toArray());
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
+    }
+    /**
+     * Listar todas las facultades registradas en la bd
+     */
+    public void listaAreasInteres(){
+    	try{
+            List<AreaInteres> areas = controladorVentanaAreaIn.listarAreaInteres();
+            jListAreasInteres.setListData(areas.toArray());
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
+    }
+    private void jBInicioActionPerformed(java.awt.event.ActionEvent evt) {
+            VentanaPrincipal vp = new VentanaPrincipal();
+            vp.setVisible(true);
+            this.setVisible(false);
+    }
+    private void jTNomProgramaKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTNomProgramaKeyTyped
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != ' ') && (c != evt.VK_BACK_SPACE)) {
+                    evt.consume();
+                    JOptionPane.showMessageDialog(null, "Por favor, solo letras", "Informacion", JOptionPane.WARNING_MESSAGE);
+            }
+    }
+
+    private void jTCodigoFacultadKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTCodigoFacultadKeyTyped
+             int c = evt.getKeyCode();
+             if ((c<'0' || c>'9') && (c != evt.VK_BACK_SPACE)) {
+	             evt.consume();
+	             JOptionPane.showMessageDialog(null, "Por favor, solo numeros","Informacion",JOptionPane.INFORMATION_MESSAGE);
+             }
+    }
+
+    private void jTNomAreaInteresKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTNomAreaInteresKeyTyped
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != ' ') && (c != evt.VK_BACK_SPACE)) {
+                    evt.consume();
+                    JOptionPane.showMessageDialog(null, "Por favor, solo letras", "Informacion",JOptionPane.INFORMATION_MESSAGE);
+            }
+    }
+
+    private void jTcodigoProgramaKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTcodigoProgramaKeyTyped
+    }
+
+    private void jTNombreFacultadKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTNombreFacultadKeyTyped
+            char c = evt.getKeyChar();
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != ' ') && (c != evt.VK_BACK_SPACE)) {
+                    evt.consume();
+                    JOptionPane.showMessageDialog(null, "Por favor, solo letras", "Informacion",JOptionPane.INFORMATION_MESSAGE);
+            }
+    }
+
+    private void jTCodigoAreaInteresKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTCodigoAreaInteresKeyTyped
+    }
+
+    public void listarFacultades() {
+        try {
+            jCFacultad.removeAllItems();
+            jCFacultad.addItem("Seleccione una opción");
+            List<Facultad> lista = controladorVentanaFacul.listarFacultad();
+            for (int i = 0; i < lista.size(); i++) {
+                    jCFacultad.addItem(lista.get(i));
+            }
+        } catch (Exception e) {
+                e.printStackTrace();
+        }
+    }
+
+    public void LimpiarCamposPrograma() {
+            jTcodigoPrograma.setText(null);
+            jTNomPrograma.setText(null);
+            jCFacultad.setSelectedIndex(0);
+    }
+
+    public void LimpiarCamposFacultas(){
+            jTCodigoFacultad.setText(null);
+            jTNombreFacultad.setText(null);
+    }
+    public void LimpiarCamposAreaInt(){
+            jTCodigoAreaInteres.setText(null);
+            jTNomAreaInteres.setText(null);
+    }
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBFacultadBuscar;
+    private javax.swing.JButton jBFacultadCrear;
+    private javax.swing.JButton jBFacultadEditar;
+    private javax.swing.JButton jBFacultadEliminar;
+    private javax.swing.JButton jBInicio;
+    private javax.swing.JButton jBInteresBuscar;
+    private javax.swing.JButton jBInteresCrear;
+    private javax.swing.JButton jBInteresEditar;
+    private javax.swing.JButton jBInteresEliminar;
+    private javax.swing.JButton jBProgramaBuscar;
+    private javax.swing.JButton jBProgramaCrear;
+    private javax.swing.JButton jBProgramaEditar;
+    private javax.swing.JButton jBProgramaEliminar;
+    private javax.swing.JComboBox jCFacultad;
+    private javax.swing.JLabel jLFacultad;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JList jListAreasInteres;
+    private javax.swing.JList jListFacultades;
+    private javax.swing.JList jListProgramas;
+    private javax.swing.JLabel jLnombre;
+    private javax.swing.JLabel jLnombre1;
+    private javax.swing.JLabel jLnombre2;
+    private javax.swing.JLabel jLnombrePrograma;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField jTCodigoAreaInteres;
+    private javax.swing.JTextField jTCodigoFacultad;
+    private javax.swing.JTextField jTNomAreaInteres;
+    private javax.swing.JTextField jTNomPrograma;
+    private javax.swing.JTextField jTNombreFacultad;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTcodigoPrograma;
+    // End of variables declaration//GEN-END:variables
 }
