@@ -980,11 +980,11 @@ public class Parametrica extends javax.swing.JFrame {
     }
 
     private void jTCodigoFacultadKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTCodigoFacultadKeyTyped
-             int c = evt.getKeyCode();
-             if ((c<'0' || c>'9') && (c != evt.VK_BACK_SPACE)) {
-	             evt.consume();
-	             JOptionPane.showMessageDialog(null, "Por favor, solo numeros","Informacion",JOptionPane.INFORMATION_MESSAGE);
-             }
+        char c = evt.getKeyChar();
+        if((c<'0' || c>'9') && (c != evt.VK_BACK_SPACE)){
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Por favor, solo numeros", "Informacion", JOptionPane.INFORMATION_MESSAGE);   
+        }
     }
 
     private void jTNomAreaInteresKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTNomAreaInteresKeyTyped

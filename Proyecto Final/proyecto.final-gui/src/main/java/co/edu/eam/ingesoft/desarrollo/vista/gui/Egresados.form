@@ -837,27 +837,19 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLFacultad2" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLFacultad1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLnombre1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLnombre2" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLnombre3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLnombre4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLnombre5" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="15" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTCargo" pref="288" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="jCBComboSectorLab" min="-2" pref="277" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jDateIngreso" pref="277" max="32767" attributes="0"/>
-                                          <Component id="jCSituacionActual" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jCFacultad2" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jDateSalida" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="jTNombreEmpresa" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                              <EmptySpace pref="26" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jDateIngreso" pref="277" max="32767" attributes="0"/>
+                                  <Component id="jCSituacionActual" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jCEmpresa" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jDateSalida" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jTCargo" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
+                              <EmptySpace pref="33" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -871,18 +863,8 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jCFacultad2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="jCEmpresa" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jLFacultad2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLnombre1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jCBComboSectorLab" alignment="3" pref="29" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTNombreEmpresa" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jLnombre2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -899,7 +881,7 @@
                                   <Component id="jLnombre5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jTCargo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="35" max="32767" attributes="0"/>
+                              <EmptySpace pref="118" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -932,7 +914,7 @@
                         <Property name="text" type="java.lang.String" value="Situacion Actual"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jCFacultad2">
+                    <Component class="javax.swing.JComboBox" name="jCEmpresa">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="f9" green="f2" red="f2" type="rgb"/>
@@ -956,29 +938,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="33" green="33" red="33" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Tipo de Empresa"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLnombre1">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Arial" size="13" style="0"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="33" green="33" red="33" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Sector Laboral"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLnombre2">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Arial" size="13" style="0"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="33" green="33" red="33" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Nombre de la Empresa"/>
+                        <Property name="text" type="java.lang.String" value="Empresa"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLnombre3">
@@ -1028,27 +988,6 @@
                         <Property name="text" type="java.lang.String" value="Cargo en la Empresa"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTNombreEmpresa">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="f9" green="f2" red="f2" type="rgb"/>
-                        </Property>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Arial" size="13" style="0"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="4a" green="2b" red="2b" type="rgb"/>
-                        </Property>
-                        <Property name="toolTipText" type="java.lang.String" value=""/>
-                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                            <LineBorder>
-                              <Color PropertyName="color" blue="f0" green="e8" red="e8" type="rgb"/>
-                            </LineBorder>
-                          </Border>
-                        </Property>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JTextField" name="jTCargo">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1067,15 +1006,6 @@
                               <Color PropertyName="color" blue="f0" green="e8" red="e8" type="rgb"/>
                             </LineBorder>
                           </Border>
-                        </Property>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JComboBox" name="jCBComboSectorLab">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value=" "/>
-                          </StringArray>
                         </Property>
                       </Properties>
                     </Component>

@@ -17,6 +17,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.TipoDocumento;
+
 //@NamedQueries({
 //
 //   @NamedQuery(name = Egresado.CONSULTA_EGRESADOS_DESEMPLEADOS, query = "SELECT e FROM Egresado e JOIN e. ")
@@ -62,7 +64,7 @@ public class Egresado implements Serializable{
 	
 	/* Tipo de documento del Egresado */
 	@Column(name="TIPO_DOCUMENTO_EGRESADO", nullable=false)
-	private int tipoDocumento;
+	private TipoDocumento tipoDocumento;
 	
 	/* Numero de documento del Egresado */
 	@Column(name="DOCUMENTO_EGRESADO", nullable=false)
@@ -80,10 +82,11 @@ public class Egresado implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	public Egresado(Programa programa, String nombre, String apellido, String correo, String telefono, String celular,
-			int tipoDocumento, String numeroDocumento) {
+	public Egresado(int id, Programa programa, String nombre, String apellido, String correo, String telefono,
+			String celular, TipoDocumento tipoDocumento, String numeroDocumento, InformacionLaboral informacionLaboral,
+			InformacionAcademica informacionAcademica) {
 		super();
+		this.id = id;
 		this.programa = programa;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -92,6 +95,8 @@ public class Egresado implements Serializable{
 		this.celular = celular;
 		this.tipoDocumento = tipoDocumento;
 		this.numeroDocumento = numeroDocumento;
+		this.informacionLaboral = informacionLaboral;
+		this.informacionAcademica = informacionAcademica;
 	}
 
 	public int getId() {
@@ -150,11 +155,11 @@ public class Egresado implements Serializable{
 		this.celular = celular;
 	}
 
-	public int getTipoDocumento() {
+	public TipoDocumento getTipoDocumento() {
 		return tipoDocumento;
 	}
 
-	public void setTipoDocumento(int tipoDocumento) {
+	public void setTipoDocumento(TipoDocumento tipoDocumento) {
 		this.tipoDocumento = tipoDocumento;
 	}
 
@@ -165,15 +170,28 @@ public class Egresado implements Serializable{
 	public void setNumeroDocumento(String numeroDocumento) {
 		this.numeroDocumento = numeroDocumento;
 	}
-
+	
+	
+	
+	public InformacionLaboral getInformacionLaboral() {
+		return informacionLaboral;
+	}
+	public void setInformacionLaboral(InformacionLaboral informacionLaboral) {
+		this.informacionLaboral = informacionLaboral;
+	}
+	public InformacionAcademica getInformacionAcademica() {
+		return informacionAcademica;
+	}
+	public void setInformacionAcademica(InformacionAcademica informacionAcademica) {
+		this.informacionAcademica = informacionAcademica;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((numeroDocumento == null) ? 0 : numeroDocumento.hashCode());
+		result = prime * result + id;
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -183,14 +201,8 @@ public class Egresado implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Egresado other = (Egresado) obj;
-		if (numeroDocumento == null) {
-			if (other.numeroDocumento != null)
-				return false;
-		} else if (!numeroDocumento.equals(other.numeroDocumento))
+		if (id != other.id)
 			return false;
 		return true;
-	}
-	
-	
-	
+	}	
 }

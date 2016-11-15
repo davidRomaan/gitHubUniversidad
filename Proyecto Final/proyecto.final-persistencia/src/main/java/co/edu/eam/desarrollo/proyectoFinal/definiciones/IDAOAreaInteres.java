@@ -1,6 +1,8 @@
 package co.edu.eam.desarrollo.proyectoFinal.definiciones;
 
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreaInteres;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreasEgresado;
+
 import java.util.List;
 
 public interface IDAOAreaInteres {
@@ -24,4 +26,14 @@ public interface IDAOAreaInteres {
 	 * @throws Exception en caso de una excepcion tecnica o de negocio.
 	 */
 	public boolean buscarByNombre(String nombre) throws Exception;
+	
+	/**
+	 * Agrega un area de interes a un determinado egresado
+	 */
+	public void addAreaInteresEgresado(AreasEgresado interes) throws Exception;
+	
+	/**
+	 * busca un area de interes de un determinado egresado
+	 */
+	public AreasEgresado buscarAreaInteresEgresado(AreasEgresado interes) throws Exception;
 }

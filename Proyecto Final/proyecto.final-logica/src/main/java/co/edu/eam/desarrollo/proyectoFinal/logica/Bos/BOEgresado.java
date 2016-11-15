@@ -6,6 +6,7 @@
  */
 package co.edu.eam.desarrollo.proyectoFinal.logica.Bos;
 import co.edu.eam.desarrollo.proyectoFinal.definiciones.IDAOEgresado;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.TipoDocumento;
 import co.edu.eam.desarrollo.proyectoFinal.implementaciones.DAOEgresado;
 import co.edu.eam.desarrollo.proyectoFinal.logica.excepciones.ExcepcionNegocio;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Egresado;
@@ -45,7 +46,14 @@ public class BOEgresado {
 			return e;
 		}
 	}
-
+	/**
+	 * busca un egresado por su numero de cedula y Tipo documento.
+	 * @param e el egresado a buscar.
+	 */
+	public Egresado buscarEgresadoTipoYcedula(TipoDocumento tipo, String numeroDocumento) throws Exception {
+		return daoEgresado.buscarEgresadoTipo(tipo, numeroDocumento);
+		
+	}
 	/**
 	 * edita un egresado.
 	 * @param e el egresado a editar.

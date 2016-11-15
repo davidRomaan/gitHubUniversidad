@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import co.edu.eam.desarrollo.proyectoFinal.definiciones.IDAOAreaInteres;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreaInteres;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreasEgresado;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.utilidades.AdministradorEntityManager;
 
 public class DAOAreaInteres implements IDAOAreaInteres {
@@ -54,6 +55,22 @@ public class DAOAreaInteres implements IDAOAreaInteres {
 		}else{
 			return false;
 		}
+	}
+	/**
+	 * busca un area de interes de un determinado egresado
+	 */
+	public AreasEgresado buscarAreaInteresEgresado(AreasEgresado interes) throws Exception{
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		return en.find(AreasEgresado.class, interes);
+	}
+	/**
+	 * Agrega un area de interes a un determinado egresado
+	 */
+	public void addAreaInteresEgresado(AreasEgresado interes) throws Exception{
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		en.getTransaction().begin();
+		en.persist(interes);
+		en.getTransaction().commit();
 	}
 
 }

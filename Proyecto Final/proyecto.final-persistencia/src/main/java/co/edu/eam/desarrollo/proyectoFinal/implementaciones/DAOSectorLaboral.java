@@ -21,7 +21,7 @@ public class DAOSectorLaboral implements IDAOSectorLaboral{
 	 */
 	public List<SectorLaboral> listar() throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
-		Query q = en.createNamedQuery(SectorLaboral.LISTAR);
+		Query q = en.createNamedQuery(SectorLaboral.LISTAR_SECTORES);
 		List<SectorLaboral> lista = q.getResultList();
 		return lista;
 	}

@@ -4,6 +4,7 @@ import co.edu.eam.desarrollo.proyectoFinal.definiciones.IDAOAreaInteres;
 import co.edu.eam.desarrollo.proyectoFinal.implementaciones.DAOAreaInteres;
 import co.edu.eam.desarrollo.proyectoFinal.logica.excepciones.ExcepcionNegocio;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreaInteres;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreasEgresado;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Facultad;
 import java.util.List;
 
@@ -79,5 +80,20 @@ public class BOAreaInteres {
 	 */
 	public boolean buscarByNombre(String nombre) throws Exception{
 		return daoAreainteres.buscarByNombre(nombre);
+	}
+	/**
+	 * busca un area de interes de un determinado egresado
+	 */
+	public AreasEgresado buscarAreaInteresEgresado(AreasEgresado interes) throws Exception{
+		return daoAreainteres.buscarAreaInteresEgresado(interes);
+	}
+	/**
+	 * Agrega un area de interes a un determinado egresado
+	 */
+	public void addAreaInteresEgresado(AreasEgresado interes) throws Exception{
+		AreasEgresado ae = buscarAreaInteresEgresado(interes);
+		if(ae == null){
+			daoAreainteres.addAreaInteresEgresado(interes);
+		}
 	}
 }

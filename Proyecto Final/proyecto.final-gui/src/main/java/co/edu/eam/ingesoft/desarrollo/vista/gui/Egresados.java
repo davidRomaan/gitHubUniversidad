@@ -14,12 +14,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import co.edu.eam.desarrollo.proyectoFinal.gui.controladores.ControladorVentanaEgresado;
+import co.edu.eam.desarrollo.proyectoFinal.implementaciones.DAOEgresado;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.NivelAcademico;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.SituacionActual;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.TipoDocumento;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.TipoEmpresa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreaInteres;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreasEgresado;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Egresado;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Empresa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Facultad;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionAcademica;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionLaboral;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Programa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.SectorLaboral;
 
@@ -57,10 +63,11 @@ public class Egresados extends javax.swing.JFrame {
         jCSituacionActual.addItem(SituacionActual.EMPRESARIO);
         jCSituacionActual.addItem(SituacionActual.INDEPENDIENTE);
         /* Tipo Empresa */
-        jCFacultad2.addItem(TipoEmpresa.PRIVADA);
-        jCFacultad2.addItem(TipoEmpresa.PUBLICA);
+        jCEmpresa.addItem(TipoEmpresa.PRIVADA);
+        jCEmpresa.addItem(TipoEmpresa.PUBLICA);
         /* Cargamos los Combos */
         cargarFacultades();
+        cargarEmpresas();
         /* Llenamos la tabla Areas de conocimiento*/
         cargarAreasConocimiento();
         /* Ocultamos elementos que no deben aparecer inicialmente */
@@ -115,18 +122,14 @@ public class Egresados extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jCSituacionActual = new javax.swing.JComboBox();
         jLFacultad1 = new javax.swing.JLabel();
-        jCFacultad2 = new javax.swing.JComboBox();
+        jCEmpresa = new javax.swing.JComboBox();
         jLFacultad2 = new javax.swing.JLabel();
-        jLnombre1 = new javax.swing.JLabel();
-        jLnombre2 = new javax.swing.JLabel();
         jLnombre3 = new javax.swing.JLabel();
         jDateSalida = new com.toedter.calendar.JDateChooser();
         jDateIngreso = new com.toedter.calendar.JDateChooser();
         jLnombre4 = new javax.swing.JLabel();
         jLnombre5 = new javax.swing.JLabel();
-        jTNombreEmpresa = new javax.swing.JTextField();
         jTCargo = new javax.swing.JTextField();
-        jCBComboSectorLab = new javax.swing.JComboBox();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAreasConocimiento = new javax.swing.JTable();
@@ -497,20 +500,12 @@ public class Egresados extends javax.swing.JFrame {
         jLFacultad1.setForeground(new java.awt.Color(51, 51, 51));
         jLFacultad1.setText("Situacion Actual");
 
-        jCFacultad2.setBackground(new java.awt.Color(242, 242, 249));
-        jCFacultad2.setBorder(null);
+        jCEmpresa.setBackground(new java.awt.Color(242, 242, 249));
+        jCEmpresa.setBorder(null);
 
         jLFacultad2.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jLFacultad2.setForeground(new java.awt.Color(51, 51, 51));
-        jLFacultad2.setText("Tipo de Empresa");
-
-        jLnombre1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLnombre1.setForeground(new java.awt.Color(51, 51, 51));
-        jLnombre1.setText("Sector Laboral");
-
-        jLnombre2.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLnombre2.setForeground(new java.awt.Color(51, 51, 51));
-        jLnombre2.setText("Nombre de la Empresa");
+        jLFacultad2.setText("Empresa");
 
         jLnombre3.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jLnombre3.setForeground(new java.awt.Color(51, 51, 51));
@@ -528,19 +523,11 @@ public class Egresados extends javax.swing.JFrame {
         jLnombre5.setForeground(new java.awt.Color(51, 51, 51));
         jLnombre5.setText("Cargo en la Empresa");
 
-        jTNombreEmpresa.setBackground(new java.awt.Color(242, 242, 249));
-        jTNombreEmpresa.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jTNombreEmpresa.setForeground(new java.awt.Color(43, 43, 74));
-        jTNombreEmpresa.setToolTipText("");
-        jTNombreEmpresa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 240)));
-
         jTCargo.setBackground(new java.awt.Color(242, 242, 249));
         jTCargo.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jTCargo.setForeground(new java.awt.Color(43, 43, 74));
         jTCargo.setToolTipText("");
         jTCargo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(232, 232, 240)));
-
-        jCBComboSectorLab.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -551,23 +538,17 @@ public class Egresados extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLFacultad2)
                     .addComponent(jLFacultad1)
-                    .addComponent(jLnombre1)
-                    .addComponent(jLnombre2)
                     .addComponent(jLnombre3)
                     .addComponent(jLnombre4)
                     .addComponent(jLnombre5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTCargo, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jCBComboSectorLab, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jDateIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                            .addComponent(jCSituacionActual, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCFacultad2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jDateSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTNombreEmpresa, javax.swing.GroupLayout.Alignment.LEADING))))
-                .addGap(22, 22, 22))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jDateIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                    .addComponent(jCSituacionActual, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCEmpresa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jDateSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTCargo))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -578,16 +559,8 @@ public class Egresados extends javax.swing.JFrame {
                     .addComponent(jCSituacionActual, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCFacultad2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLFacultad2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCBComboSectorLab, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLnombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jDateIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -600,7 +573,7 @@ public class Egresados extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLnombre5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -685,6 +658,7 @@ public class Egresados extends javax.swing.JFrame {
         });
         jTableAreasConocimiento1.setGridColor(new java.awt.Color(239, 239, 239));
         jScrollPane2.setViewportView(jTableAreasConocimiento1);
+
         jBAgregarInteres.setBackground(new java.awt.Color(175, 178, 184));
         jBAgregarInteres.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jBAgregarInteres.setForeground(new java.awt.Color(51, 51, 51));
@@ -912,6 +886,7 @@ public class Egresados extends javax.swing.JFrame {
     private void jBcANCELARActionPerformed(java.awt.event.ActionEvent evt) {     
         int op = JOptionPane.showConfirmDialog(null, "Seguro que desea cancelar el registro", "Cancelar Registro", JOptionPane.INFORMATION_MESSAGE); 
         if(op == 0){
+        	limpiarCampos();
             jTabbedPane1.setEnabledAt(selec, false);
             selec = 0;
             jTabbedPane1.setEnabledAt(selec, true);
@@ -925,43 +900,32 @@ public class Egresados extends javax.swing.JFrame {
     private void jBSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSiguienteActionPerformed
     	switch (selec){
 	        case 0:
-	        	/* Guardamos en variables la informacion del Egresado */
 	        	/* Informacion personal */
-	        	String nombre = jTnombre1.getText();
-	        	String apellido = jTapellido1.getText();
-	        	String correo = jTCorreo.getText();
-	        	String telefono = jTTelefono.getText();
-	        	String celular = jTCelular.getText();
-	        	String numeroDocumento = jTNumeroDocumento.getText();
-	        	if(nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || telefono.isEmpty() || celular.isEmpty() || numeroDocumento.isEmpty()){
+	        	if(jTnombre1.getText().isEmpty() || jTapellido1.getText().isEmpty() || jTCorreo.getText().isEmpty() || jTTelefono.getText().isEmpty() || jTCelular.getText().isEmpty() || jTNumeroDocumento.getText().isEmpty()){
 	                JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos", "Administrador de Egresados", JOptionPane.WARNING_MESSAGE); 
 	                return;
 	        	}
 	        break;
 	        case 1:
 	        	/* Informacion Academica */
-	        	Facultad facultad = (Facultad)jCFacultad.getSelectedItem();
-	        	Programa programa = (Programa)jCPrograma.getSelectedItem();
-	        	Date fechaGrado = jDateFechaGrado.getDate();
-	        	NivelAcademico nivelAcademico = (NivelAcademico)jCNivelAcad.getSelectedItem();
-	        	String numeroDiploma= jTNDiploma.getText();
-	        	if(numeroDiploma.isEmpty() || fechaGrado == null){
+	        	if(jTNDiploma.getText().isEmpty() || jDateFechaGrado.getDate() == null){
 	                JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos", "Administrador de Egresados", JOptionPane.WARNING_MESSAGE); 
 	                return;
 	        	}
 	        break;
 	        case 2:
 	        	/* Informacion laboral */
-	        	String cargo = jTCargo.getText();
-	        	Date fechaIngreso = jDateIngreso.getDate();
-	        	Date fechaSalida = jDateSalida.getDate();
-	        	SituacionActual situacionActual = (SituacionActual) jCSituacionActual.getSelectedItem();
-	        	if(cargo.isEmpty() || fechaIngreso.getTime() == 0 || fechaSalida.getTime() == 0){
+	        	if(jTCargo.getText().isEmpty() || jDateIngreso.getDate() == null || jDateSalida.getDate() == null){
 	                JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos", "Administrador de Egresados", JOptionPane.WARNING_MESSAGE); 
 	                return;
 	        	}
-	        	
 		    break;
+	        case 3:
+	        	if(misAreas.isEmpty()){
+	                JOptionPane.showMessageDialog(null, "Por favor, elige al menos una area de interes", "Administrador de Egresados", JOptionPane.WARNING_MESSAGE); 
+	                return;
+	        	}
+	        break;	
     	}
     	if(selec < 3 ){
             jTabbedPane1.setEnabledAt(selec, false);
@@ -979,18 +943,110 @@ public class Egresados extends javax.swing.JFrame {
                 jBSiguiente.setBackground(new Color(66,183,42));
             }
         }else{
-            jBSiguiente.setText("Registrado");
-            JOptionPane.showMessageDialog(null, "Se ha Registrado al Egresado.", "Administrador de Egresados", JOptionPane.INFORMATION_MESSAGE); 
-            jTabbedPane1.setEnabledAt(selec, false);
-            selec = 0;
-            jTabbedPane1.setEnabledAt(selec, true);
-            jTabbedPane1.setSelectedIndex(selec);     
-            jBSiguiente.setText("Siguiente");
-            jBSiguiente.setToolTipText("Siguiente");
-            jBSiguiente.setBackground(new Color(66,103,178));
-            jBAnterior.setVisible(false);
+        	/**
+        	 * Recojo toda la informacion y la guardo en variables
+        	 */
+        	/* Informacion personal */
+        	String nombre = jTnombre1.getText();
+        	String apellido = jTapellido1.getText();
+        	String correo = jTCorreo.getText();
+        	String telefono = jTTelefono.getText();
+        	String celular = jTCelular.getText();
+        	TipoDocumento tipoDocumento = (TipoDocumento) jCBDocumento1.getSelectedItem();
+        	String numeroDocumento = jTNumeroDocumento.getText();
+        	
+        	/* Informacion Academica */
+        	Facultad facultad = (Facultad)jCFacultad.getSelectedItem();
+        	Programa programa = (Programa)jCPrograma.getSelectedItem();
+        	Date fechaGrado = jDateFechaGrado.getDate();
+        	NivelAcademico nivelAcademico = (NivelAcademico)jCNivelAcad.getSelectedItem();
+        	String numeroDiploma= jTNDiploma.getText();
+        	
+        	/* Informacion laboral */
+        	String cargo = jTCargo.getText();
+        	Date fechaIngreso = jDateIngreso.getDate();
+        	Date fechaSalida = jDateSalida.getDate();
+        	SituacionActual situacionActual = (SituacionActual) jCSituacionActual.getSelectedItem();
+        	Empresa empresa = (Empresa) jCEmpresa.getSelectedItem();
+        	
+        	/* Creo el objeto egresado */
+        	try{
+	        	Egresado e = controlador.buscarEgresadoTipo(tipoDocumento, numeroDocumento);
+	        	if(e != null ){
+	                JOptionPane.showMessageDialog(null, "Ya existe un egresado con el numero de documento "+numeroDocumento, "Administrador de Egresados", JOptionPane.WARNING_MESSAGE); 
+	        	}else{
+	        		int id = Integer.parseInt(numeroDocumento);
+	        		Egresado eg = controlador.buscarEgresado(id);
+	        		if(eg != null){
+	        			id = id+1;
+	        		}
+	        		Egresado egresado = new Egresado();
+	        		egresado.setId(id);
+	        		egresado.setPrograma(programa);
+	        		egresado.setNombre(nombre);
+	        		egresado.setApellido(apellido);
+	        		egresado.setCorreo(correo);
+	        		egresado.setTelefono(telefono);
+	        		egresado.setCelular(celular);
+	        		egresado.setTipoDocumento(tipoDocumento);
+	        		egresado.setNumeroDocumento(numeroDocumento);
+	        		InformacionLaboral informacionLaboral = new InformacionLaboral();
+		        		informacionLaboral.setEgresado(egresado);
+		        		informacionLaboral.setCodigoEgresado(egresado.getId());
+		        		informacionLaboral.setSituacionActual(situacionActual);
+		        		informacionLaboral.setFechaIngreso(fechaIngreso);
+		        		informacionLaboral.setFechaSalida(fechaSalida);
+		        		informacionLaboral.setCargo(cargo);
+	        		InformacionAcademica informacionAcademica = new InformacionAcademica();
+		        		informacionAcademica.setEgresado(egresado);
+		        		informacionAcademica.setCodEgresado(egresado.getId());
+		        		informacionAcademica.setFechaGrado(fechaGrado);
+		        		informacionAcademica.setFacultad(facultad);
+		        		informacionAcademica.setPrograma(programa);
+		        		informacionAcademica.setNivelAcademico(nivelAcademico);
+		        		informacionAcademica.setNumeroDiploma(numeroDiploma);
+	        		egresado.setInformacionLaboral(informacionLaboral);
+	        		egresado.setInformacionAcademica(informacionAcademica);
+	        		controlador.crearEgresado(egresado, misAreas);	        		
+			            jBSiguiente.setText("Registrado");
+			            JOptionPane.showMessageDialog(null, "Se ha Registrado al Egresado "+egresado.getNombre()+" "+egresado.getApellido(), "Administrador de Egresados", JOptionPane.INFORMATION_MESSAGE); 
+			            jTabbedPane1.setEnabledAt(selec, false);
+			            selec = 0;
+			            jTabbedPane1.setEnabledAt(selec, true);
+			            jTabbedPane1.setSelectedIndex(selec);     
+			            jBSiguiente.setText("Siguiente");
+			            jBSiguiente.setToolTipText("Siguiente");
+			            jBSiguiente.setBackground(new Color(66,103,178));
+			            jBAnterior.setVisible(false);
+	        	}
+        	}catch(Exception e){
+	            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.", "Administrador de Egresados", JOptionPane.ERROR_MESSAGE); 
+        		e.printStackTrace();
+        	}
         }
-    }//GEN-LAST:event_jBSiguienteActionPerformed
+    }
+    /**
+     * limpiar campos del registro egresados
+     */
+    public void limpiarCampos(){
+    	jTnombre1.setText(null);
+    	jTapellido1.setText(null);
+    	jTCorreo.setText(null);
+    	jTTelefono.setText(null);
+    	jTCelular.setText(null);
+    	jCBDocumento1.setSelectedIndex(0);
+    	jTNumeroDocumento.setText(null);
+        jCFacultad.setSelectedIndex(0);
+    	jCPrograma.setSelectedIndex(0);
+    	jDateFechaGrado.setDate(null);
+    	jCNivelAcad.setSelectedIndex(0);
+    	jTNDiploma.setText(null);
+    	jCFacultad.setSelectedIndex(0);
+    	jCPrograma.setSelectedIndex(0);
+    	jDateFechaGrado.setDate(null);
+    	jCNivelAcad.setSelectedIndex(0);
+    	jTNDiploma.setText(null);
+    }
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         // TODO add your handling code here:
@@ -1162,12 +1218,12 @@ public class Egresados extends javax.swing.JFrame {
     /**
      * Cargamos todas los Sectores Laboral que se encuentran en la bd
      */
-    public void cargarSectorLaboral(){
+    public void cargarEmpresas(){
     	try{
-    		jCBComboSectorLab.removeAllItems();
-	    	List<SectorLaboral> lista = controlador.listarSectorLaboral();
-	    	for (SectorLaboral sl : lista) {
-	    		jCBComboSectorLab.addItem(sl);
+    		jCEmpresa.removeAllItems();
+	    	List<Empresa> lista = controlador.listarEmpresas();
+	    	for (Empresa sl : lista) {
+	    		jCEmpresa.addItem(sl);
 			}
     	}catch(Exception e){
     		e.printStackTrace();
@@ -1202,10 +1258,9 @@ public class Egresados extends javax.swing.JFrame {
     private javax.swing.JButton jBHome1;
     private javax.swing.JButton jBSiguiente;
     private javax.swing.JButton jBcANCELAR;
-    private javax.swing.JComboBox jCBComboSectorLab;
     private javax.swing.JComboBox jCBDocumento1;
+    private javax.swing.JComboBox jCEmpresa;
     private javax.swing.JComboBox jCFacultad;
-    private javax.swing.JComboBox jCFacultad2;
     private javax.swing.JComboBox jCNivelAcad;
     private javax.swing.JComboBox jCPrograma;
     private javax.swing.JComboBox jCSituacionActual;
@@ -1230,8 +1285,6 @@ public class Egresados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLcelular;
     private javax.swing.JLabel jLcorreo;
-    private javax.swing.JLabel jLnombre1;
-    private javax.swing.JLabel jLnombre2;
     private javax.swing.JLabel jLnombre3;
     private javax.swing.JLabel jLnombre4;
     private javax.swing.JLabel jLnombre5;
@@ -1251,7 +1304,6 @@ public class Egresados extends javax.swing.JFrame {
     private javax.swing.JTextField jTCelular;
     private javax.swing.JTextField jTCorreo;
     private javax.swing.JTextField jTNDiploma;
-    private javax.swing.JTextField jTNombreEmpresa;
     private javax.swing.JTextField jTNumeroDocumento;
     private javax.swing.JTextField jTTelefono;
     private javax.swing.JTabbedPane jTabbedPane1;

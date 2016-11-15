@@ -10,6 +10,7 @@ import org.junit.Test;
 import co.edu.eam.desarrollo.proyectoFinal.logica.Bos.BOEgresado;
 import co.edu.eam.desarrollo.proyectoFinal.logica.Bos.BOPrograma;
 import co.edu.eam.desarrollo.proyectoFinal.logica.excepciones.ExcepcionNegocio;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.TipoDocumento;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Egresado;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Programa;
 
@@ -42,7 +43,7 @@ public class PruebasUnitariasEgresado {
 			egresado.setNombre("David");
 			egresado.setNumeroDocumento("1094969916");
 			egresado.setTelefono("455676");
-			egresado.setTipoDocumento(0);
+			egresado.setTipoDocumento(TipoDocumento.CEDULA);
 			Programa p = boPrograma.buscarPrograma(12);
 			egresado.setPrograma(p);
 			boEgresado.crearEgresado(egresado);
@@ -76,7 +77,7 @@ public class PruebasUnitariasEgresado {
 		try {
 
 			Egresado e = boEgresado.buscarEgresado(1);
-			boEgresado.eliminarEgresado(e);
+			boEgresado.eliminarEgresado(e.getId());
 			boEgresado.buscarEgresado(1);
 		} catch (ExcepcionNegocio ex) {
 			Assert.assertEquals("el egresado no se encuentra", ex.getMessage());
