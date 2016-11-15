@@ -39,12 +39,7 @@ public class BOEgresado {
 	 * @param e el egresado a buscar.
 	 */
 	public Egresado buscarEgresado(int cod) throws Exception {
-		Egresado e = daoEgresado.buscarEgresado(cod);
-		if (e == null) {
-			throw new ExcepcionNegocio("No se ha encontrado ningun egresado");
-		} else {
-			return e;
-		}
+		return daoEgresado.buscarEgresado(cod);
 	}
 	/**
 	 * busca un egresado por su numero de cedula y Tipo documento.

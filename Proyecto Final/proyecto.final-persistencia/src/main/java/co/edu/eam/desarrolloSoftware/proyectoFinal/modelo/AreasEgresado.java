@@ -13,12 +13,20 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="T_AREAS_EGRESADO")
 @IdClass(AreasEgresadoPK.class) // Asi se mapea cuando la llave primaria es compuesta
+@NamedQueries({
+	@NamedQuery(name = AreasEgresado.BUSCAR, query = "SELECT a FROM AreasEgresado a WHERE a.egresado = ?1 AND a.areaInteres = ?2")	
+})
 public class AreasEgresado implements Serializable{
+	/* Buscar areas de interes por nombre */
+	public static final String BUSCAR = "AreasEgresado.buscar";
+	
 	/* Egresado */
 	@Id
 	@ManyToOne(cascade = {})

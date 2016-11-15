@@ -15,6 +15,27 @@ public class AreasEgresadoPK implements Serializable{
 		this.areaInteres = areaInteres;
 	}
 
+	public AreasEgresadoPK() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getEgresado() {
+		return egresado;
+	}
+
+	public void setEgresado(int egresado) {
+		this.egresado = egresado;
+	}
+
+	public int getAreaInteres() {
+		return areaInteres;
+	}
+
+	public void setAreaInteres(int areaInteres) {
+		this.areaInteres = areaInteres;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

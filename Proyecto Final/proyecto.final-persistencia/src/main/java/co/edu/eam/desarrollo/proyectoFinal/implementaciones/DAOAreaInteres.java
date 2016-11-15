@@ -61,7 +61,15 @@ public class DAOAreaInteres implements IDAOAreaInteres {
 	 */
 	public AreasEgresado buscarAreaInteresEgresado(AreasEgresado interes) throws Exception{
 		EntityManager en = AdministradorEntityManager.getEntityManager();
-		return en.find(AreasEgresado.class, interes);
+		Query q = en.createNamedQuery(AreasEgresado.BUSCAR);
+		q.setParameter(1, interes.getEgresado());
+		q.setParameter(2, interes.getAreaInteres());
+		List<AreasEgresado> lista = q.getResultList();
+		if(lista.size() > 0){
+			return lista.get(0);
+		}else{
+			return null;
+		}
 	}
 	/**
 	 * Agrega un area de interes a un determinado egresado

@@ -55,9 +55,7 @@ public class DAOEgresado implements IDAOEgresado {
 	 */
 	public Egresado buscarEgresadoTipo(TipoDocumento tipo, String numero) throws Exception {
 		EntityManager em = AdministradorEntityManager.getEntityManager();
-        Query q = em.createQuery("SELECT e FROM Egresado e WHERE e.tipoDocumento = ? AND e.numeroDocumento = ?");
-        q.setParameter(0, tipo);
-        q.setParameter(1, numero);
+        Query q = em.createQuery("SELECT e FROM Egresado e WHERE e.tipoDocumento = '"+tipo+"' AND e.numeroDocumento = '"+numero+"'");
 		List<Egresado> lista = q.getResultList();
 		if(lista.size() > 0){
 			return lista.get(0);
