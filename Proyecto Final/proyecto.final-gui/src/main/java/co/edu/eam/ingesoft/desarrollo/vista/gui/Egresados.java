@@ -987,8 +987,8 @@ public class Egresados extends javax.swing.JFrame {
 	        		controlador.crearInformacionLaboral(informacionLaboral);
 	        		InformacionAcademica ia = new InformacionAcademica(egresado, fechaGrado, facultad, programa, nivelAcademico, numeroDiploma);
 	        		controlador.crearInformacionAcademica(ia);
-	        		HistorialLaboral hl = new HistorialLaboral(informacionLaboral, empresa);
-	        		controlador.crearHistorialLaboral(hl);
+//	        		HistorialLaboral hl = new HistorialLaboral(informacionLaboral, empresa);
+//	        		controlador.crearHistorialLaboral(hl);
 	        		    limpiarCampos();
 			            jBSiguiente.setText("Registrado");
 			            JOptionPane.showMessageDialog(null, "Se ha Registrado al Egresado "+egresado.getNombre()+" "+egresado.getApellido(), "Administrador de Egresados", JOptionPane.INFORMATION_MESSAGE); 
@@ -1031,6 +1031,8 @@ public class Egresados extends javax.swing.JFrame {
 		jDateIngreso.setDate(null);
 		jDateSalida.setDate(null);
 		jTCargo.setText(null);
+		misAreas.clear();
+		misAreasDeInteres();
     }
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
@@ -1112,7 +1114,7 @@ public class Egresados extends javax.swing.JFrame {
         	try{
 	        	Egresado e = controlador.buscarEgresadoTipo(tipoDocumento, numeroDocumento);
 	        	if(e == null ){
-	                JOptionPane.showMessageDialog(null, "Ya existe un egresado con el numero de documento "+numeroDocumento, "Administrador de Egresados", JOptionPane.WARNING_MESSAGE); 
+	                JOptionPane.showMessageDialog(null, "No se ha encontrado ningun egresado con el numero de documento "+numeroDocumento, "Administrador de Egresados", JOptionPane.WARNING_MESSAGE); 
 	        	}else{
 	        		e.setApellido(apellido);
 	        		e.setCelular(celular);
@@ -1121,6 +1123,22 @@ public class Egresados extends javax.swing.JFrame {
 	        		e.setTelefono(telefono);
 	        		e.setCelular(celular);
 	        		
+	        		InformacionAcademica i = controlador.buscarInfoAcademica(e.getId());
+	        		if(i != null){
+		        		i.setFacultad(facultad);
+		        		i.setFechaGrado(fechaGrado);
+		        		i.setNivelAcademico(nivelAcademico);
+		        		i.setNumeroDiploma(numeroDiploma);
+		        		i.setPrograma(programa);
+	        		}
+	        		InformacionLaboral l = controlador.buscarInfoLaboral(e.getId());
+	        		if(l != null){
+	        			l.setCargo(cargo);
+	        			l.setEmpresa(empresa);
+	        			l.setFechaIngreso(fechaIngreso);
+	        			l.setFechaSalida(fechaSalida);
+	        			l.setSituacionActual(situacionActual);
+	        		}
 	        		limpiarCampos();
 	            	JOptionPane.showMessageDialog(null, "Se ha Actualizado la informacion del Egresado "+e.getNombre()+" "+e.getApellido(), "Administrador de Egresados", JOptionPane.INFORMATION_MESSAGE);
 	        	}
@@ -1217,7 +1235,7 @@ public class Egresados extends javax.swing.JFrame {
     public void misAreasDeInteres(){
     		DefaultTableModel table = (DefaultTableModel) jTableAreasConocimiento1.getModel();
     		table.setRowCount(0);
-    		if(misAreas.size() > 0){
+    		if(misAreas != null){
     			jBEliminarInteres.setVisible(true);
 				for (AreaInteres a : misAreas) {
 					table.addRow(new Object[]{a.getNombre()});

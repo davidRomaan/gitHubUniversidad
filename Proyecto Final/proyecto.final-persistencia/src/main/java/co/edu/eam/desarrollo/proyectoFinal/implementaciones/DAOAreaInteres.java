@@ -1,5 +1,6 @@
 package co.edu.eam.desarrollo.proyectoFinal.implementaciones;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -88,10 +89,10 @@ public class DAOAreaInteres implements IDAOAreaInteres {
 	 */
 	public List<AreaInteres> listarAreaInteresEgresado(Egresado e) throws Exception{
 		EntityManager en = AdministradorEntityManager.getEntityManager();
-		Query q = en.createNamedQuery("SELECT a AreasEgresado a WHERE a.egresado = "+e.getId());
-		List<AreasEgresado> l = q.getResultList();
-		List<AreaInteres> lista = null;
-		for (AreasEgresado a : l) {
+		Query q = en.createQuery("SELECT a FROM AreasEgresado a WHERE a.egresado = '"+e.getId()+"'");
+		List<AreasEgresado> list = q.getResultList();
+		List<AreaInteres> lista = new ArrayList<AreaInteres>();
+		for (AreasEgresado a: list) {
 			lista.add(a.getAreaInteres());
 		}
 		return lista;

@@ -106,4 +106,23 @@ public class DAOEgresado implements IDAOEgresado {
 		en.persist(hl);
 		en.getTransaction().commit();
 	}
+	
+	/**
+	 * editar informacion laboral del egresado
+	 */
+	public void editarInfoLaboral(InformacionLaboral l) throws Exception{
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+        en.getTransaction().begin();
+        en.merge(l);
+        en.getTransaction().commit();
+	}
+	/**
+	 * editar informacion academica del egresado
+	 */
+	public void editarInfoAcademica(InformacionAcademica a) throws Exception{
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+        en.getTransaction().begin();
+        en.merge(a);
+        en.getTransaction().commit();
+	}
 }

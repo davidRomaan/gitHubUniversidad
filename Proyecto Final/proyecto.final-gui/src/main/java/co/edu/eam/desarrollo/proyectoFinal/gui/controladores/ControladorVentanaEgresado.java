@@ -147,4 +147,22 @@ public class ControladorVentanaEgresado {
 	public List<AreaInteres> listarAreaInteresEgresado(Egresado e) throws Exception{
 		return boAreaInteres.listarAreaInteresEgresado(e);
 	}
+	/**
+	 * editar egresado
+	 */
+	public void editar(Egresado egresado) throws Exception{
+		bo.editarEgresado(egresado);
+	}
+	/**
+	 * editar informacion laboral del egresado
+	 */
+	public void editarInfoLaboral(InformacionLaboral l) throws Exception{
+		bo.editarInfoLaboral(l);
+	}
+	/**
+	 * editar informacion academica del egresado
+	 */
+	public void editarInfoAcademica(InformacionAcademica a) throws Exception{
+		bo.editarInfoAcademica(a);
+	}
 }

@@ -55,4 +55,13 @@ public interface IDAOEgresado {
 	 */
 	public void eliminarEgresado (Egresado e)throws Exception;
 	
+	/**
+	 * editar informacion laboral del egresado
+	 */
+	public void editarInfoLaboral(InformacionLaboral l) throws Exception;
+	/**
+	 * editar informacion academica del egresado
+	 */
+	public void editarInfoAcademica(InformacionAcademica a) throws Exception;
+	
 }

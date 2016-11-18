@@ -97,6 +97,19 @@ public class BOEgresado {
 			throw new ExcepcionNegocio("No se ha encontrado ningun egresado");
 		}
 	}
+	
+	/**
+	 * editar informacion laboral del egresado
+	 */
+	public void editarInfoLaboral(InformacionLaboral l) throws Exception{
+		daoEgresado.editarInfoLaboral(l);
+	}
+	/**
+	 * editar informacion academica del egresado
+	 */
+	public void editarInfoAcademica(InformacionAcademica a) throws Exception{
+		daoEgresado.editarInfoAcademica(a);
+	}
 
 	/**
 	 * elimina un egresado
