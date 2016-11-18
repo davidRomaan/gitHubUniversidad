@@ -2,6 +2,7 @@ package co.edu.eam.desarrollo.proyectoFinal.definiciones;
 
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreaInteres;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreasEgresado;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Egresado;
 
 import java.util.List;
 
@@ -36,4 +37,11 @@ public interface IDAOAreaInteres {
 	 * busca un area de interes de un determinado egresado
 	 */
 	public AreasEgresado buscarAreaInteresEgresado(AreasEgresado interes) throws Exception;
+	
+	/**
+	 * Listamos todas las ares de interes de un egresado
+	 * @return lista con todas las areas de interes
+	 * @throws Exception en caso de una excepcion tecnica o de negocio.
+	 */
+	public List<AreaInteres> listarAreaInteresEgresado(Egresado e) throws Exception;
 }

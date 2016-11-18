@@ -24,6 +24,7 @@ import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreasEgresado;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Egresado;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Empresa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Facultad;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.HistorialLaboral;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionAcademica;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionLaboral;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Programa;
@@ -980,34 +981,15 @@ public class Egresados extends javax.swing.JFrame {
 	        		if(eg != null){
 	        			id = id+1;
 	        		}
-	        		Egresado egresado = new Egresado();
-	        		egresado.setId(id);
-	        		egresado.setPrograma(programa);
-	        		egresado.setNombre(nombre);
-	        		egresado.setApellido(apellido);
-	        		egresado.setCorreo(correo);
-	        		egresado.setTelefono(telefono);
-	        		egresado.setCelular(celular);
-	        		egresado.setTipoDocumento(tipoDocumento);
-	        		egresado.setNumeroDocumento(numeroDocumento);
-	        		InformacionLaboral informacionLaboral = new InformacionLaboral();
-		        		informacionLaboral.setEgresado(egresado);
-		        		informacionLaboral.setCodigoEgresado(egresado.getId());
-		        		informacionLaboral.setSituacionActual(situacionActual);
-		        		informacionLaboral.setFechaIngreso(fechaIngreso);
-		        		informacionLaboral.setFechaSalida(fechaSalida);
-		        		informacionLaboral.setCargo(cargo);
-	        		InformacionAcademica informacionAcademica = new InformacionAcademica();
-		        		informacionAcademica.setEgresado(egresado);
-		        		informacionAcademica.setCodEgresado(egresado.getId());
-		        		informacionAcademica.setFechaGrado(fechaGrado);
-		        		informacionAcademica.setFacultad(facultad);
-		        		informacionAcademica.setPrograma(programa);
-		        		informacionAcademica.setNivelAcademico(nivelAcademico);
-		        		informacionAcademica.setNumeroDiploma(numeroDiploma);
-	        		egresado.setInformacionLaboral(informacionLaboral);
-	        		egresado.setInformacionAcademica(informacionAcademica);
-	        		controlador.crearEgresado(egresado, misAreas);	        		
+	        		Egresado egresado = new Egresado(id, programa, nombre, apellido, correo, telefono, celular, tipoDocumento, numeroDocumento);
+	        		controlador.crearEgresado(egresado, misAreas);	 
+	        		InformacionLaboral informacionLaboral = new InformacionLaboral(egresado, situacionActual, fechaIngreso, fechaSalida, cargo, empresa);
+	        		controlador.crearInformacionLaboral(informacionLaboral);
+	        		InformacionAcademica ia = new InformacionAcademica(egresado, fechaGrado, facultad, programa, nivelAcademico, numeroDiploma);
+	        		controlador.crearInformacionAcademica(ia);
+	        		HistorialLaboral hl = new HistorialLaboral(informacionLaboral, empresa);
+	        		controlador.crearHistorialLaboral(hl);
+	        		    limpiarCampos();
 			            jBSiguiente.setText("Registrado");
 			            JOptionPane.showMessageDialog(null, "Se ha Registrado al Egresado "+egresado.getNombre()+" "+egresado.getApellido(), "Administrador de Egresados", JOptionPane.INFORMATION_MESSAGE); 
 			            jTabbedPane1.setEnabledAt(selec, false);
@@ -1037,24 +1019,117 @@ public class Egresados extends javax.swing.JFrame {
     	jCBDocumento1.setSelectedIndex(0);
     	jTNumeroDocumento.setText(null);
         jCFacultad.setSelectedIndex(0);
+    	jDateFechaGrado.setDate(null);
+    	jCNivelAcad.setSelectedIndex(0);
+    	jTNDiploma.setText(null);
     	jCPrograma.setSelectedIndex(0);
     	jDateFechaGrado.setDate(null);
     	jCNivelAcad.setSelectedIndex(0);
     	jTNDiploma.setText(null);
-    	jCFacultad.setSelectedIndex(0);
-    	jCPrograma.setSelectedIndex(0);
-    	jDateFechaGrado.setDate(null);
-    	jCNivelAcad.setSelectedIndex(0);
-    	jTNDiploma.setText(null);
+		jCSituacionActual.setSelectedIndex(0);
+		jCEmpresa.setSelectedIndex(0);
+		jDateIngreso.setDate(null);
+		jDateSalida.setDate(null);
+		jTCargo.setText(null);
     }
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-        // TODO add your handling code here:
+    	TipoDocumento tipoDocumento = (TipoDocumento) jCBDocumento1.getSelectedItem();
+    	String numeroDocumento = jTNumeroDocumento.getText();
+    	if(numeroDocumento.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese el numero de identificacion\ndel egresado a buscar ", "Administrador de Egresados", JOptionPane.INFORMATION_MESSAGE); 
+    	}else{
+    		try{
+	    		Egresado e = controlador.buscarEgresadoTipo(tipoDocumento, numeroDocumento);
+	    		if(e == null){
+	    			misAreas = null;
+	    			misAreasDeInteres();
+	                JOptionPane.showMessageDialog(null, "No se ha encontrado ningun egresado\ncon el tipo de documento: "+tipoDocumento.name()+" "+numeroDocumento, "Administrador de Egresados", JOptionPane.INFORMATION_MESSAGE); 
+	    		}else{
+	    	    	jTnombre1.setText(e.getNombre());
+	    	    	jTapellido1.setText(e.getApellido());
+	    	    	jTCorreo.setText(e.getCorreo());
+	    	    	jTTelefono.setText(e.getTelefono());
+	    	    	jTCelular.setText(e.getCelular());
+	    	    	InformacionAcademica a =controlador.buscarInfoAcademica(e.getId());
+	    	    	if(a != null){
+	    	    		jCFacultad.setSelectedItem(a.getFacultad());
+		    	    	jDateFechaGrado.setDate(a.getFechaGrado());
+		    	    	jCNivelAcad.setSelectedItem(a.getNivelAcademico());
+		    	    	jTNDiploma.setText(a.getNumeroDiploma());
+		    	    	jCPrograma.setSelectedItem(a.getPrograma());
+	    	    	}
+	    	    	InformacionLaboral l = controlador.buscarInfoLaboral(e.getId());
+	    	    	if(l != null){
+	    	    		jCSituacionActual.setSelectedItem(l.getSituacionActual());
+	    	    		jCEmpresa.setSelectedItem(l.getEmpresa());
+	    	    		jDateIngreso.setDate(l.getFechaIngreso());
+	    	    		jDateSalida.setDate(l.getFechaSalida());
+	    	    		jTCargo.setText(l.getCargo());
+	    	    	}
+	    	    	misAreas = controlador.listarAreaInteresEgresado(e);
+	    	    	misAreasDeInteres();
+	    	    	
+	    		}
+    		}catch(Exception e){
+	            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.", "Administrador de Egresados", JOptionPane.ERROR_MESSAGE); 
+        		e.printStackTrace();
+        	}
+    	}
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBEditarActionPerformed
+    	String numeroDocumento = jTNumeroDocumento.getText();
+    	if(numeroDocumento.isEmpty()){
+            JOptionPane.showMessageDialog(null, "por favor, busque el egresado a editar", "Administrador de Egresados", JOptionPane.INFORMATION_MESSAGE); 
+    	}else{
+        	/**
+        	 * Recojo toda la informacion y la guardo en variables
+        	 */
+        	/* Informacion personal */
+        	String nombre = jTnombre1.getText();
+        	String apellido = jTapellido1.getText();
+        	String correo = jTCorreo.getText();
+        	String telefono = jTTelefono.getText();
+        	String celular = jTCelular.getText();
+        	TipoDocumento tipoDocumento = (TipoDocumento) jCBDocumento1.getSelectedItem();
+        	
+        	/* Informacion Academica */
+        	Facultad facultad = (Facultad)jCFacultad.getSelectedItem();
+        	Programa programa = (Programa)jCPrograma.getSelectedItem();
+        	Date fechaGrado = jDateFechaGrado.getDate();
+        	NivelAcademico nivelAcademico = (NivelAcademico)jCNivelAcad.getSelectedItem();
+        	String numeroDiploma= jTNDiploma.getText();
+        	
+        	/* Informacion laboral */
+        	String cargo = jTCargo.getText();
+        	Date fechaIngreso = jDateIngreso.getDate();
+        	Date fechaSalida = jDateSalida.getDate();
+        	SituacionActual situacionActual = (SituacionActual) jCSituacionActual.getSelectedItem();
+        	Empresa empresa = (Empresa) jCEmpresa.getSelectedItem();
+        	
+        	/* Creo el objeto egresado */
+        	try{
+	        	Egresado e = controlador.buscarEgresadoTipo(tipoDocumento, numeroDocumento);
+	        	if(e == null ){
+	                JOptionPane.showMessageDialog(null, "Ya existe un egresado con el numero de documento "+numeroDocumento, "Administrador de Egresados", JOptionPane.WARNING_MESSAGE); 
+	        	}else{
+	        		e.setApellido(apellido);
+	        		e.setCelular(celular);
+	        		e.setCorreo(correo);
+	        		e.setNombre(nombre);
+	        		e.setTelefono(telefono);
+	        		e.setCelular(celular);
+	        		
+	        		limpiarCampos();
+	            	JOptionPane.showMessageDialog(null, "Se ha Actualizado la informacion del Egresado "+e.getNombre()+" "+e.getApellido(), "Administrador de Egresados", JOptionPane.INFORMATION_MESSAGE);
+	        	}
+        	}catch(Exception e){
+	            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.", "Administrador de Egresados", JOptionPane.ERROR_MESSAGE); 
+        		e.printStackTrace();
+        	}
+    	}
+    }
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
         // TODO add your handling code here:

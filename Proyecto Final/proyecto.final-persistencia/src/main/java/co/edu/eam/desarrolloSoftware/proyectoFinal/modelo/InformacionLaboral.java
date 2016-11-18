@@ -12,6 +12,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -36,15 +37,10 @@ public class InformacionLaboral implements Serializable{
 	public static final String LISTAR_INFORMACION_LABORAL = "informacionLaboralEgresado";
 	/* Egresado */
 	
+	@Id
 	@OneToOne
 	@JoinColumn(name="ID_EGRESADO", insertable=false, updatable=false)
-	@MapsId
 	private Egresado egresado;
-	
-	/* Es necesario crear un nuevo atributo entero para mapear una relacion uno a uno*/
-	@Id
-	@Column(name="ID_EGRESADO")
-	private int codigoEgresado;
 	
 	/* Situacion actual del egresado*/
 	@Enumerated(EnumType.STRING)
@@ -65,82 +61,74 @@ public class InformacionLaboral implements Serializable{
 	@Column(name="CARGO", nullable=false)
 	private String cargo;
 	
+	@JoinColumn(name = "empresa")
+	@ManyToOne(cascade = {})
+	private Empresa empresa;
 
 	public InformacionLaboral(){
 		
 	}
 
-
-	public InformacionLaboral(Egresado egresado, int codigoEgresado, SituacionActual situacionActual, Date fechaIngreso,
-			Date fechaSalida, String cargo) {
+	public InformacionLaboral(Egresado egresado, SituacionActual situacionActual, Date fechaIngreso, Date fechaSalida,
+			String cargo, Empresa empresa) {
 		super();
 		this.egresado = egresado;
-		this.codigoEgresado = codigoEgresado;
 		this.situacionActual = situacionActual;
 		this.fechaIngreso = fechaIngreso;
 		this.fechaSalida = fechaSalida;
 		this.cargo = cargo;
+		this.empresa = empresa;
 	}
-
 
 	public Egresado getEgresado() {
 		return egresado;
 	}
 
-
 	public void setEgresado(Egresado egresado) {
 		this.egresado = egresado;
 	}
-
-
-	public int getCodigoEgresado() {
-		return codigoEgresado;
-	}
-
-
-	public void setCodigoEgresado(int codigoEgresado) {
-		this.codigoEgresado = codigoEgresado;
-	}
-
 
 	public SituacionActual getSituacionActual() {
 		return situacionActual;
 	}
 
-
 	public void setSituacionActual(SituacionActual situacionActual) {
 		this.situacionActual = situacionActual;
 	}
-
 
 	public Date getFechaIngreso() {
 		return fechaIngreso;
 	}
 
-
 	public void setFechaIngreso(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
-
 
 	public Date getFechaSalida() {
 		return fechaSalida;
 	}
 
-
 	public void setFechaSalida(Date fechaSalida) {
 		this.fechaSalida = fechaSalida;
 	}
-
 
 	public String getCargo() {
 		return cargo;
 	}
 
-
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
+
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+	
+	
 	
 	
 }

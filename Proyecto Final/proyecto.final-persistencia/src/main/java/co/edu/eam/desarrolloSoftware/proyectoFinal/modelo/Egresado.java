@@ -82,9 +82,10 @@ public class Egresado implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+
 	public Egresado(int id, Programa programa, String nombre, String apellido, String correo, String telefono,
-			String celular, TipoDocumento tipoDocumento, String numeroDocumento, InformacionLaboral informacionLaboral,
-			InformacionAcademica informacionAcademica) {
+			String celular, TipoDocumento tipoDocumento, String numeroDocumento) {
 		super();
 		this.id = id;
 		this.programa = programa;
@@ -95,9 +96,8 @@ public class Egresado implements Serializable{
 		this.celular = celular;
 		this.tipoDocumento = tipoDocumento;
 		this.numeroDocumento = numeroDocumento;
-		this.informacionLaboral = informacionLaboral;
-		this.informacionAcademica = informacionAcademica;
 	}
+
 
 	public int getId() {
 		return id;

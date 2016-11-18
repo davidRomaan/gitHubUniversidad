@@ -18,6 +18,9 @@ import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreasEgresado;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Egresado;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Empresa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Facultad;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.HistorialLaboral;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionAcademica;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionLaboral;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Programa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.SectorLaboral;
 
@@ -45,12 +48,44 @@ public class ControladorVentanaEgresado {
 		}
 	}
 	/**
+	 * crear egresado
+	 */
+	public void crearInformacionLaboral(InformacionLaboral informacionLaboral) throws Exception{
+		bo.crearInformacionLaboral(informacionLaboral);
+	}
+	
+	/**
+	 * crear egresado
+	 */
+	public void crearInformacionAcademica(InformacionAcademica ia) throws Exception{
+		bo.crearInformacionAcademica(ia);
+	}
+	
+	/**
+	 * crear Historial laboral del egresado
+	 */
+	public void crearHistorialLaboral(HistorialLaboral hl) throws Exception{
+		bo.crearHistorialLaboral(hl);
+	}
+	
+	/**
 	 * Buscar egresado por tipo de documento y numero de documento
 	 */
 	public Egresado buscarEgresadoTipo(TipoDocumento tipo, String numeroDocumento) throws Exception{
 		return bo.buscarEgresadoTipoYcedula(tipo,numeroDocumento);
 	}
-	
+	/**
+	 * Buscar informacion laboral de un egresado
+	 */
+	public InformacionLaboral buscarInfoLaboral(int id) throws Exception{
+		return bo.buscarInfoLaboral(id);
+	}
+	/**
+	 * Buscar informacion academica de un egresado
+	 */
+	public InformacionAcademica buscarInfoAcademica(int id) throws Exception{
+		return bo.buscarInfoAcademica(id);
+	}
 	/**
 	 * Buscar egresado por id
 	 */
@@ -96,10 +131,20 @@ public class ControladorVentanaEgresado {
 	public List<AreaInteres> listarAreaInteres() throws Exception{
 		return boAreaInteres.listarAreaInteres();
 	}
+	
 	/**
 	 * Agregar area de interes  a un egresado
 	 */
 	public void AgregarAreaIntegeresEgresado(AreasEgresado interes) throws Exception{
 		boAreaInteres.addAreaInteresEgresado(interes);
+	}
+	
+	/**
+	 * Listamos todas las ares de interes de un egresado
+	 * @return lista con todas las areas de interes
+	 * @throws Exception en caso de una excepcion tecnica o de negocio.
+	 */
+	public List<AreaInteres> listarAreaInteresEgresado(Egresado e) throws Exception{
+		return boAreaInteres.listarAreaInteresEgresado(e);
 	}
 }
