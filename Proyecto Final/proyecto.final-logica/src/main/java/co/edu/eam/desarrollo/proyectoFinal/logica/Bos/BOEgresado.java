@@ -15,6 +15,7 @@ import co.edu.eam.desarrollo.proyectoFinal.logica.excepciones.ExcepcionNegocio;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Egresado;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Empresa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.HistorialLaboral;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionAcademica;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionLaboral;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Programa;
 
@@ -43,7 +44,27 @@ public class BOEgresado {
 			daoEgresado.crearEgresado(egresado);
 		}
 	}
-
+	/**
+	 * Registra la informacion laboral de un egresado en la base de datos.
+	 */
+	public void crearInformacionLaboral(InformacionLaboral informacionLaboral) throws Exception {
+		daoEgresado.crearInformacionLaboral(informacionLaboral);
+	}
+	
+	/**
+	 * Registra la informacion academica de un egresado en la base de datos.
+	 */
+	public void crearInformacionAcademica(InformacionAcademica ia) throws Exception {
+		daoEgresado.crearInformacionAcademica(ia);
+	}
+	
+	/**
+	 * crear Historial laboral del egresado
+	 */
+	public void crearHistorialLaboral(HistorialLaboral hl) throws Exception{
+		daoEgresado.crearHistorialLaboral(hl);
+	}
+	
 	/**
 	 * busca un egresado por su numero de cedula en la base de datos.
 	 * 
@@ -66,6 +87,18 @@ public class BOEgresado {
 	}
 
 	/**
+	 * Buscar informacion laboral de un egresado
+	 */
+	public InformacionLaboral buscarInfoLaboral(int id) throws Exception{
+		return daoEgresado.buscarInfoLaboral(id);
+	}
+	/**
+	 * Buscar informacion academica de un egresado
+	 */
+	public InformacionAcademica buscarInfoAcademica(int id) throws Exception{
+		return daoEgresado.buscarInfoAcademica(id);
+	}
+	/**
 	 * edita un egresado.
 	 * 
 	 * @param e
@@ -80,6 +113,19 @@ public class BOEgresado {
 		} else {
 			throw new ExcepcionNegocio("No se ha encontrado ningun egresado");
 		}
+	}
+	
+	/**
+	 * editar informacion laboral del egresado
+	 */
+	public void editarInfoLaboral(InformacionLaboral l) throws Exception{
+		daoEgresado.editarInfoLaboral(l);
+	}
+	/**
+	 * editar informacion academica del egresado
+	 */
+	public void editarInfoAcademica(InformacionAcademica a) throws Exception{
+		daoEgresado.editarInfoAcademica(a);
 	}
 
 	/**

@@ -14,6 +14,34 @@ public class HistorialLaboralPK implements Serializable{
 		this.informacionLaboral = informacionLaboral;
 		this.empresa = empresa;
 	}
+	
+	
+	public HistorialLaboralPK() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public int getInformacionLaboral() {
+		return informacionLaboral;
+	}
+
+
+	public void setInformacionLaboral(int informacionLaboral) {
+		this.informacionLaboral = informacionLaboral;
+	}
+
+
+	public String getEmpresa() {
+		return empresa;
+	}
+
+
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

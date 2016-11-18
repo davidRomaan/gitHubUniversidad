@@ -1,11 +1,13 @@
 package co.edu.eam.desarrollo.proyectoFinal.implementaciones;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import co.edu.eam.desarrollo.proyectoFinal.definiciones.IDAOAreaInteres;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreaInteres;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreasEgresado;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Egresado;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.utilidades.AdministradorEntityManager;
 
 public class DAOAreaInteres implements IDAOAreaInteres {
@@ -89,6 +91,21 @@ public class DAOAreaInteres implements IDAOAreaInteres {
 		en.getTransaction().begin();
 		en.persist(interes);
 		en.getTransaction().commit();
+	}
+	/**
+	 * Listamos todas las ares de interes de un egresado
+	 * @return lista con todas las areas de interes
+	 * @throws Exception en caso de una excepcion tecnica o de negocio.
+	 */
+	public List<AreaInteres> listarAreaInteresEgresado(Egresado e) throws Exception{
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		Query q = en.createQuery("SELECT a FROM AreasEgresado a WHERE a.egresado = '"+e.getId()+"'");
+		List<AreasEgresado> list = q.getResultList();
+		List<AreaInteres> lista = new ArrayList<AreaInteres>();
+		for (AreasEgresado a: list) {
+			lista.add(a.getAreaInteres());
+		}
+		return lista;
 	}
 
 }

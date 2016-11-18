@@ -78,23 +78,25 @@ public class InformacionLaboral implements Serializable{
 	@Column(name="CARGO", nullable=false)
 	private String cargo;
 	
+	@JoinColumn(name = "empresa")
+	@ManyToOne(cascade = {})
+	private Empresa empresa;
 
 	public InformacionLaboral(){
 		
 	}
 
-
-	public InformacionLaboral(Egresado egresado, int codigoEgresado, SituacionActual situacionActual, Date fechaIngreso,
-			Date fechaSalida, String cargo) {
+public InformacionLaboral(Egresado egresado, SituacionActual situacionActual, Date fechaIngreso, Date fechaSalida,
+			String cargo, Empresa empresa) {
 		super();
 		this.egresado = egresado;
-		this.codigoEgresado = codigoEgresado;
 		this.situacionActual = situacionActual;
 		this.fechaIngreso = fechaIngreso;
 		this.fechaSalida = fechaSalida;
 		this.cargo = cargo;
+		this.empresa = empresa;
 	}
-
+	
 
 	public Egresado getEgresado() {
 		return egresado;
@@ -154,6 +156,16 @@ public class InformacionLaboral implements Serializable{
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
+
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+	
+	
 	
 	
 }

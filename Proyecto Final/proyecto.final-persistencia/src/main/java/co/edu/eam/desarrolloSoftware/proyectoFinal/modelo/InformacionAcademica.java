@@ -37,19 +37,11 @@ public class InformacionAcademica implements Serializable {
 	public static final String LISTAR_INFORMACION_ACADEMICA = "informacionAcademicaEgresado";
 
 	/* Egresado */
-
+	@Id
 	@OneToOne
 	@JoinColumn(name = "ID_EGRESADO", insertable = false, updatable = false)
-	@MapsId
 	private Egresado egresado;
 
-	/*
-	 * Es necesario crear un nuevo atributo entero para mapear una relacion uno
-	 * a uno
-	 */
-	@Id
-	@Column(name = "ID_EGRESADO")
-	private int codEgresado;
 
 	/* Fecha de grado del egresado */
 	@Temporal(TemporalType.DATE)
@@ -80,33 +72,17 @@ public class InformacionAcademica implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	
 
-	public InformacionAcademica(Egresado egresado, int codEgresado, Date fechaGrado, Facultad facultad,
-			Programa programa, NivelAcademico nivelAcademico, String numeroDiploma) {
+	public InformacionAcademica(Egresado egresado, Date fechaGrado, Facultad facultad, Programa programa,
+			NivelAcademico nivelAcademico, String numeroDiploma) {
 		super();
 		this.egresado = egresado;
-		this.codEgresado = codEgresado;
 		this.fechaGrado = fechaGrado;
 		this.facultad = facultad;
 		this.programa = programa;
 		this.nivelAcademico = nivelAcademico;
 		this.numeroDiploma = numeroDiploma;
 	}
-
-
-
-	public int getCodEgresado() {
-		return codEgresado;
-	}
-
-
-
-	public void setCodEgresado(int codEgresado) {
-		this.codEgresado = codEgresado;
-	}
-
-
 
 	public Facultad getFacultad() {
 		return facultad;

@@ -10,6 +10,7 @@ import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.TipoDocumento;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Egresado;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Empresa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.HistorialLaboral;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionAcademica;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionLaboral;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Programa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.utilidades.AdministradorEntityManager;
@@ -18,13 +19,14 @@ public class DAOEgresado implements IDAOEgresado {
 	/**
 	 * Crear egresado
 	 */
-	public void crearEgresado(Egresado e) throws Exception {
+	public void crearEgresado(Egresado egresado) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		en.getTransaction().begin();
-		en.persist(e);
+		en.persist(egresado);
 		en.getTransaction().commit();
 	}
 
+	
 	/**
 	 * buscar egresado
 	 */
@@ -33,6 +35,20 @@ public class DAOEgresado implements IDAOEgresado {
 		return en.find(Egresado.class, cod);
 	}
 
+	/**
+	 * Buscar informacion laboral de un egresado
+	 */
+	public InformacionLaboral buscarInfoLaboral(int id) throws Exception{
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		return en.find(InformacionLaboral.class, id);
+	}
+	/**
+	 * Buscar informacion academica de un egresado
+	 */
+	public InformacionAcademica buscarInfoAcademica(int id) throws Exception{
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		return en.find(InformacionAcademica.class, id);
+	}
 	/**
 	 * Editar egresado
 	 */
@@ -71,7 +87,49 @@ public class DAOEgresado implements IDAOEgresado {
 			return null;
 		}
 	}
+public void crearInformacionLaboral(InformacionLaboral informacionLaboral) throws Exception {
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		en.getTransaction().begin();
+		en.persist(informacionLaboral);
+		en.getTransaction().commit();
+	}
 
+
+	public void crearInformacionAcademica(InformacionAcademica ia) throws Exception {
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		en.getTransaction().begin();
+		en.persist(ia);
+		en.getTransaction().commit();
+	}
+	
+	/**
+	 * crear Historial laboral del egresado
+	 */
+	public void crearHistorialLaboral(HistorialLaboral hl) throws Exception{
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+		en.getTransaction().begin();
+		en.persist(hl);
+		en.getTransaction().commit();
+	}
+	
+	/**
+	 * editar informacion laboral del egresado
+	 */
+	public void editarInfoLaboral(InformacionLaboral l) throws Exception{
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+        en.getTransaction().begin();
+        en.merge(l);
+        en.getTransaction().commit();
+	}
+	/**
+	 * editar informacion academica del egresado
+	 */
+	public void editarInfoAcademica(InformacionAcademica a) throws Exception{
+		EntityManager en = AdministradorEntityManager.getEntityManager();
+        en.getTransaction().begin();
+        en.merge(a);
+        en.getTransaction().commit();
+	}
 	/**
 	 * lista que retorna los egresados por empresa donde trabajan
 	 */
