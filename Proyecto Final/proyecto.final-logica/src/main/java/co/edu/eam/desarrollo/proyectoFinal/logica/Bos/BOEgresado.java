@@ -5,11 +5,18 @@
  * Controlador de las funciones de la ventana egresado
  */
 package co.edu.eam.desarrollo.proyectoFinal.logica.Bos;
+
+import java.util.List;
+
 import co.edu.eam.desarrollo.proyectoFinal.definiciones.IDAOEgresado;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.TipoDocumento;
 import co.edu.eam.desarrollo.proyectoFinal.implementaciones.DAOEgresado;
 import co.edu.eam.desarrollo.proyectoFinal.logica.excepciones.ExcepcionNegocio;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Egresado;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Empresa;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.HistorialLaboral;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionLaboral;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Programa;
 
 public class BOEgresado {
 
@@ -22,51 +29,66 @@ public class BOEgresado {
 
 	/**
 	 * Registra un egresado en la base de datos.
-	 * @param e el egresado a registrar.
-	 * @throws Exception en caso de una excepcion tecnica o de negocio.
+	 * 
+	 * @param e
+	 *            el egresado a registrar.
+	 * @throws Exception
+	 *             en caso de una excepcion tecnica o de negocio.
 	 */
 	public void crearEgresado(Egresado egresado) throws Exception {
 		Egresado e = daoEgresado.buscarEgresado(egresado.getId());
-		if(e != null){
+		if (e != null) {
 			throw new ExcepcionNegocio("Este egresado ya se encuentra registrado");
-		}else{
+		} else {
 			daoEgresado.crearEgresado(egresado);
 		}
 	}
 
 	/**
 	 * busca un egresado por su numero de cedula en la base de datos.
-	 * @param e el egresado a buscar.
+	 * 
+	 * @param e
+	 *            el egresado a buscar.
 	 */
 	public Egresado buscarEgresado(int cod) throws Exception {
 		return daoEgresado.buscarEgresado(cod);
 	}
+
 	/**
 	 * busca un egresado por su numero de cedula y Tipo documento.
-	 * @param e el egresado a buscar.
+	 * 
+	 * @param e
+	 *            el egresado a buscar.
 	 */
 	public Egresado buscarEgresadoTipoYcedula(TipoDocumento tipo, String numeroDocumento) throws Exception {
 		return daoEgresado.buscarEgresadoTipo(tipo, numeroDocumento);
-		
+
 	}
+
 	/**
 	 * edita un egresado.
-	 * @param e el egresado a editar.
-	 * @throws Exception en caso de una excepcion tecnica o de negocio.
+	 * 
+	 * @param e
+	 *            el egresado a editar.
+	 * @throws Exception
+	 *             en caso de una excepcion tecnica o de negocio.
 	 */
 	public void editarEgresado(Egresado egresado) throws Exception {
 		Egresado e = daoEgresado.buscarEgresado(egresado.getId());
 		if (e != null) {
 			daoEgresado.editar(egresado);
-		}else{
+		} else {
 			throw new ExcepcionNegocio("No se ha encontrado ningun egresado");
 		}
 	}
 
 	/**
 	 * elimina un egresado
-	 * @param e el egresado a eliminar
-	 * @throws Exception en caso de una excepcion tecnica o de negocio
+	 * 
+	 * @param e
+	 *            el egresado a eliminar
+	 * @throws Exception
+	 *             en caso de una excepcion tecnica o de negocio
 	 */
 	public void eliminarEgresado(int id) throws Exception {
 		Egresado egresado = daoEgresado.buscarEgresado(id);
@@ -77,6 +99,24 @@ public class BOEgresado {
 		}
 
 	}
-	
-	
+
+	/**
+	 * lista los egresados por empresa
+	 * @param e la empresa por la cual se buscaran 
+	 * @return la lista
+	 * @throws Exception  en caso de una excepcion tecnica o de negocio
+	 */
+	public List<InformacionLaboral> listarEgresadosPorEmpresa(Empresa e) throws Exception {
+          return daoEgresado.listarEgresadosPorEmpresa(e);
+	}
+
+	/**
+	 * lista los egresados por ocupacion
+	 * @param p el programa  al cual se buscaran los egresados 
+	 * @return la lista
+	 * @throws Exception  en caso de una excepcion tecnica o de negocio
+	 */
+	public List<InformacionLaboral>listaEgresadosPorOcupacion(Programa p)throws Exception{	
+		return daoEgresado.listaEgresadosPorOcupacion(p);
+	}
 }

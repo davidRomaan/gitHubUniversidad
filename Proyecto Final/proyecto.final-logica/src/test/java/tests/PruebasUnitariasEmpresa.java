@@ -18,6 +18,9 @@ public class PruebasUnitariasEmpresa {
 
 	private BOEmpresa boEmpresa;
 
+	/**
+	 * metodo que ejecuta el archivo donde se crean los demas objetos que se necesitan para crear este objeto
+	 */
 	@BeforeClass
 	public static void beforeClass() {
 
@@ -65,6 +68,9 @@ public class PruebasUnitariasEmpresa {
 		}
 	}
 
+	/**
+	 * metodo que ejecuta el archivo donde se eliminan los objetos creados
+	 */
 	@AfterClass
 	public static void afterClass() {
 		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasEmprTest-del2.sql");

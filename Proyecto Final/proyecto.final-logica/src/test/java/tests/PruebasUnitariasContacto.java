@@ -28,6 +28,10 @@ public class PruebasUnitariasContacto {
 		boEmpresa = new BOEmpresa();
 	}
 
+
+	/**
+	 * test que crea el contacto
+	 */
 	@Test
 	public void testCrearContacto() {
 		try {
@@ -47,7 +51,10 @@ public class PruebasUnitariasContacto {
 		}
 
 	}
-	
+
+	/**
+	 * test que busca el contacto
+	 */
 	@Test
 	public void testBuscarContacto(){
 		
@@ -62,9 +69,12 @@ public class PruebasUnitariasContacto {
 		}
 		
 	}
-
+	
+	/**
+	 * metodo que ejecuta el archivo donde se eliminan los objetos creados
+	 */
 	@AfterClass
 	public static void afterClass() {
-
+		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasContactoTest-del3.sql");
 	}
 }

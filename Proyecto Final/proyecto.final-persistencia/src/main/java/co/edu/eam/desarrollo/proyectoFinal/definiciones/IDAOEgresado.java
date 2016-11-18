@@ -1,7 +1,13 @@
 package co.edu.eam.desarrollo.proyectoFinal.definiciones;
 
+import java.util.List;
+
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.TipoDocumento;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Egresado;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Empresa;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.HistorialLaboral;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionLaboral;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Programa;
 
 public interface IDAOEgresado {
 	/**
@@ -29,4 +35,18 @@ public interface IDAOEgresado {
 	 */
 	public void eliminarEgresado (Egresado e)throws Exception;
 	
+	/**
+	 * lista los egresados por empresa
+	 * @param e la empresa por la cual se buscara
+	 * @throws Exception en caso de excepcion tecnica
+	 */
+	public List<InformacionLaboral> listarEgresadosPorEmpresa(Empresa e)throws Exception;
+	
+	/**
+	 * lista los egresados por ocupacion
+	 * @param p el programa a el que se le buscaran los egresados
+	 * @return la lista
+	 * @throws Exception en caso de excepcion tecnica
+	 */
+	public List<InformacionLaboral> listaEgresadosPorOcupacion(Programa p)throws Exception;
 }

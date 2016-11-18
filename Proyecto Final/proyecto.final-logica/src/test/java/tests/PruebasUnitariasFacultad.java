@@ -16,11 +16,18 @@ public class PruebasUnitariasFacultad {
 
 	private BOFacultad boFacultad;
 
+	/**
+	 * metodo que ejecuta el archivo donde se crean los demas objetos que se necesitan para crear este objeto
+	 */
 	@Before
 	public void setUp() {
 		boFacultad = new BOFacultad();
 	}
 
+
+	/**
+	 * test que crea la facultad 
+	 */
 	@Test
 	public void testCrearFacultad() {
 		try {
@@ -38,6 +45,10 @@ public class PruebasUnitariasFacultad {
 
 	}
 
+
+	/**
+	 * test que busca la facultad
+	 */
 	@Test
 	public void testBuscar() {
 		try {
@@ -51,6 +62,10 @@ public class PruebasUnitariasFacultad {
 
 	}
 
+
+	/**
+	 * test que edita la facultad
+	 */
 	@Test
 	public void testEditarFacultad() {
 		try {
@@ -67,6 +82,10 @@ public class PruebasUnitariasFacultad {
 		}
 	}
 
+
+	/**
+	 * test que lista la facultad
+	 */
 	@Test
 	public void testListarFacultad() {
 
@@ -86,6 +105,9 @@ public class PruebasUnitariasFacultad {
 		}
 	}
 
+	/**
+	 * metodo que ejecuta el archivo donde se eliminan los objetos creados
+	 */
 	@AfterClass
 	public static void afterClass() {
 		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasFacultadTest-del2.sql");

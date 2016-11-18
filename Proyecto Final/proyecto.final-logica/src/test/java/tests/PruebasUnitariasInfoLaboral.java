@@ -21,17 +21,25 @@ public class PruebasUnitariasInfoLaboral {
 	private BOInfoLaboral boInfoLaboral;
 	private BOEgresado boEgresado;
 
+	/**
+	 * metodo que ejecuta el archivo donde se crean los demas objetos que se necesitan para crear este objeto
+	 */
 	@BeforeClass
 	public static void beforeClass() {
 		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasInfoLaboral-addTest-add3.sql");
 	}
 
+	
 	@Before
 	public void setUp() {
 		boInfoLaboral = new BOInfoLaboral();
 		boEgresado = new BOEgresado();
 	}
 
+
+	/**
+	 * test que crea la info laboral 
+	 */
 	@Test
 	public void testCrearInfoLaboral() {
 		try {
@@ -54,6 +62,10 @@ public class PruebasUnitariasInfoLaboral {
 
 	}
 
+
+	/**
+	 * test que busca la info laboral
+	 */
 	@Test
 	public void testBuscarInfo() {
 		try {
@@ -66,6 +78,10 @@ public class PruebasUnitariasInfoLaboral {
 		
 	}
 
+
+	/**
+	 * test que edita la info laboral
+	 */
 	@Test
 	public void testEditarInfo(){
 		try {
@@ -80,6 +96,10 @@ public class PruebasUnitariasInfoLaboral {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * metodo que ejecuta el archivo donde se eliminan los objetos creados
+	 */
 	@AfterClass
 	public static void afterClass() {
 		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasInfoLaboralTest-del3.sql");

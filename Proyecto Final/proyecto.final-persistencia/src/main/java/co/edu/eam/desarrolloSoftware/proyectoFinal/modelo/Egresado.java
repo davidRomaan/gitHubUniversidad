@@ -19,18 +19,12 @@ import javax.persistence.Table;
 
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.TipoDocumento;
 
-//@NamedQueries({
-//
-//   @NamedQuery(name = Egresado.CONSULTA_EGRESADOS_DESEMPLEADOS, query = "SELECT e FROM Egresado e JOIN e. ")
-//})
+
 @Entity
 @Table(name="T_EGRESADO")
 public class Egresado implements Serializable{
 	
-	/**
-	 * consulta que devuelve los egresados que trabajen en cierta empresa
-	 */
-//	public static final String CONSULTA_EGRESADOS_DESEMPLEADOS = "listaEgresadosPorEmpresa";
+
 	
 	/* Identificador del egresado */
 	@Id

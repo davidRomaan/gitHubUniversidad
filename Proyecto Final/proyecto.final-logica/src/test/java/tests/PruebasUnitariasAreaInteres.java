@@ -13,11 +13,17 @@ public class PruebasUnitariasAreaInteres {
 
 	private BOAreaInteres boAreaInteres;
 
+	/**
+	 * metodo que ejecuta el archivo donde se crean los demas objetos que se necesitan para crear este objeto
+	 */
 	@Before
 	public void setUp() {
 		boAreaInteres = new BOAreaInteres();
 	}
 
+	/**
+	 * test que crea el area de interes 
+	 */
 	@Test
 	public void testCrearAreaInteres() {
 		try {
@@ -38,6 +44,9 @@ public class PruebasUnitariasAreaInteres {
 
 	}
 
+	/**
+	 * metodo que ejecuta el archivo donde se eliminan los objetos creados
+	 */
 	@AfterClass
 	public static void afterClass() {
 		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasAreaInteresTest-del3.sql");

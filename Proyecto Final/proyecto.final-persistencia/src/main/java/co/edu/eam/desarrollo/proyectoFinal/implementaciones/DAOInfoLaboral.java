@@ -12,6 +12,9 @@ import co.edu.eam.desarrolloSoftware.proyectoFinal.utilidades.AdministradorEntit
 
 public class DAOInfoLaboral implements IDAOInfoLaboral {
 
+	/**
+	 * crea un objeto InformacionLaboral en la base de datos
+	 */
 	public void crear(InformacionLaboral i) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		en.getTransaction().begin();
@@ -20,6 +23,11 @@ public class DAOInfoLaboral implements IDAOInfoLaboral {
 
 	}
 
+	/**
+	 * Listamos todas la Informacion Laboral que se encuentran en la bd
+	 * @return lista con todas la Informacion Laboral
+	 * @throws Exception en caso de una excepcion tecnica o de negocio.
+	 */
 	public List<InformacionLaboral> listarInformacionLaboralEgres(Egresado e) {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		Query q = en.createNamedQuery(InformacionLaboral.LISTAR_INFORMACION_LABORAL);
@@ -28,6 +36,9 @@ public class DAOInfoLaboral implements IDAOInfoLaboral {
 		return lista;
 	}
 
+	/**
+	 * actualiza la Informacion Laboral de la base de datos
+	 */
 	public void editar(InformacionLaboral i) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		en.getTransaction().begin();
@@ -37,6 +48,10 @@ public class DAOInfoLaboral implements IDAOInfoLaboral {
 		
 	}
 
+	/**
+	 * busca la Informacion Laboral 
+	 * @cod identificador por el que se le va a buscar
+	 */
 	public InformacionLaboral buscarInfoLaboral(int cod) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		return en.find(InformacionLaboral.class, cod);

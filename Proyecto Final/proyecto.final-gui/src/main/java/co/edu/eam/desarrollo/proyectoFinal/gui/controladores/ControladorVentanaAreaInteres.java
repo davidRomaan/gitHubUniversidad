@@ -13,14 +13,40 @@ public class ControladorVentanaAreaInteres {
 		boAreaInt = new BOAreaInteres();
 	}
 
+	
+	/**
+	 * crea un Area de interes en la base de datos
+	 * 
+	 * @param a
+	 *            el area de interes del egresado a crear
+	 * @throws Exception
+	 *             en caso de que haya una excepcion tecnica o de negocio
+	 */
 	public void crearAreaInt(AreaInteres a) throws Exception {
 		boAreaInt.crearAreaInteres(a);
 	}
 
+	/**
+	 * busca un area de interes en la base de datos
+	 * 
+	 * @param a
+	 *            el area de interes a buscar
+	 * @return el area de interes
+	 * @throws Exception
+	 *             en caso de que haya una excepcion tecnica o de negocio
+	 */
 	public AreaInteres buscarArea(int id) throws Exception {
 		return boAreaInt.buscarAreaInteres(id);
 	}
 
+	/**
+	 * edita un area de interes
+	 * 
+	 * @param a
+	 *            el area de interes a editar
+	 * @throws Exception
+	 *             en caso de que haya una excepcion tecnica o de negocio
+	 */
 	public AreaInteres editarArea(AreaInteres a) throws Exception {
 		return boAreaInt.editarAreaInteres(a);
 	}

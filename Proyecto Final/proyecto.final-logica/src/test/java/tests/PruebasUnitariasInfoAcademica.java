@@ -27,6 +27,9 @@ public class PruebasUnitariasInfoAcademica {
 	private BOFacultad boFacultad;
 	private BOPrograma boPrograma;
 
+	/**
+	 * metodo que ejecuta el archivo donde se crean los demas objetos que se necesitan para crear este objeto
+	 */
 	@BeforeClass
 	public static void beforeClass() {
 
@@ -42,8 +45,12 @@ public class PruebasUnitariasInfoAcademica {
 		boPrograma = new BOPrograma();
 	}
 
+
+	/**
+	 * test que crea la info academica
+	 */
 	@Test
-	public void testCrearEgresado() {
+	public void testCrearInfoAcademica() {
 		try {
 			InformacionAcademica info = new InformacionAcademica();
 			Egresado e = boEgresado.buscarEgresado(1);
@@ -67,6 +74,10 @@ public class PruebasUnitariasInfoAcademica {
 		}
 	}
 
+
+	/**
+	 * test que busca la info academica
+	 */
 	@Test
 	public void buscarInformacion() {
 		try {
@@ -79,6 +90,10 @@ public class PruebasUnitariasInfoAcademica {
 
 	}
 
+
+	/**
+	 * test que edita la info academica 
+	 */
 	@Test
 	public void editarInformacion() {
 		try {
@@ -95,6 +110,9 @@ public class PruebasUnitariasInfoAcademica {
 
 	}
 
+	/**
+	 * metodo que ejecuta el archivo donde se eliminan los objetos creados
+	 */
 	@AfterClass
 	public static void afterClass() {
 		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasInfoAcademicaTest-del2.sql");

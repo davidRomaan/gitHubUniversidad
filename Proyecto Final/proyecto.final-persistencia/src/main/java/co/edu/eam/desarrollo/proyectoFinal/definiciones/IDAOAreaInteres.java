@@ -7,10 +7,21 @@ import java.util.List;
 
 public interface IDAOAreaInteres {
 
+	/**
+	 * crea un objeto Area de interes en la base de datos
+	 */
+	
 	public void crear(AreaInteres a) throws Exception;
 
+	/**
+	 * busca el area de interes 
+	 * @id identificador por el que se le va a buscar
+	 */
 	public AreaInteres buscar(int cod) throws Exception;
 
+	/**
+	 * actualiza el area de interes de la base de datos
+	 */
 	public void editar(AreaInteres e) throws Exception;
     /**
 	 * Listamos todas las areas de interes que se encuentran en la bd

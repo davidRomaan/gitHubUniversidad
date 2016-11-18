@@ -10,6 +10,9 @@ import co.edu.eam.desarrolloSoftware.proyectoFinal.utilidades.AdministradorEntit
 
 public class DAOAreaInteres implements IDAOAreaInteres {
 
+	/**
+	 * crea un objeto Area de interes en la base de datos
+	 */
 	public void crear(AreaInteres a) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		en.getTransaction().begin();
@@ -17,11 +20,18 @@ public class DAOAreaInteres implements IDAOAreaInteres {
 		en.getTransaction().commit();
 	}
 
+	/**
+	 * busca el area de interes 
+	 * @id identificador por el que se le va a buscar
+	 */
 	public AreaInteres buscar(int id) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		return en.find(AreaInteres.class, id);
 	}
 
+	/**
+	 * actualiza el area de interes de la base de datos
+	 */
 	public void editar(AreaInteres f) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		en.getTransaction().begin();

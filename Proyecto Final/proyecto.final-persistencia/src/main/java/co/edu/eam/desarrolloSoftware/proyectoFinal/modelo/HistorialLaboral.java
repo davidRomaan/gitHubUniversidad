@@ -14,14 +14,20 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 
 @Entity
 @Table(name="T_HIST_LABORAL")
 @IdClass(HistorialLaboralPK.class) // Asi se mapea cuando la llave primaria es compuesta
 public class HistorialLaboral implements Serializable{
+	
+	
+	
 	
 	/* Egresado */
 	@Id

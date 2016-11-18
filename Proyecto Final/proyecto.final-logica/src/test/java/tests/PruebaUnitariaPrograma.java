@@ -20,6 +20,10 @@ public class PruebaUnitariaPrograma {
 	private BOPrograma boPrograma;
 	private BOFacultad boFacultad;
 
+	
+	/**
+	 * metodo que ejecuta el archivo donde se crean los demas objetos que se necesitan para crear este objeto
+	 */
 	@BeforeClass
 	public static void beforeClass() {
 
@@ -34,6 +38,10 @@ public class PruebaUnitariaPrograma {
 		boFacultad = new BOFacultad();
 	}
 
+
+	/**
+	 * test que crea el programa
+	 */
 	@Test
 	public void testCrearPrograma() {
 		try {
@@ -57,6 +65,10 @@ public class PruebaUnitariaPrograma {
 
 	}
 
+
+	/**
+	 * test que busca el programa
+	 */
 	@Test
 	public void testBuscar() {
 
@@ -71,6 +83,10 @@ public class PruebaUnitariaPrograma {
 		}
 	}
 
+
+	/**
+	 * test que lista el programa 
+	 */
 	@Test
 	public void testListarPrograma() {
 
@@ -92,6 +108,9 @@ public class PruebaUnitariaPrograma {
 
 	}
 	
+	/**
+	 * metodo que ejecuta el archivo donde se eliminan los objetos creados
+	 */
 	 @AfterClass
 	 public static void afterClass() {
 	 TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasPrograma-del2.sql");

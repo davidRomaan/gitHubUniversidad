@@ -9,6 +9,9 @@ import co.edu.eam.desarrolloSoftware.proyectoFinal.utilidades.AdministradorEntit
 
 public class DAOContacto implements IDAOContacto{
 
+	/**
+	 * crea un objeto Contacto en la base de datos
+	 */
 	public void crear(Contacto c) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		en.getTransaction().begin();
@@ -17,11 +20,18 @@ public class DAOContacto implements IDAOContacto{
 		
 	}
 
+	/**
+	 * busca un contacto en la base de datos 
+	 * @nit identificador por el que se le va a buscar
+	 */
 	public Contacto buscar(String nit) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 	    return en.find(Contacto.class, nit);
 	}
 
+	/**
+	 * actualiza el Contacto de la base de datos
+	 */
 	public void editar(Contacto c) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		en.getTransaction().begin();

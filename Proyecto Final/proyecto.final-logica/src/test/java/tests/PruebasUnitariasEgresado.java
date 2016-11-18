@@ -19,6 +19,9 @@ public class PruebasUnitariasEgresado {
 	private BOPrograma boPrograma;
 	private BOEgresado boEgresado;
 
+	/**
+	 * metodo que ejecuta el archivo donde se crean los demas objetos que se necesitan para crear este objeto
+	 */
 	@BeforeClass
 	public static void beforeClass() {
 
@@ -32,6 +35,10 @@ public class PruebasUnitariasEgresado {
 		boEgresado = new BOEgresado();
 	}
 
+
+	/**
+	 * test que crea el egresado 
+	 */
 	@Test
 	public void testCrearEgresado() {
 		try {
@@ -56,6 +63,10 @@ public class PruebasUnitariasEgresado {
 		}
 	}
 
+
+	/**
+	 * test que edita el egresado
+	 */
 	@Test
 	public void testEditarEgresado() {
 		try {
@@ -72,6 +83,10 @@ public class PruebasUnitariasEgresado {
 		}
 	}
 
+
+	/**
+	 * test que elimina el egresado
+	 */
 	@Test
 	public void testEliminarEgresado() {
 		try {
@@ -88,6 +103,9 @@ public class PruebasUnitariasEgresado {
 		}
 	}
 
+	/**
+	 * metodo que ejecuta el archivo donde se eliminan los objetos creados
+	 */
 	@AfterClass
 	public static void afterClass() {
 		TestDataUtil.ejecutarSQL("sqltest/PruebasUnitariasInfoAcademicaTest-del2.sql");

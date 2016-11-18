@@ -12,6 +12,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -24,12 +25,24 @@ import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.NivelAcademico;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.enumeraciones.SituacionActual;
 @NamedQueries({
 	
-	@NamedQuery(name = InformacionLaboral.LISTAR_INFORMACION_LABORAL, query = "SELECT i FROM InformacionLaboral i WHERE i.egresado = ?1 ")
+	@NamedQuery(name = InformacionLaboral.LISTAR_INFORMACION_LABORAL, query = "SELECT i FROM InformacionLaboral i WHERE i.egresado = ?1 "),
+	//@NamedQuery(name = InformacionLaboral.CONSULTA_EGRESADOS_EMPRESA, query = "SELECT i FROM InformacionLaboral i WHERE i.empresa = ?1 ")
+	@NamedQuery(name = InformacionLaboral.INFORMACIONLAB_PROGRAM, query = "SELECT i FROM InformacionLaboral i JOIN i.egresado e "
+			+ "WHERE e.programa = ?1")
+
 })
 @Entity
 @Table(name="T_INFO_LABORAL")
 public class InformacionLaboral implements Serializable{
 	
+	/**
+	 * consulta que devuelve la informacion laboral de un egresado
+	 */
+	public static final String INFORMACIONLAB_PROGRAM = "listaEgresadosPorEmpresa";
+	/**
+	 * consulta que devuelve los egresados que trabajen en cierta empresa
+	 */
+	public static final String CONSULTA_EGRESADOS_EMPRESA = "listaEgresadosPorEmpresa";
 	/**
 	 * consulta que trae la informacion laboral de un egresado
 	 */
@@ -45,7 +58,7 @@ public class InformacionLaboral implements Serializable{
 	@Id
 	@Column(name="ID_EGRESADO")
 	private int codigoEgresado;
-	
+
 	/* Situacion actual del egresado*/
 	@Enumerated(EnumType.STRING)
 	@Column(name="SITUACION_ACTUAL")

@@ -18,6 +18,7 @@ import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.AreasEgresado;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Egresado;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Empresa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Facultad;
+import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.InformacionLaboral;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.Programa;
 import co.edu.eam.desarrolloSoftware.proyectoFinal.modelo.SectorLaboral;
 
@@ -102,4 +103,6 @@ public class ControladorVentanaEgresado {
 	public void AgregarAreaIntegeresEgresado(AreasEgresado interes) throws Exception{
 		boAreaInteres.addAreaInteresEgresado(interes);
 	}
+	
+
 }

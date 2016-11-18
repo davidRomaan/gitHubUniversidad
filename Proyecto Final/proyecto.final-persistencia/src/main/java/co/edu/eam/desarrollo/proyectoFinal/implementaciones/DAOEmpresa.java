@@ -15,6 +15,9 @@ import co.edu.eam.desarrolloSoftware.proyectoFinal.utilidades.AdministradorEntit
 
 public class DAOEmpresa implements IDAOEmpresa{
 
+	/**
+	 * crea un objeto Empresa en la base de datos
+	 */
 	public void crearEmpresa(Empresa e) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		en.getTransaction().begin();
@@ -23,11 +26,19 @@ public class DAOEmpresa implements IDAOEmpresa{
 		
 	}
 
+	/**
+	 * busca la empresa en la base de datos 
+	 * @nit identificador por el que se le va a buscar
+	 */
 	public Empresa buscarEmpresa(String nit) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		return en.find(Empresa.class, nit);
 	}
 
+
+	/**
+	 * actualiza la empresa de la base de datos
+	 */
 	public void editarEmpresa(Empresa e) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
         en.getTransaction().begin();
@@ -36,6 +47,10 @@ public class DAOEmpresa implements IDAOEmpresa{
 		
 	}
 
+	/**
+	 * elimina la empresa de la base de datos
+	 * @em empresa que se va a eliminar
+	 */
 	public void eliminarEmpresa(Empresa e) throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
         en.getTransaction().begin();
@@ -55,6 +70,11 @@ public class DAOEmpresa implements IDAOEmpresa{
 		return lista;
 	}
 
+	/**
+	 * Lista todas los departamentos registradas en la bd
+	 * @return lista con todos los departamentos
+	 * @throws Exception en caso de una excepcion tecnica o de negocio
+	 */
 	public List<Departamento> listarDepartamentos() throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		Query q = en.createNamedQuery(Departamento.LISTAR_DEPARTAMENTOS);
@@ -62,6 +82,11 @@ public class DAOEmpresa implements IDAOEmpresa{
 		return lista;
 	}
 
+	/**
+	 * Lista todas las ciudades registradas en la bd
+	 * @return lista con todas las ciudades
+	 * @throws Exception en caso de una excepcion tecnica o de negocio
+	 */
 	public List<Ciudad> listarCiudades() throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		Query q = en.createNamedQuery(Ciudad.LISTAR_CIUDADES);
@@ -69,6 +94,11 @@ public class DAOEmpresa implements IDAOEmpresa{
 		return lista;
 	}
 
+	/**
+	 * Lista todas los sectores laborales registradas en la bd
+	 * @return lista con todas los sectores
+	 * @throws Exception en caso de una excepcion tecnica o de negocio
+	 */
 	public List<SectorLaboral> listarSectorLab() throws Exception {
 		EntityManager en = AdministradorEntityManager.getEntityManager();
 		Query q = en.createNamedQuery(SectorLaboral.LISTAR_SECTORES);
